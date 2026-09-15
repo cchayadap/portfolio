@@ -136,7 +136,8 @@
 
   /* ---------- Hero ---------- */
   .hero{
-    padding: 4rem 0 3rem;
+    padding: 4rem 0 0;
+    margin-bottom: 5.5rem;
     text-align: center;
   }
   .hero-inner{
@@ -294,7 +295,7 @@
   .lede{
     max-width: 62ch;
     margin: 0 auto;
-    text-align: center;
+    text-align: left;
     color: var(--ink);
   }
 
@@ -318,12 +319,13 @@
 
   @media (max-width: 700px){
     section{ margin: 3.6rem 0; }
+    .hero{ margin-bottom: 3.6rem; }
   }
 
   /* ---------- Timeline ---------- */
   .timeline{
     position: relative;
-    margin-top: 2.5rem;
+    margin-top: 0.8rem;
   }
   .timeline::before{
     content: "";
@@ -424,7 +426,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1.2rem;
-    margin-top: 2rem;
+    margin-top: 0.8rem;
   }
   .project-card{
     background: var(--surface);
@@ -470,7 +472,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1.3rem;
-    margin-top: 2.2rem;
+    margin-top: 0.8rem;
   }
   .ig-card{
     text-align: center;
