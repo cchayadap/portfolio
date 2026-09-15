@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Chayada Pakpoomkamonlert — Portfolio</title>
-<meta name="description" content="Chayada Pakpoomkamonlert — Computer Science student, full-stack developer, and game dev hobbyist." />
+<title>Chayada Pakpoomkamonlert</title>
+<meta name="description" content="Chayada Pakpoomkamonlert's portfolio — CS student, full-stack dev, occasional game maker." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
     --surface: #161922;
     --line: #262b36;
     --accent: #ffb454;
-    --accent-dim: #3a2e1c;
+    --accent2: #7ee6c4;
     --text: #ecedf1;
     --muted: #9aa1b2;
     --sidebar-w: 300px;
@@ -36,6 +36,7 @@
     font-family: 'IBM Plex Sans', system-ui, sans-serif;
     font-size: 16px;
     line-height: 1.6;
+    overflow-x: hidden;
   }
 
   h1, h2, h3, .display{
@@ -53,9 +54,46 @@
     outline-offset: 3px;
   }
 
+  /* ---------- Playful floating background blobs ---------- */
+  .blobs{
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .blob{
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.16;
+  }
+  .blob-1{
+    width: 380px; height: 380px;
+    background: var(--accent);
+    top: -80px; left: 15%;
+    animation: drift1 22s ease-in-out infinite;
+  }
+  .blob-2{
+    width: 300px; height: 300px;
+    background: var(--accent2);
+    bottom: 5%; right: 8%;
+    animation: drift2 26s ease-in-out infinite;
+  }
+  @keyframes drift1{
+    0%, 100%{ transform: translate(0,0) scale(1); }
+    50%{ transform: translate(40px, 60px) scale(1.1); }
+  }
+  @keyframes drift2{
+    0%, 100%{ transform: translate(0,0) scale(1); }
+    50%{ transform: translate(-50px, -30px) scale(0.95); }
+  }
+
   .layout{
     display: flex;
     min-height: 100vh;
+    position: relative;
+    z-index: 1;
   }
 
   /* ---------- Sidebar ---------- */
@@ -71,6 +109,28 @@
     flex-direction: column;
     justify-content: space-between;
   }
+
+  .avatar{
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 2px dashed var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--accent);
+    margin-bottom: 1.4rem;
+    transition: transform .35s cubic-bezier(.34,1.56,.64,1), border-color .2s ease;
+    cursor: default;
+  }
+  .avatar:hover{
+    transform: rotate(-6deg) scale(1.06);
+    border-color: var(--accent);
+  }
+  /* Swap this div's content for <img src="assets/avatar.jpg" alt="Chayada"> once you have a photo */
 
   .sidebar-top .role{
     font-size: 0.9rem;
@@ -89,7 +149,16 @@
     color: var(--muted);
     font-size: 0.95rem;
     max-width: 26ch;
+    min-height: 3.2em;
   }
+  .cursor{
+    display: inline-block;
+    width: 2px;
+    background: var(--accent);
+    margin-left: 1px;
+    animation: blink 0.9s step-end infinite;
+  }
+  @keyframes blink{ 50%{ opacity: 0; } }
 
   nav.sidenav{
     margin-top: 2.5rem;
@@ -104,9 +173,9 @@
     padding: 0.15rem 0;
     border-left: 2px solid transparent;
     padding-left: 0.75rem;
-    transition: color .15s ease, border-color .15s ease;
+    transition: color .15s ease, border-color .15s ease, padding-left .15s ease;
   }
-  nav.sidenav a:hover{ color: var(--text); text-decoration:none; }
+  nav.sidenav a:hover{ color: var(--text); text-decoration:none; padding-left: 1rem; }
   nav.sidenav a.active{
     color: var(--accent);
     border-left-color: var(--accent);
@@ -120,6 +189,7 @@
   .sidebar-bottom a{
     color: var(--muted);
     font-size: 0.88rem;
+    width: fit-content;
   }
   .sidebar-bottom a:hover{ color: var(--accent); }
 
@@ -133,11 +203,13 @@
     color: var(--text) !important;
     font-size: 0.85rem;
     font-weight: 500;
+    transition: transform .15s ease, border-color .15s ease;
   }
   .resume-btn:hover{
     border-color: var(--accent);
     color: var(--accent) !important;
     text-decoration: none;
+    transform: translateY(-2px);
   }
 
   /* ---------- Main content ---------- */
@@ -189,6 +261,11 @@
     border-radius: 50%;
     background: var(--bg);
     border: 2px solid var(--accent);
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .entry:hover::before{
+    transform: scale(1.5);
+    box-shadow: 0 0 0 4px var(--accent-dim, rgba(255,180,84,0.18));
   }
 
   .entry .meta{
@@ -240,9 +317,32 @@
 
   .project-card{
     border: 1px solid var(--line);
-    border-radius: 4px;
-    padding: 1.3rem 1.4rem;
+    border-radius: 8px;
+    overflow: hidden;
     background: var(--surface);
+    display: flex;
+    flex-direction: column;
+    transition: transform .2s ease, border-color .2s ease;
+  }
+  .project-card:hover{
+    transform: translateY(-3px);
+    border-color: var(--accent);
+  }
+
+  .project-thumb{
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    border-bottom: 1px dashed var(--line);
+    background:
+      repeating-linear-gradient(135deg, rgba(255,255,255,0.02) 0 10px, transparent 10px 20px);
+  }
+  /* Swap a .project-thumb's content for <img src="assets/projects/xxx.jpg"> once you have screenshots */
+
+  .project-card .body{
+    padding: 1.1rem 1.3rem 1.3rem;
     display: flex;
     flex-direction: column;
     gap: 0.55rem;
@@ -292,6 +392,13 @@
     padding: 0.3rem 0.65rem;
     border-radius: 4px;
     font-size: 0.83rem;
+    transition: transform .15s ease, border-color .15s ease, color .15s ease;
+    display: inline-block;
+  }
+  .tag:hover{
+    transform: translateY(-2px) rotate(-2deg);
+    border-color: var(--accent);
+    color: var(--accent);
   }
 
   /* ---------- Contact / footer ---------- */
@@ -321,8 +428,6 @@
   }
 
   /* ---------- Mobile ---------- */
-  .mobile-topbar{ display: none; }
-
   @media (max-width: 880px){
     .layout{ flex-direction: column; }
     .sidebar{
@@ -336,6 +441,8 @@
       border-right: none;
       border-bottom: 1px solid var(--line);
     }
+    .avatar{ width: 42px; height: 42px; font-size: 0.85rem; margin-bottom: 0; }
+    .sidebar-top{ display: flex; align-items: center; gap: 0.8rem; }
     .sidebar-top .role, .sidebar-top p.tagline, nav.sidenav, .sidebar-bottom{
       display: none;
     }
@@ -347,12 +454,18 @@
 </head>
 <body>
 
+<div class="blobs" aria-hidden="true">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+</div>
+
 <div class="layout">
   <aside class="sidebar">
     <div class="sidebar-top">
+      <div class="avatar" aria-hidden="true"><span>CP</span></div>
       <div class="role">Full-Stack &amp; Game Dev</div>
       <h1>Chayada<br>Pakpoomkamonlert</h1>
-      <p class="tagline">CS student building playful, reliable software — currently at HK PolyU.</p>
+      <p class="tagline" id="tagline"></p>
 
       <nav class="sidenav" id="sidenav">
         <a href="#about">About</a>
@@ -376,12 +489,13 @@
     <section id="about">
       <h2>About</h2>
       <p class="lede">
-        I'm a second-year Computer Science student at The Hong Kong Polytechnic University,
-        focused on full-stack development with a soft spot for game development on the side.
-        I spent a semester on exchange at Auckland University of Technology studying operating
-        systems, computer graphics, and human-computer interaction, and I've worked across
-        research, industry, and my own side projects — from robotics locomotion to retail
-        software to a networking platform I co-founded.
+        Hi, I'm Chayada. I'm a third-year Computer Science student at The Hong Kong Polytechnic
+        University, and most of what I do lands somewhere between "full-stack developer" and
+        "person who wants to make a game one day." I spent a semester on exchange at Auckland
+        University of Technology, where I got properly into operating systems and computer
+        graphics. Outside of that I've bounced between research labs, a retail internship, and a
+        networking platform I built with friends from my old school — usually with way too many
+        browser tabs open at once.
       </p>
     </section>
 
@@ -395,7 +509,7 @@
             <span class="dates">Jul – Aug 2026</span>
           </div>
           <div class="role">Full-Stack Software Engineer Intern, Retail Unit</div>
-          <p>Developed a Product Data Management database for 7-Eleven Thailand and resolved 100+ UI/UX defects through systematic testing.</p>
+          <p>Built a Product Data Management database for 7-Eleven Thailand and hunted down 100+ UI/UX bugs before they hunted down the users.</p>
           <div class="tools">Tools: <span>Oracle APEX, PL/SQL, HTML, MS Excel</span></div>
         </div>
 
@@ -405,7 +519,7 @@
             <span class="dates">Apr – Aug 2026</span>
           </div>
           <div class="role">LLM Data Annotator, Freelance / Remote</div>
-          <p>Annotated and analyzed AI voice and text responses across Thai-English linguistic contexts to support model evaluation.</p>
+          <p>Annotated and reviewed AI voice and text responses across Thai-English contexts, basically fact-checking a robot's bilingual homework.</p>
         </div>
 
         <div class="entry">
@@ -414,7 +528,7 @@
             <span class="dates">Apr – Jul 2026</span>
           </div>
           <div class="role">Cofounder, Designer &amp; Full-Stack Developer</div>
-          <p>Co-founded and designed a networking platform for Kamnoetvidya Science Academy alumni, students, and staff — grew to 169 registered users in the first month.</p>
+          <p>Co-founded a networking platform for my old school's alumni, students, and staff — it hit 169 registered users in the first month, which felt genuinely surreal.</p>
           <div class="tools">Tools: <span>Python, TypeScript</span></div>
         </div>
 
@@ -424,7 +538,7 @@
             <span class="dates">Jun – Aug 2024</span>
           </div>
           <div class="role">Research Intern</div>
-          <p>Studied stick insect-like locomotion under decentralized adaptive neural control, and built a CoppeliaSim simulation tuning a Radial Basis Function network.</p>
+          <p>Spent a summer teaching a simulated stick insect how to walk under decentralized neural control. Yes, really.</p>
           <div class="tools">Tools: <span>CoppeliaSim, Lua, Python, Neural Networks</span></div>
         </div>
 
@@ -434,7 +548,7 @@
             <span class="dates">2022 – 2024</span>
           </div>
           <div class="role">Student Researcher, Mathematics</div>
-          <p>Solved piecewise linear difference equations to characterize recursive system behavior; presented at APAM 2023 and KVIS-ISF 2024.</p>
+          <p>Solved piecewise linear difference equations to figure out how these systems behave recursively, then presented it at APAM 2023 and KVIS-ISF 2024.</p>
         </div>
 
         <div class="entry">
@@ -443,7 +557,7 @@
             <span class="dates">2022 – 2023</span>
           </div>
           <div class="role">Biomedical / Embedded Systems</div>
-          <p>Engineered a force-sensor electric bed and an EMG muscle-signal wheelchair control framework, both showcased at national innovation competitions.</p>
+          <p>Built a force-sensor electric bed and an EMG-controlled wheelchair framework — my brief detour into hardware before deciding I liked software more.</p>
         </div>
 
       </div>
@@ -454,28 +568,40 @@
       <div class="project-grid">
 
         <div class="project-card">
-          <h3>KVIS-Connect</h3>
-          <p>A networking platform for alumni, students, and staff of Kamnoetvidya Science Academy to connect and share research interests.</p>
-          <div class="stat">169 registered users in month one</div>
-          <div class="link"><a href="https://kvis-connect.com/" target="_blank" rel="noopener">kvis-connect.com ↗</a></div>
+          <div class="project-thumb">🔗</div>
+          <div class="body">
+            <h3>KVIS-Connect</h3>
+            <p>A networking platform for alumni, students, and staff of Kamnoetvidya Science Academy to stay in touch and swap research interests.</p>
+            <div class="stat">169 users in month one</div>
+            <div class="link"><a href="https://kvis-connect.com/" target="_blank" rel="noopener">kvis-connect.com ↗</a></div>
+          </div>
         </div>
 
         <div class="project-card">
-          <h3>Electric Bed for Disabled Patients</h3>
-          <p>Force-sensor electric bed with Bluetooth-microcontroller safety features, modeled in SolidWorks.</p>
-          <div class="stat">Thailand Innovation Award 2023 · Samsung Innovation Thailand 2023</div>
+          <div class="project-thumb">🛏️</div>
+          <div class="body">
+            <h3>Electric Bed for Disabled Patients</h3>
+            <p>Force-sensor electric bed with Bluetooth-microcontroller safety features, modeled in SolidWorks.</p>
+            <div class="stat">Thailand Innovation Award 2023 · Samsung Innovation Thailand 2023</div>
+          </div>
         </div>
 
         <div class="project-card">
-          <h3>EMG Wheelchair Control</h3>
-          <p>Electromyography-based muscle-signal control framework to improve wheelchair patient comfort.</p>
-          <div class="stat">TJ-SIF2022 · SCB Challenge semi-finalist</div>
+          <div class="project-thumb">🦾</div>
+          <div class="body">
+            <h3>EMG Wheelchair Control</h3>
+            <p>A muscle-signal control framework that reads EMG input to make wheelchair use a little easier.</p>
+            <div class="stat">TJ-SIF2022 · SCB Challenge semi-finalist</div>
+          </div>
         </div>
 
         <div class="project-card">
-          <h3>Stick Insect Locomotion Model</h3>
-          <p>CoppeliaSim simulation of decentralized adaptive neural control for stick insect-like robot locomotion, VISTEC BRAIN Lab.</p>
-          <div class="stat">Radial Basis Function network tuning</div>
+          <div class="project-thumb">🐛</div>
+          <div class="body">
+            <h3>Stick Insect Locomotion Model</h3>
+            <p>A CoppeliaSim simulation of decentralized adaptive neural control for stick insect-like robot locomotion.</p>
+            <div class="stat">RBF network tuning, VISTEC BRAIN Lab</div>
+          </div>
         </div>
 
       </div>
@@ -520,8 +646,8 @@
     <section id="contact">
       <h2>Contact</h2>
       <p class="lede muted">
-        Looking for full-stack or game dev internship opportunities — happy to chat about
-        any of the projects above, or anything else.
+        Looking for full-stack or game dev internships. If any of this looks interesting, or
+        you just want to talk about stick insects, my inbox is open.
       </p>
       <div class="contact-links">
         <a href="mailto:cchayadapak@gmail.com">Email</a>
@@ -532,7 +658,7 @@
     </section>
 
     <footer>
-      &copy; 2026 Chayada Pakpoomkamonlert. Built with plain HTML &amp; CSS.
+      Made by Chayada. Last updated 2026.
     </footer>
 
   </main>
@@ -553,9 +679,33 @@
       a.classList.toggle('active', a.getAttribute('href') === '#' + current.id);
     });
   }
-
   document.addEventListener('scroll', setActive, { passive: true });
   window.addEventListener('load', setActive);
+
+  // Small typewriter moment for the tagline. Skips straight to the full
+  // text if the visitor prefers reduced motion.
+  const tagline = document.getElementById('tagline');
+  const fullText = "CS student. Full-stack by day, occasional game jammer by night.";
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (prefersReducedMotion) {
+    tagline.textContent = fullText;
+  } else {
+    let i = 0;
+    const cursor = document.createElement('span');
+    cursor.className = 'cursor';
+    function typeNext(){
+      if (i <= fullText.length) {
+        tagline.textContent = fullText.slice(0, i);
+        tagline.appendChild(cursor);
+        i++;
+        setTimeout(typeNext, 28);
+      } else {
+        setTimeout(() => cursor.remove(), 1800);
+      }
+    }
+    typeNext();
+  }
 </script>
 
 </body>
