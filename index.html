@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Chayada Pakpoomkamonlert — Portfolio</title>
+<meta name="description" content="Chayada Pakpoomkamonlert — Computer Science student, full-stack developer, and game dev hobbyist." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0f1115;
+    --surface: #161922;
+    --line: #262b36;
+    --accent: #ffb454;
+    --accent-dim: #3a2e1c;
+    --text: #ecedf1;
+    --muted: #9aa1b2;
+    --sidebar-w: 300px;
+    --maxw: 760px;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    *{ animation: none !important; transition: none !important; }
+  }
+
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, .display{
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    margin: 0;
+  }
+
+  a{ color: var(--accent); text-decoration: none; }
+  a:hover{ text-decoration: underline; }
+  a:focus-visible, button:focus-visible{
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  .layout{
+    display: flex;
+    min-height: 100vh;
+  }
+
+  /* ---------- Sidebar ---------- */
+  .sidebar{
+    width: var(--sidebar-w);
+    flex-shrink: 0;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    padding: 3rem 2.25rem;
+    border-right: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .sidebar-top .role{
+    font-size: 0.9rem;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 0.9rem;
+  }
+
+  .sidebar-top h1{
+    font-size: 1.7rem;
+    line-height: 1.25;
+    margin-bottom: 0.6rem;
+  }
+
+  .sidebar-top p.tagline{
+    color: var(--muted);
+    font-size: 0.95rem;
+    max-width: 26ch;
+  }
+
+  nav.sidenav{
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  nav.sidenav a{
+    color: var(--muted);
+    font-size: 0.92rem;
+    padding: 0.15rem 0;
+    border-left: 2px solid transparent;
+    padding-left: 0.75rem;
+    transition: color .15s ease, border-color .15s ease;
+  }
+  nav.sidenav a:hover{ color: var(--text); text-decoration:none; }
+  nav.sidenav a.active{
+    color: var(--accent);
+    border-left-color: var(--accent);
+  }
+
+  .sidebar-bottom{
+    display:flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .sidebar-bottom a{
+    color: var(--muted);
+    font-size: 0.88rem;
+  }
+  .sidebar-bottom a:hover{ color: var(--accent); }
+
+  .resume-btn{
+    margin-top: 0.6rem;
+    display:inline-block;
+    width: fit-content;
+    padding: 0.55rem 1rem;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    color: var(--text) !important;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  .resume-btn:hover{
+    border-color: var(--accent);
+    color: var(--accent) !important;
+    text-decoration: none;
+  }
+
+  /* ---------- Main content ---------- */
+  main{
+    flex: 1;
+    padding: 4.5rem 3rem 6rem;
+    max-width: calc(var(--maxw) + 3rem + 3rem);
+  }
+
+  section{
+    max-width: var(--maxw);
+    margin-bottom: 5rem;
+    scroll-margin-top: 3rem;
+  }
+
+  section h2{
+    font-size: 1.4rem;
+    margin-bottom: 1.4rem;
+  }
+
+  section > p.lede{
+    color: var(--text);
+    font-size: 1.02rem;
+    max-width: 68ch;
+  }
+
+  .muted{ color: var(--muted); }
+
+  /* ---------- Timeline ---------- */
+  .timeline{
+    position: relative;
+    padding-left: 1.6rem;
+    border-left: 1px solid var(--line);
+  }
+
+  .entry{
+    position: relative;
+    padding-bottom: 2.1rem;
+  }
+  .entry:last-child{ padding-bottom: 0; }
+
+  .entry::before{
+    content: "";
+    position: absolute;
+    left: -1.86rem;
+    top: 0.35rem;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--accent);
+  }
+
+  .entry .meta{
+    display:flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .entry h3{
+    font-size: 1.05rem;
+  }
+
+  .entry .dates{
+    color: var(--muted);
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+
+  .entry .role{
+    color: var(--accent);
+    font-size: 0.88rem;
+    margin-top: 0.15rem;
+  }
+
+  .entry p{
+    margin: 0.55rem 0 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+    max-width: 64ch;
+  }
+
+  .entry .tools{
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  .entry .tools span{
+    color: var(--text);
+  }
+
+  /* ---------- Projects ---------- */
+  .project-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.1rem;
+  }
+
+  .project-card{
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 1.3rem 1.4rem;
+    background: var(--surface);
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+
+  .project-card h3{
+    font-size: 1.02rem;
+  }
+
+  .project-card p{
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.92rem;
+  }
+
+  .project-card .stat{
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  .project-card .link{
+    margin-top: 0.2rem;
+    font-size: 0.88rem;
+  }
+
+  /* ---------- Skills ---------- */
+  .skill-group{
+    margin-bottom: 1.1rem;
+  }
+  .skill-group h4{
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin: 0 0 0.55rem;
+  }
+  .tags{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+  }
+  .tag{
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--text);
+    padding: 0.3rem 0.65rem;
+    border-radius: 4px;
+    font-size: 0.83rem;
+  }
+
+  /* ---------- Contact / footer ---------- */
+  .contact-links{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 1.2rem;
+  }
+  .contact-links a{
+    font-size: 0.98rem;
+    color: var(--text);
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 2px;
+  }
+  .contact-links a:hover{
+    color: var(--accent);
+    border-color: var(--accent);
+    text-decoration: none;
+  }
+
+  footer{
+    max-width: var(--maxw);
+    color: var(--muted);
+    font-size: 0.8rem;
+    margin-top: 3rem;
+  }
+
+  /* ---------- Mobile ---------- */
+  .mobile-topbar{ display: none; }
+
+  @media (max-width: 880px){
+    .layout{ flex-direction: column; }
+    .sidebar{
+      position: relative;
+      width: 100%;
+      height: auto;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.1rem 1.3rem;
+      border-right: none;
+      border-bottom: 1px solid var(--line);
+    }
+    .sidebar-top .role, .sidebar-top p.tagline, nav.sidenav, .sidebar-bottom{
+      display: none;
+    }
+    .sidebar-top h1{ font-size: 1.15rem; }
+    main{ padding: 2.5rem 1.4rem 4rem; }
+    .project-grid{ grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-top">
+      <div class="role">Full-Stack &amp; Game Dev</div>
+      <h1>Chayada<br>Pakpoomkamonlert</h1>
+      <p class="tagline">CS student building playful, reliable software — currently at HK PolyU.</p>
+
+      <nav class="sidenav" id="sidenav">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+
+    <div class="sidebar-bottom">
+      <a href="mailto:cchayadapak@gmail.com">cchayadapak@gmail.com</a>
+      <a href="https://github.com/cchayadap" target="_blank" rel="noopener">github.com/cchayadap</a>
+      <a href="https://www.linkedin.com/in/chayada-pakpoomkamonlert-3079a4318/" target="_blank" rel="noopener">linkedin.com/in/chayada</a>
+      <a class="resume-btn" href="Chayada_Pakpoomkamonlert_CV.pdf" target="_blank" rel="noopener">Download résumé</a>
+    </div>
+  </aside>
+
+  <main>
+
+    <section id="about">
+      <h2>About</h2>
+      <p class="lede">
+        I'm a second-year Computer Science student at The Hong Kong Polytechnic University,
+        focused on full-stack development with a soft spot for game development on the side.
+        I spent a semester on exchange at Auckland University of Technology studying operating
+        systems, computer graphics, and human-computer interaction, and I've worked across
+        research, industry, and my own side projects — from robotics locomotion to retail
+        software to a networking platform I co-founded.
+      </p>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="timeline">
+
+        <div class="entry">
+          <div class="meta">
+            <h3>Gosoft (Thailand)</h3>
+            <span class="dates">Jul – Aug 2026</span>
+          </div>
+          <div class="role">Full-Stack Software Engineer Intern, Retail Unit</div>
+          <p>Developed a Product Data Management database for 7-Eleven Thailand and resolved 100+ UI/UX defects through systematic testing.</p>
+          <div class="tools">Tools: <span>Oracle APEX, PL/SQL, HTML, MS Excel</span></div>
+        </div>
+
+        <div class="entry">
+          <div class="meta">
+            <h3>T-Maxx International</h3>
+            <span class="dates">Apr – Aug 2026</span>
+          </div>
+          <div class="role">LLM Data Annotator, Freelance / Remote</div>
+          <p>Annotated and analyzed AI voice and text responses across Thai-English linguistic contexts to support model evaluation.</p>
+        </div>
+
+        <div class="entry">
+          <div class="meta">
+            <h3>KVIS-Connect</h3>
+            <span class="dates">Apr – Jul 2026</span>
+          </div>
+          <div class="role">Cofounder, Designer &amp; Full-Stack Developer</div>
+          <p>Co-founded and designed a networking platform for Kamnoetvidya Science Academy alumni, students, and staff — grew to 169 registered users in the first month.</p>
+          <div class="tools">Tools: <span>Python, TypeScript</span></div>
+        </div>
+
+        <div class="entry">
+          <div class="meta">
+            <h3>VISTEC — BRAIN Laboratory</h3>
+            <span class="dates">Jun – Aug 2024</span>
+          </div>
+          <div class="role">Research Intern</div>
+          <p>Studied stick insect-like locomotion under decentralized adaptive neural control, and built a CoppeliaSim simulation tuning a Radial Basis Function network.</p>
+          <div class="tools">Tools: <span>CoppeliaSim, Lua, Python, Neural Networks</span></div>
+        </div>
+
+        <div class="entry">
+          <div class="meta">
+            <h3>Kamnoetvidya Science Academy</h3>
+            <span class="dates">2022 – 2024</span>
+          </div>
+          <div class="role">Student Researcher, Mathematics</div>
+          <p>Solved piecewise linear difference equations to characterize recursive system behavior; presented at APAM 2023 and KVIS-ISF 2024.</p>
+        </div>
+
+        <div class="entry">
+          <div class="meta">
+            <h3>Assistive Hardware Projects</h3>
+            <span class="dates">2022 – 2023</span>
+          </div>
+          <div class="role">Biomedical / Embedded Systems</div>
+          <p>Engineered a force-sensor electric bed and an EMG muscle-signal wheelchair control framework, both showcased at national innovation competitions.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="project-grid">
+
+        <div class="project-card">
+          <h3>KVIS-Connect</h3>
+          <p>A networking platform for alumni, students, and staff of Kamnoetvidya Science Academy to connect and share research interests.</p>
+          <div class="stat">169 registered users in month one</div>
+          <div class="link"><a href="https://kvis-connect.com/" target="_blank" rel="noopener">kvis-connect.com ↗</a></div>
+        </div>
+
+        <div class="project-card">
+          <h3>Electric Bed for Disabled Patients</h3>
+          <p>Force-sensor electric bed with Bluetooth-microcontroller safety features, modeled in SolidWorks.</p>
+          <div class="stat">Thailand Innovation Award 2023 · Samsung Innovation Thailand 2023</div>
+        </div>
+
+        <div class="project-card">
+          <h3>EMG Wheelchair Control</h3>
+          <p>Electromyography-based muscle-signal control framework to improve wheelchair patient comfort.</p>
+          <div class="stat">TJ-SIF2022 · SCB Challenge semi-finalist</div>
+        </div>
+
+        <div class="project-card">
+          <h3>Stick Insect Locomotion Model</h3>
+          <p>CoppeliaSim simulation of decentralized adaptive neural control for stick insect-like robot locomotion, VISTEC BRAIN Lab.</p>
+          <div class="stat">Radial Basis Function network tuning</div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+
+      <div class="skill-group">
+        <h4>Programming Languages</h4>
+        <div class="tags">
+          <span class="tag">C</span><span class="tag">C++</span><span class="tag">Python</span>
+          <span class="tag">Java</span><span class="tag">JavaScript</span><span class="tag">TypeScript</span>
+          <span class="tag">SQL</span><span class="tag">PL/SQL</span><span class="tag">Lua</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h4>Web &amp; Markup</h4>
+        <div class="tags">
+          <span class="tag">HTML</span><span class="tag">CSS</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h4>Tools &amp; Platforms</h4>
+        <div class="tags">
+          <span class="tag">Unity</span><span class="tag">Godot</span><span class="tag">Oracle APEX</span>
+          <span class="tag">Visual Studio</span><span class="tag">SolidWorks</span><span class="tag">CoppeliaSim</span>
+          <span class="tag">Arduino IDE</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h4>Languages</h4>
+        <div class="tags">
+          <span class="tag">English (Fluent)</span><span class="tag">Thai (Native)</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p class="lede muted">
+        Looking for full-stack or game dev internship opportunities — happy to chat about
+        any of the projects above, or anything else.
+      </p>
+      <div class="contact-links">
+        <a href="mailto:cchayadapak@gmail.com">Email</a>
+        <a href="https://github.com/cchayadap" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/chayada-pakpoomkamonlert-3079a4318/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="Chayada_Pakpoomkamonlert_CV.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
+      </div>
+    </section>
+
+    <footer>
+      &copy; 2026 Chayada Pakpoomkamonlert. Built with plain HTML &amp; CSS.
+    </footer>
+
+  </main>
+</div>
+
+<script>
+  // Highlight the active section link while scrolling.
+  const links = document.querySelectorAll('.sidenav a');
+  const sections = Array.from(links).map(a => document.querySelector(a.getAttribute('href')));
+
+  function setActive(){
+    let current = sections[0];
+    const scrollPos = window.scrollY + window.innerHeight * 0.3;
+    sections.forEach(sec => {
+      if (sec && sec.offsetTop <= scrollPos) current = sec;
+    });
+    links.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current.id);
+    });
+  }
+
+  document.addEventListener('scroll', setActive, { passive: true });
+  window.addEventListener('load', setActive);
+</script>
+
+</body>
+</html>
