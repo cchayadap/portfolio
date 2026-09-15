@@ -4,21 +4,26 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Chayada Pakpoomkamonlert</title>
-<meta name="description" content="Chayada Pakpoomkamonlert's portfolio — CS student, full-stack dev, occasional game maker." />
+<meta name="description" content="Chayada Pakpoomkamonlert's portfolio. CS student, full-stack dev, occasional game maker." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg: #0f1115;
-    --surface: #161922;
-    --line: #262b36;
-    --accent: #ffb454;
-    --accent2: #7ee6c4;
-    --text: #ecedf1;
-    --muted: #9aa1b2;
-    --sidebar-w: 300px;
-    --maxw: 760px;
+    --bg: #fff8fb;
+    --surface: #ffffff;
+    --ink: #3a2530;
+    --muted: #927e89;
+    --line: #f6dce8;
+    --pink: #ff8fae;
+    --pink-soft: #ffe4ee;
+    --yellow: #ffcb66;
+    --yellow-soft: #fff2d9;
+    --mint: #7fddc7;
+    --mint-soft: #dff8f0;
+    --lavender: #b6a1e0;
+    --lavender-soft: #ece4fa;
+    --maxw: 880px;
   }
 
   *{ box-sizing: border-box; }
@@ -32,643 +37,695 @@
   body{
     margin:0;
     background: var(--bg);
-    color: var(--text);
-    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    color: var(--ink);
+    font-family: 'Nunito', system-ui, sans-serif;
     font-size: 16px;
-    line-height: 1.6;
-    overflow-x: hidden;
+    line-height: 1.65;
   }
 
   h1, h2, h3, .display{
-    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-family: 'Fredoka', system-ui, sans-serif;
     font-weight: 600;
-    letter-spacing: -0.01em;
-    color: var(--text);
+    color: var(--ink);
     margin: 0;
   }
 
-  a{ color: var(--accent); text-decoration: none; }
+  a{ color: var(--pink); text-decoration: none; font-weight: 700; }
   a:hover{ text-decoration: underline; }
   a:focus-visible, button:focus-visible{
-    outline: 2px solid var(--accent);
+    outline: 3px solid var(--pink);
     outline-offset: 3px;
   }
 
-  /* ---------- Playful floating background blobs ---------- */
-  .blobs{
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-    overflow: hidden;
-  }
-  .blob{
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(60px);
-    opacity: 0.16;
-  }
-  .blob-1{
-    width: 380px; height: 380px;
-    background: var(--accent);
-    top: -80px; left: 15%;
-    animation: drift1 22s ease-in-out infinite;
-  }
-  .blob-2{
-    width: 300px; height: 300px;
-    background: var(--accent2);
-    bottom: 5%; right: 8%;
-    animation: drift2 26s ease-in-out infinite;
-  }
-  @keyframes drift1{
-    0%, 100%{ transform: translate(0,0) scale(1); }
-    50%{ transform: translate(40px, 60px) scale(1.1); }
-  }
-  @keyframes drift2{
-    0%, 100%{ transform: translate(0,0) scale(1); }
-    50%{ transform: translate(-50px, -30px) scale(0.95); }
+  .wrap{
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 1.5rem;
   }
 
-  .layout{
-    display: flex;
-    min-height: 100vh;
-    position: relative;
-    z-index: 1;
-  }
-
-  /* ---------- Sidebar ---------- */
-  .sidebar{
-    width: var(--sidebar-w);
-    flex-shrink: 0;
+  /* ---------- Top nav ---------- */
+  .topnav{
     position: sticky;
     top: 0;
-    height: 100vh;
-    padding: 3rem 2.25rem;
-    border-right: 1px solid var(--line);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    z-index: 10;
+    background: rgba(255,248,251,0.9);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
   }
+  .topnav .wrap{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0.9rem;
+    padding-bottom: 0.9rem;
+  }
+  .topnav .brand{
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--ink);
+  }
+  .topnav nav{
+    display: flex;
+    gap: 1.3rem;
+    flex-wrap: wrap;
+  }
+  .topnav nav a{
+    color: var(--muted);
+    font-size: 0.92rem;
+    font-weight: 700;
+  }
+  .topnav nav a:hover{ color: var(--pink); text-decoration: none; }
 
+  /* ---------- Hero ---------- */
+  .hero{
+    padding: 4rem 0 3rem;
+    text-align: center;
+  }
   .avatar{
-    width: 64px;
-    height: 64px;
+    width: 92px;
+    height: 92px;
+    margin: 0 auto 1.3rem;
     border-radius: 50%;
-    border: 2px dashed var(--line);
+    border: 3px dashed var(--pink);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Fredoka', sans-serif;
     font-weight: 600;
-    font-size: 1.1rem;
-    color: var(--accent);
-    margin-bottom: 1.4rem;
-    transition: transform .35s cubic-bezier(.34,1.56,.64,1), border-color .2s ease;
-    cursor: default;
+    font-size: 1.5rem;
+    color: var(--pink);
+    background: var(--pink-soft);
+    transition: border-color .2s ease;
   }
-  .avatar:hover{
-    transform: rotate(-6deg) scale(1.06);
-    border-color: var(--accent);
-  }
-  /* Swap this div's content for <img src="assets/avatar.jpg" alt="Chayada"> once you have a photo */
+  /* Swap this div's content for <img class="avatar" src="assets/avatar.jpg" alt="Chayada"> once you have a photo */
 
-  .sidebar-top .role{
-    font-size: 0.9rem;
-    color: var(--accent);
-    font-weight: 500;
-    margin-bottom: 0.9rem;
-  }
-
-  .sidebar-top h1{
-    font-size: 1.7rem;
-    line-height: 1.25;
+  .hero h1{
+    font-size: 2.3rem;
     margin-bottom: 0.6rem;
   }
-
-  .sidebar-top p.tagline{
+  .hero .tagline{
     color: var(--muted);
-    font-size: 0.95rem;
-    max-width: 26ch;
-    min-height: 3.2em;
+    font-size: 1.08rem;
+    max-width: 46ch;
+    margin: 0 auto 1.6rem;
   }
-  .cursor{
-    display: inline-block;
-    width: 2px;
-    background: var(--accent);
-    margin-left: 1px;
-    animation: blink 0.9s step-end infinite;
-  }
-  @keyframes blink{ 50%{ opacity: 0; } }
 
-  nav.sidenav{
-    margin-top: 2.5rem;
+  .social-row{
     display: flex;
-    flex-direction: column;
-    gap: 0.65rem;
+    justify-content: center;
+    gap: 1.1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.6rem;
   }
-
-  nav.sidenav a{
-    color: var(--muted);
+  .social-row a{
+    color: var(--ink);
+    font-weight: 700;
     font-size: 0.92rem;
-    padding: 0.15rem 0;
-    border-left: 2px solid transparent;
-    padding-left: 0.75rem;
-    transition: color .15s ease, border-color .15s ease, padding-left .15s ease;
+    border-bottom: 2px solid var(--pink-soft);
   }
-  nav.sidenav a:hover{ color: var(--text); text-decoration:none; padding-left: 1rem; }
-  nav.sidenav a.active{
-    color: var(--accent);
-    border-left-color: var(--accent);
+  .social-row a:hover{
+    color: var(--pink);
+    border-color: var(--pink);
+    text-decoration: none;
   }
-
-  .sidebar-bottom{
-    display:flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  .sidebar-bottom a{
-    color: var(--muted);
-    font-size: 0.88rem;
-    width: fit-content;
-  }
-  .sidebar-bottom a:hover{ color: var(--accent); }
 
   .resume-btn{
-    margin-top: 0.6rem;
-    display:inline-block;
-    width: fit-content;
-    padding: 0.55rem 1rem;
-    border: 1px solid var(--line);
-    border-radius: 4px;
-    color: var(--text) !important;
-    font-size: 0.85rem;
-    font-weight: 500;
-    transition: transform .15s ease, border-color .15s ease;
+    display: inline-block;
+    background: var(--pink);
+    color: #fff !important;
+    padding: 0.7rem 1.5rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: transform .15s ease, box-shadow .15s ease;
   }
   .resume-btn:hover{
-    border-color: var(--accent);
-    color: var(--accent) !important;
     text-decoration: none;
     transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255,143,174,0.35);
   }
 
-  /* ---------- Main content ---------- */
-  main{
-    flex: 1;
-    padding: 4.5rem 3rem 6rem;
-    max-width: calc(var(--maxw) + 3rem + 3rem);
-  }
-
+  /* ---------- Sections ---------- */
   section{
-    max-width: var(--maxw);
-    margin-bottom: 5rem;
-    scroll-margin-top: 3rem;
+    padding: 3.2rem 0;
+    scroll-margin-top: 4rem;
   }
-
   section h2{
-    font-size: 1.4rem;
-    margin-bottom: 1.4rem;
+    font-size: 1.6rem;
+    margin-bottom: 1.6rem;
+    text-align: center;
+  }
+  .lede{
+    max-width: 62ch;
+    margin: 0 auto;
+    text-align: center;
+    color: var(--ink);
   }
 
-  section > p.lede{
-    color: var(--text);
-    font-size: 1.02rem;
-    max-width: 68ch;
+  .fun-facts{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.7rem;
+    margin-top: 1.6rem;
   }
-
-  .muted{ color: var(--muted); }
+  .fun-facts li{
+    list-style: none;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0.5rem 1rem;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--ink);
+  }
 
   /* ---------- Timeline ---------- */
   .timeline{
     position: relative;
-    padding-left: 1.6rem;
-    border-left: 1px solid var(--line);
+    margin-top: 2.5rem;
   }
-
-  .entry{
-    position: relative;
-    padding-bottom: 2.1rem;
-  }
-  .entry:last-child{ padding-bottom: 0; }
-
-  .entry::before{
+  .timeline::before{
     content: "";
     position: absolute;
-    left: -1.86rem;
-    top: 0.35rem;
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    background: var(--bg);
-    border: 2px solid var(--accent);
-    transition: transform .2s ease, box-shadow .2s ease;
-  }
-  .entry:hover::before{
-    transform: scale(1.5);
-    box-shadow: 0 0 0 4px var(--accent-dim, rgba(255,180,84,0.18));
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: repeating-linear-gradient(to bottom, var(--pink-soft) 0 10px, transparent 10px 20px);
+    transform: translateX(-50%);
   }
 
-  .entry .meta{
-    display:flex;
-    justify-content: space-between;
+  .t-entry{
+    position: relative;
+    width: 50%;
+    padding: 0 2.8rem 2.6rem 0;
+  }
+  .t-entry:nth-child(even){
+    margin-left: 50%;
+    padding: 0 0 2.6rem 2.8rem;
+  }
+  .t-entry .dot{
+    position: absolute;
+    top: 0.3rem;
+    right: -8px;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    background: var(--card-color, var(--pink));
+    border: 3px solid var(--bg);
+    box-shadow: 0 0 0 2px var(--card-color, var(--pink));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+  }
+  .t-entry:nth-child(even) .dot{
+    right: auto;
+    left: -8px;
+  }
+
+  .t-card{
+    background: var(--card-color-soft, var(--pink-soft));
+    border-radius: 16px;
+    padding: 1.2rem 1.35rem;
+    transition: transform .15s ease;
+  }
+  .t-card:hover{ transform: translateY(-3px); }
+
+  .t-card .top{
+    display: flex;
     align-items: baseline;
-    gap: 1rem;
+    justify-content: space-between;
+    gap: 0.6rem;
     flex-wrap: wrap;
   }
-
-  .entry h3{
-    font-size: 1.05rem;
-  }
-
-  .entry .dates{
-    color: var(--muted);
-    font-size: 0.85rem;
-    white-space: nowrap;
-  }
-
-  .entry .role{
-    color: var(--accent);
-    font-size: 0.88rem;
-    margin-top: 0.15rem;
-  }
-
-  .entry p{
-    margin: 0.55rem 0 0;
-    color: var(--muted);
-    font-size: 0.95rem;
-    max-width: 64ch;
-  }
-
-  .entry .tools{
-    margin-top: 0.5rem;
+  .t-card h3{ font-size: 1.05rem; }
+  .t-card .dates{
     font-size: 0.8rem;
     color: var(--muted);
+    font-weight: 700;
+    white-space: nowrap;
   }
-  .entry .tools span{
-    color: var(--text);
+  .t-card .role{
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--ink);
+    opacity: 0.75;
+    margin-top: 0.15rem;
+  }
+  .t-card p{
+    margin: 0.55rem 0 0;
+    font-size: 0.93rem;
+    color: var(--ink);
+  }
+  .t-card .tools{
+    margin-top: 0.6rem;
+    font-size: 0.78rem;
+    color: var(--muted);
+    font-weight: 700;
+  }
+
+  @media (max-width: 720px){
+    .timeline::before{ left: 10px; }
+    .t-entry, .t-entry:nth-child(even){
+      width: 100%;
+      margin-left: 0;
+      padding: 0 0 2rem 2.6rem;
+    }
+    .t-entry .dot, .t-entry:nth-child(even) .dot{
+      left: 2px;
+      right: auto;
+    }
   }
 
   /* ---------- Projects ---------- */
   .project-grid{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.1rem;
+    gap: 1.2rem;
+    margin-top: 2rem;
   }
-
   .project-card{
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    overflow: hidden;
     background: var(--surface);
-    display: flex;
-    flex-direction: column;
-    transition: transform .2s ease, border-color .2s ease;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform .15s ease, box-shadow .15s ease;
   }
   .project-card:hover{
     transform: translateY(-3px);
-    border-color: var(--accent);
+    box-shadow: 0 10px 24px rgba(255,143,174,0.18);
   }
-
-  .project-thumb{
-    height: 90px;
+  .project-top{
+    height: 74px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.8rem;
-    border-bottom: 1px dashed var(--line);
-    background:
-      repeating-linear-gradient(135deg, rgba(255,255,255,0.02) 0 10px, transparent 10px 20px);
+    background: var(--card-color-soft, var(--pink-soft));
   }
-  /* Swap a .project-thumb's content for <img src="assets/projects/xxx.jpg"> once you have screenshots */
-
+  /* Swap a .project-top's content for <img src="assets/projects/xxx.jpg"> once you have screenshots */
   .project-card .body{
     padding: 1.1rem 1.3rem 1.3rem;
+  }
+  .project-card h3{ font-size: 1.02rem; margin-bottom: 0.5rem; }
+  .project-card p{ margin: 0; color: var(--muted); font-size: 0.92rem; }
+  .project-card .stat{
+    margin-top: 0.55rem;
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--ink);
+    background: var(--yellow-soft);
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+  }
+  .project-card .link{ margin-top: 0.6rem; font-size: 0.88rem; }
+
+  /* ---------- Community / IG cards ---------- */
+  .community-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.3rem;
+    margin-top: 2.2rem;
+  }
+  .ig-card{
+    text-align: center;
+  }
+  .ig-photo{
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 10px;
+    border: 6px solid #fff;
+    box-shadow: 0 3px 10px rgba(58,37,48,0.12);
+    background: var(--card-color-soft, var(--pink-soft));
     display: flex;
-    flex-direction: column;
-    gap: 0.55rem;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: var(--ink);
+    transform: rotate(var(--tilt, -3deg));
+    transition: transform .15s ease;
   }
-
-  .project-card h3{
-    font-size: 1.02rem;
-  }
-
-  .project-card p{
-    margin: 0;
-    color: var(--muted);
+  .ig-card:hover .ig-photo{ transform: rotate(0deg) scale(1.03); }
+  /* Swap an .ig-photo's content for <img src="assets/orgs/xxx.jpg"> once you have photos */
+  .ig-card .org-name{
+    display: block;
+    margin-top: 0.9rem;
+    font-weight: 800;
     font-size: 0.92rem;
   }
-
-  .project-card .stat{
-    color: var(--accent);
-    font-size: 0.85rem;
-    font-weight: 500;
+  .ig-card .org-role{
+    display: block;
+    color: var(--muted);
+    font-size: 0.8rem;
+    margin-top: 0.15rem;
+  }
+  .ig-card .ig-link{
+    display: inline-block;
+    margin-top: 0.4rem;
+    font-size: 0.78rem;
   }
 
-  .project-card .link{
-    margin-top: 0.2rem;
-    font-size: 0.88rem;
+  @media (max-width: 720px){
+    .community-grid{ grid-template-columns: repeat(2, 1fr); }
   }
 
   /* ---------- Skills ---------- */
-  .skill-group{
-    margin-bottom: 1.1rem;
-  }
+  .skill-group{ margin-bottom: 1.3rem; text-align: center; }
   .skill-group h4{
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Fredoka', sans-serif;
     font-weight: 600;
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     color: var(--muted);
-    margin: 0 0 0.55rem;
+    margin: 0 0 0.7rem;
   }
   .tags{
     display: flex;
     flex-wrap: wrap;
-    gap: 0.45rem;
+    justify-content: center;
+    gap: 0.5rem;
   }
   .tag{
-    border: 1px solid var(--line);
-    background: var(--surface);
-    color: var(--text);
-    padding: 0.3rem 0.65rem;
-    border-radius: 4px;
-    font-size: 0.83rem;
-    transition: transform .15s ease, border-color .15s ease, color .15s ease;
-    display: inline-block;
+    background: var(--tag-color, var(--pink-soft));
+    color: var(--ink);
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    transition: transform .15s ease;
   }
-  .tag:hover{
-    transform: translateY(-2px) rotate(-2deg);
-    border-color: var(--accent);
-    color: var(--accent);
-  }
+  .tag:hover{ transform: translateY(-2px); }
 
-  /* ---------- Contact / footer ---------- */
-  .contact-links{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    margin-top: 1.2rem;
+  /* ---------- Contact / collaborate ---------- */
+  .collab{
+    background: linear-gradient(135deg, var(--pink-soft), var(--lavender-soft));
+    border-radius: 24px;
+    padding: 3rem 2rem;
+    text-align: center;
   }
-  .contact-links a{
-    font-size: 0.98rem;
-    color: var(--text);
-    border-bottom: 1px solid var(--line);
-    padding-bottom: 2px;
-  }
-  .contact-links a:hover{
-    color: var(--accent);
-    border-color: var(--accent);
-    text-decoration: none;
-  }
+  .collab h2{ margin-bottom: 0.7rem; }
+  .collab p{ max-width: 52ch; margin: 0 auto 1.6rem; color: var(--ink); }
+  .collab .social-row{ margin-bottom: 0; }
 
   footer{
-    max-width: var(--maxw);
+    text-align: center;
+    padding: 2.6rem 1.5rem 3rem;
     color: var(--muted);
-    font-size: 0.8rem;
-    margin-top: 3rem;
+    font-size: 0.88rem;
   }
-
-  /* ---------- Mobile ---------- */
-  @media (max-width: 880px){
-    .layout{ flex-direction: column; }
-    .sidebar{
-      position: relative;
-      width: 100%;
-      height: auto;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.1rem 1.3rem;
-      border-right: none;
-      border-bottom: 1px solid var(--line);
-    }
-    .avatar{ width: 42px; height: 42px; font-size: 0.85rem; margin-bottom: 0; }
-    .sidebar-top{ display: flex; align-items: center; gap: 0.8rem; }
-    .sidebar-top .role, .sidebar-top p.tagline, nav.sidenav, .sidebar-bottom{
-      display: none;
-    }
-    .sidebar-top h1{ font-size: 1.15rem; }
-    main{ padding: 2.5rem 1.4rem 4rem; }
-    .project-grid{ grid-template-columns: 1fr; }
+  footer .stay-tuned{
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
   }
 </style>
 </head>
 <body>
 
-<div class="blobs" aria-hidden="true">
-  <div class="blob blob-1"></div>
-  <div class="blob blob-2"></div>
+<div class="topnav">
+  <div class="wrap">
+    <div class="brand">Chayada P.</div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#community">Community</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
 </div>
 
-<div class="layout">
-  <aside class="sidebar">
-    <div class="sidebar-top">
-      <div class="avatar" aria-hidden="true"><span>CP</span></div>
-      <div class="role">Full-Stack &amp; Game Dev</div>
-      <h1>Chayada<br>Pakpoomkamonlert</h1>
-      <p class="tagline" id="tagline"></p>
+<header class="hero wrap">
+  <div class="avatar" aria-hidden="true"><span>CP</span></div>
+  <h1>Chayada Pakpoomkamonlert</h1>
+  <p class="tagline">Full-stack dev, third-year CS student at PolyU, and part-time game maker with whimsy visionary.</p>
+  <div class="social-row">
+    <a href="mailto:cchayadapak@gmail.com">Email</a>
+    <a href="https://github.com/cchayadap" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/chayada-pakpoomkamonlert-3079a4318/" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+  <a class="resume-btn" href="Chayada_Pakpoomkamonlert_CV.pdf" target="_blank" rel="noopener">Download résumé</a>
+</header>
 
-      <nav class="sidenav" id="sidenav">
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
+<main>
 
-    <div class="sidebar-bottom">
-      <a href="mailto:cchayadapak@gmail.com">cchayadapak@gmail.com</a>
-      <a href="https://github.com/cchayadap" target="_blank" rel="noopener">github.com/cchayadap</a>
-      <a href="https://www.linkedin.com/in/chayada-pakpoomkamonlert-3079a4318/" target="_blank" rel="noopener">linkedin.com/in/chayada</a>
-      <a class="resume-btn" href="Chayada_Pakpoomkamonlert_CV.pdf" target="_blank" rel="noopener">Download résumé</a>
-    </div>
-  </aside>
+  <section id="about" class="wrap">
+    <h2>About me</h2>
+    <p class="lede">
+      Hi, I'm Chompoo! Most of what I do lands somewhere between "full-stack developer" and
+      "person who wants to make a game one day." I always care about society and what people
+      need, so during my studying, I contributed to project in healthcares and student society.
+      In this era of AI beating mathematicians and artists in their field, I figured that now
+      what we needed is human hands and creativity! I want to work with people and improve my
+      skills to bring the fun back to our tech industry in the most effective way <3.
+    </p>
+    <ul class="fun-facts">
+      <li>🎮 Tinkering in Unity and Godot on the side</li>
+      <li>🐛 Once taught a simulated stick insect to walk</li>
+      <li>🌏 Saving the world from AI with our creativity</li>
+      <li>☕ Powered by books and browser tabs</li>
+    </ul>
+  </section>
 
-  <main>
+  <section id="experience" class="wrap">
+    <h2>Experience</h2>
+    <div class="timeline">
 
-    <section id="about">
-      <h2>About</h2>
-      <p class="lede">
-        Hi, I'm Chayada. I'm a third-year Computer Science student at The Hong Kong Polytechnic
-        University, and most of what I do lands somewhere between "full-stack developer" and
-        "person who wants to make a game one day." I spent a semester on exchange at Auckland
-        University of Technology, where I got properly into operating systems and computer
-        graphics. Outside of that I've bounced between research labs, a retail internship, and a
-        networking platform I built with friends from my old school — usually with way too many
-        browser tabs open at once.
-      </p>
-    </section>
-
-    <section id="experience">
-      <h2>Experience</h2>
-      <div class="timeline">
-
-        <div class="entry">
-          <div class="meta">
-            <h3>Gosoft (Thailand)</h3>
+      <div class="t-entry" style="--card-color: var(--pink); --card-color-soft: var(--pink-soft);">
+        <div class="dot"></div>
+        <div class="t-card">
+          <div class="top">
+            <h3>🛍️ Gosoft (Thailand)</h3>
             <span class="dates">Jul – Aug 2026</span>
           </div>
-          <div class="role">Full-Stack Software Engineer Intern, Retail Unit</div>
-          <p>Built a Product Data Management database for 7-Eleven Thailand and hunted down 100+ UI/UX bugs before they hunted down the users.</p>
-          <div class="tools">Tools: <span>Oracle APEX, PL/SQL, HTML, MS Excel</span></div>
+          <div class="role">Full-Stack Software Engineer Intern</div>
+          <p>Built a Product Data Management database for 7-Eleven Thailand and squashed 100+ UI/UX bugs before they could squash the users.</p>
+          <div class="tools">Oracle APEX · PL/SQL · HTML · MS Excel</div>
         </div>
+      </div>
 
-        <div class="entry">
-          <div class="meta">
-            <h3>T-Maxx International</h3>
+      <div class="t-entry" style="--card-color: var(--mint); --card-color-soft: var(--mint-soft);">
+        <div class="dot"></div>
+        <div class="t-card">
+          <div class="top">
+            <h3>🌐 T-Maxx International</h3>
             <span class="dates">Apr – Aug 2026</span>
           </div>
-          <div class="role">LLM Data Annotator, Freelance / Remote</div>
-          <p>Annotated and reviewed AI voice and text responses across Thai-English contexts, basically fact-checking a robot's bilingual homework.</p>
+          <div class="role">LLM Data Annotator, Freelance</div>
+          <p>Annotated and reviewed AI voice and text responses across Thai-English contexts. Basically fact-checking a robot's bilingual homework.</p>
         </div>
+      </div>
 
-        <div class="entry">
-          <div class="meta">
-            <h3>KVIS-Connect</h3>
+      <div class="t-entry" style="--card-color: var(--yellow); --card-color-soft: var(--yellow-soft);">
+        <div class="dot"></div>
+        <div class="t-card">
+          <div class="top">
+            <h3>🔗 KVIS-Connect</h3>
             <span class="dates">Apr – Jul 2026</span>
           </div>
           <div class="role">Cofounder, Designer &amp; Full-Stack Developer</div>
-          <p>Co-founded a networking platform for my old school's alumni, students, and staff — it hit 169 registered users in the first month, which felt genuinely surreal.</p>
-          <div class="tools">Tools: <span>Python, TypeScript</span></div>
+          <p>Co-founded a networking platform for my old school's alumni, students, and staff. It hit 169 registered users in the first month, which felt genuinely surreal.</p>
+          <div class="tools">Python · TypeScript</div>
         </div>
+      </div>
 
-        <div class="entry">
-          <div class="meta">
-            <h3>VISTEC — BRAIN Laboratory</h3>
+      <div class="t-entry" style="--card-color: var(--lavender); --card-color-soft: var(--lavender-soft);">
+        <div class="dot"></div>
+        <div class="t-card">
+          <div class="top">
+            <h3>🐛 VISTEC — BRAIN Lab</h3>
             <span class="dates">Jun – Aug 2024</span>
           </div>
           <div class="role">Research Intern</div>
           <p>Spent a summer teaching a simulated stick insect how to walk under decentralized neural control. Yes, really.</p>
-          <div class="tools">Tools: <span>CoppeliaSim, Lua, Python, Neural Networks</span></div>
+          <div class="tools">CoppeliaSim · Lua · Python · Neural Networks</div>
         </div>
+      </div>
 
-        <div class="entry">
-          <div class="meta">
-            <h3>Kamnoetvidya Science Academy</h3>
+      <div class="t-entry" style="--card-color: var(--pink); --card-color-soft: var(--pink-soft);">
+        <div class="dot"></div>
+        <div class="t-card">
+          <div class="top">
+            <h3>📐 Kamnoetvidya Science Academy</h3>
             <span class="dates">2022 – 2024</span>
           </div>
           <div class="role">Student Researcher, Mathematics</div>
           <p>Solved piecewise linear difference equations to figure out how these systems behave recursively, then presented it at APAM 2023 and KVIS-ISF 2024.</p>
         </div>
+      </div>
 
-        <div class="entry">
-          <div class="meta">
-            <h3>Assistive Hardware Projects</h3>
+      <div class="t-entry" style="--card-color: var(--mint); --card-color-soft: var(--mint-soft);">
+        <div class="dot"></div>
+        <div class="t-card">
+          <div class="top">
+            <h3>🦾 Assistive Hardware Projects</h3>
             <span class="dates">2022 – 2023</span>
           </div>
           <div class="role">Biomedical / Embedded Systems</div>
-          <p>Built a force-sensor electric bed and an EMG-controlled wheelchair framework — my brief detour into hardware before deciding I liked software more.</p>
-        </div>
-
-      </div>
-    </section>
-
-    <section id="projects">
-      <h2>Projects</h2>
-      <div class="project-grid">
-
-        <div class="project-card">
-          <div class="project-thumb">🔗</div>
-          <div class="body">
-            <h3>KVIS-Connect</h3>
-            <p>A networking platform for alumni, students, and staff of Kamnoetvidya Science Academy to stay in touch and swap research interests.</p>
-            <div class="stat">169 users in month one</div>
-            <div class="link"><a href="https://kvis-connect.com/" target="_blank" rel="noopener">kvis-connect.com ↗</a></div>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-thumb">🛏️</div>
-          <div class="body">
-            <h3>Electric Bed for Disabled Patients</h3>
-            <p>Force-sensor electric bed with Bluetooth-microcontroller safety features, modeled in SolidWorks.</p>
-            <div class="stat">Thailand Innovation Award 2023 · Samsung Innovation Thailand 2023</div>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-thumb">🦾</div>
-          <div class="body">
-            <h3>EMG Wheelchair Control</h3>
-            <p>A muscle-signal control framework that reads EMG input to make wheelchair use a little easier.</p>
-            <div class="stat">TJ-SIF2022 · SCB Challenge semi-finalist</div>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-thumb">🐛</div>
-          <div class="body">
-            <h3>Stick Insect Locomotion Model</h3>
-            <p>A CoppeliaSim simulation of decentralized adaptive neural control for stick insect-like robot locomotion.</p>
-            <div class="stat">RBF network tuning, VISTEC BRAIN Lab</div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <section id="skills">
-      <h2>Skills</h2>
-
-      <div class="skill-group">
-        <h4>Programming Languages</h4>
-        <div class="tags">
-          <span class="tag">C</span><span class="tag">C++</span><span class="tag">Python</span>
-          <span class="tag">Java</span><span class="tag">JavaScript</span><span class="tag">TypeScript</span>
-          <span class="tag">SQL</span><span class="tag">PL/SQL</span><span class="tag">Lua</span>
+          <p>Built a force-sensor electric bed and an EMG-controlled wheelchair framework. My brief detour into hardware before deciding I liked software more.</p>
         </div>
       </div>
 
-      <div class="skill-group">
-        <h4>Web &amp; Markup</h4>
-        <div class="tags">
-          <span class="tag">HTML</span><span class="tag">CSS</span>
+    </div>
+  </section>
+
+  <section id="projects" class="wrap">
+    <h2>Projects</h2>
+    <div class="project-grid">
+
+      <div class="project-card">
+        <div class="project-top" style="--card-color-soft: var(--pink-soft);">🔗</div>
+        <div class="body">
+          <h3>KVIS-Connect</h3>
+          <p>A networking platform for alumni, students, and staff of Kamnoetvidya Science Academy to stay in touch and swap research interests.</p>
+          <div class="stat">169 users in month one</div>
+          <div class="link"><a href="https://kvis-connect.com/" target="_blank" rel="noopener">kvis-connect.com</a></div>
         </div>
       </div>
 
-      <div class="skill-group">
-        <h4>Tools &amp; Platforms</h4>
-        <div class="tags">
-          <span class="tag">Unity</span><span class="tag">Godot</span><span class="tag">Oracle APEX</span>
-          <span class="tag">Visual Studio</span><span class="tag">SolidWorks</span><span class="tag">CoppeliaSim</span>
-          <span class="tag">Arduino IDE</span>
+      <div class="project-card">
+        <div class="project-top" style="--card-color-soft: var(--mint-soft);">🛏️</div>
+        <div class="body">
+          <h3>Electric Bed for Disabled Patients</h3>
+          <p>Force-sensor electric bed with Bluetooth-microcontroller safety features, modeled in SolidWorks.</p>
+          <div class="stat">Thailand Innovation Award 2023</div>
         </div>
       </div>
 
-      <div class="skill-group">
-        <h4>Languages</h4>
-        <div class="tags">
-          <span class="tag">English (Fluent)</span><span class="tag">Thai (Native)</span>
+      <div class="project-card">
+        <div class="project-top" style="--card-color-soft: var(--yellow-soft);">🦾</div>
+        <div class="body">
+          <h3>EMG Wheelchair Control</h3>
+          <p>A muscle-signal control framework that reads EMG input to make wheelchair use a little easier.</p>
+          <div class="stat">SCB Challenge semi-finalist</div>
         </div>
       </div>
-    </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p class="lede muted">
-        Looking for full-stack or game dev internships. If any of this looks interesting, or
-        you just want to talk about stick insects, my inbox is open.
-      </p>
-      <div class="contact-links">
-        <a href="mailto:cchayadapak@gmail.com">Email</a>
+      <div class="project-card">
+        <div class="project-top" style="--card-color-soft: var(--lavender-soft);">🐛</div>
+        <div class="body">
+          <h3>Stick Insect Locomotion Model</h3>
+          <p>A CoppeliaSim simulation of decentralized adaptive neural control for stick insect-like robot locomotion.</p>
+          <div class="stat">RBF network tuning</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="community" class="wrap">
+    <h2>Community &amp; Leadership</h2>
+    <p class="lede">A few of the groups I've helped coordinate, admin, or run the Instagram for. Photos coming soon!</p>
+    <div class="community-grid">
+
+      <div class="ig-card">
+        <div class="ig-photo" style="--card-color-soft: var(--pink-soft); --tilt: -3deg;">PTSA</div>
+        <span class="org-name">PolyU Thai Student Association</span>
+        <span class="org-role">Marketing &amp; PR Executive Committee</span>
+        <a class="ig-link" href="#" target="_blank" rel="noopener">Instagram</a>
+      </div>
+
+      <div class="ig-card">
+        <div class="ig-photo" style="--card-color-soft: var(--mint-soft); --tilt: 2deg;">ISF</div>
+        <span class="org-name">KVIS Invitational Science Fair</span>
+        <span class="org-role">Instagram Co-Admin</span>
+        <a class="ig-link" href="#" target="_blank" rel="noopener">Instagram</a>
+      </div>
+
+      <div class="ig-card">
+        <div class="ig-photo" style="--card-color-soft: var(--yellow-soft); --tilt: -2deg;">ART</div>
+        <span class="org-name">KVIS Art Festival</span>
+        <span class="org-role">Instagram Co-Admin</span>
+        <a class="ig-link" href="#" target="_blank" rel="noopener">Instagram</a>
+      </div>
+
+      <div class="ig-card">
+        <div class="ig-photo" style="--card-color-soft: var(--lavender-soft); --tilt: 3deg;">JCAC</div>
+        <span class="org-name">Japanese Culture Appreciation Club</span>
+        <span class="org-role">Vice President &amp; Initiator</span>
+        <a class="ig-link" href="#" target="_blank" rel="noopener">Instagram</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="skills" class="wrap">
+    <h2>Skills</h2>
+
+    <div class="skill-group">
+      <h4>Programming Languages</h4>
+      <div class="tags">
+        <span class="tag" style="--tag-color: var(--pink-soft);">C</span>
+        <span class="tag" style="--tag-color: var(--mint-soft);">C++</span>
+        <span class="tag" style="--tag-color: var(--yellow-soft);">Python</span>
+        <span class="tag" style="--tag-color: var(--lavender-soft);">Java</span>
+        <span class="tag" style="--tag-color: var(--pink-soft);">JavaScript</span>
+        <span class="tag" style="--tag-color: var(--mint-soft);">TypeScript</span>
+        <span class="tag" style="--tag-color: var(--yellow-soft);">SQL</span>
+        <span class="tag" style="--tag-color: var(--lavender-soft);">PL/SQL</span>
+        <span class="tag" style="--tag-color: var(--pink-soft);">Lua</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h4>Web &amp; Markup</h4>
+      <div class="tags">
+        <span class="tag" style="--tag-color: var(--mint-soft);">HTML</span>
+        <span class="tag" style="--tag-color: var(--yellow-soft);">CSS</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h4>Tools &amp; Platforms</h4>
+      <div class="tags">
+        <span class="tag" style="--tag-color: var(--pink-soft);">Unity</span>
+        <span class="tag" style="--tag-color: var(--mint-soft);">Godot</span>
+        <span class="tag" style="--tag-color: var(--yellow-soft);">Oracle APEX</span>
+        <span class="tag" style="--tag-color: var(--lavender-soft);">Visual Studio</span>
+        <span class="tag" style="--tag-color: var(--pink-soft);">SolidWorks</span>
+        <span class="tag" style="--tag-color: var(--mint-soft);">CoppeliaSim</span>
+        <span class="tag" style="--tag-color: var(--yellow-soft);">Arduino IDE</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h4>Languages</h4>
+      <div class="tags">
+        <span class="tag" style="--tag-color: var(--lavender-soft);">English (Fluent)</span>
+        <span class="tag" style="--tag-color: var(--pink-soft);">Thai (Native)</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="wrap">
+    <div class="collab">
+      <h2>Let's collaborate</h2>
+      <p>Looking for full-stack or game dev internship opportunities. If any of this looks interesting, or you just want to talk about books, feminism, and politics, my inbox is open.</p>
+      <div class="social-row">
+        <a href="mailto:cchayadapak@gmail.com">Email me</a>
         <a href="https://github.com/cchayadap" target="_blank" rel="noopener">GitHub</a>
         <a href="https://www.linkedin.com/in/chayada-pakpoomkamonlert-3079a4318/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="Chayada_Pakpoomkamonlert_CV.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
+        <a href="Chayada_Pakpoomkamonlert_CV.pdf" target="_blank" rel="noopener">Résumé</a>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <footer>
-      Made by Chayada. Last updated 2026.
-    </footer>
+</main>
 
-  </main>
-</div>
+<footer>
+  <p class="stay-tuned">🚧 This portfolio is still a work in progress!</p>
+  <p>I'll keep adding more of my journey here, so stay tuned. Thanks for stopping by 💌</p>
+</footer>
 
 <script>
-  // Highlight the active section link while scrolling.
-  const links = document.querySelectorAll('.sidenav a');
+  const links = document.querySelectorAll('.topnav nav a');
   const sections = Array.from(links).map(a => document.querySelector(a.getAttribute('href')));
-
   function setActive(){
     let current = sections[0];
     const scrollPos = window.scrollY + window.innerHeight * 0.3;
@@ -676,36 +733,11 @@
       if (sec && sec.offsetTop <= scrollPos) current = sec;
     });
     links.forEach(a => {
-      a.classList.toggle('active', a.getAttribute('href') === '#' + current.id);
+      a.style.color = (a.getAttribute('href') === '#' + current.id) ? 'var(--pink)' : '';
     });
   }
   document.addEventListener('scroll', setActive, { passive: true });
   window.addEventListener('load', setActive);
-
-  // Small typewriter moment for the tagline. Skips straight to the full
-  // text if the visitor prefers reduced motion.
-  const tagline = document.getElementById('tagline');
-  const fullText = "CS student. Full-stack by day, occasional game jammer by night.";
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  if (prefersReducedMotion) {
-    tagline.textContent = fullText;
-  } else {
-    let i = 0;
-    const cursor = document.createElement('span');
-    cursor.className = 'cursor';
-    function typeNext(){
-      if (i <= fullText.length) {
-        tagline.textContent = fullText.slice(0, i);
-        tagline.appendChild(cursor);
-        i++;
-        setTimeout(typeNext, 28);
-      } else {
-        setTimeout(() => cursor.remove(), 1800);
-      }
-    }
-    typeNext();
-  }
 </script>
 
 </body>
