@@ -218,7 +218,9 @@
   }
 
   .resume-btn{
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     background: var(--pink);
     color: #fff !important;
     padding: 0.7rem 1.5rem;
@@ -229,6 +231,12 @@
     cursor: pointer;
     font-family: 'Nunito', sans-serif;
     transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .resume-btn .btn-icon{
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+    flex-shrink: 0;
   }
   .resume-btn:hover{
     text-decoration: none;
@@ -242,9 +250,40 @@
     box-shadow: none;
   }
 
+  .resume-mini{
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 700;
+    font-size: 0.82rem;
+  }
+
+  .icon-row a{
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    color: var(--ink);
+    padding: 0;
+  }
+  .icon-row a svg{
+    width: 19px;
+    height: 19px;
+    fill: currentColor;
+    display: block;
+  }
+  .icon-row a:hover{
+    background: var(--pink-soft);
+    border-color: var(--pink);
+    color: var(--pink);
+    text-decoration: none;
+  }
+
   /* ---------- Sections ---------- */
   section{
-    padding: 5.5rem 0;
+    margin: 5.5rem 0;
     scroll-margin-top: 4rem;
   }
   section h2{
@@ -255,7 +294,7 @@
   .lede{
     max-width: 62ch;
     margin: 0 auto;
-    text-align: justify;
+    text-align: center;
     color: var(--ink);
   }
 
@@ -278,7 +317,7 @@
   }
 
   @media (max-width: 700px){
-    section{ padding: 3.6rem 0; }
+    section{ margin: 3.6rem 0; }
   }
 
   /* ---------- Timeline ---------- */
@@ -670,11 +709,8 @@
         <a href="https://www.linkedin.com/in/chayada-pakpoomkamonlert-3079a4318/" target="_blank" rel="noopener" aria-label="LinkedIn">
           <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
         </a>
+        <a class="resume-mini" href="Chayada_Pakpoomkamonlert_CV.pdf" target="_blank" rel="noopener" aria-label="Download résumé" title="Download résumé">CV</a>
       </div>
-      <a class="resume-btn" href="Chayada_Pakpoomkamonlert_CV.pdf" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" class="btn-icon"><path d="M12 3v10.59l3.3-3.3 1.4 1.42L12 17.4l-4.7-4.7 1.4-1.42 3.3 3.3V3h2ZM5 19h14v2H5v-2Z"/></svg>
-        Download résumé
-      </a>
     </div>
   </div>
 </header>
