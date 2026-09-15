@@ -211,7 +211,7 @@
 
   /* ---------- Sections ---------- */
   section{
-    padding: 3.2rem 0;
+    padding: 5.5rem 0;
     scroll-margin-top: 4rem;
   }
   section h2{
@@ -242,6 +242,10 @@
     font-size: 0.88rem;
     font-weight: 700;
     color: var(--ink);
+  }
+
+  @media (max-width: 700px){
+    section{ padding: 3.6rem 0; }
   }
 
   /* ---------- Timeline ---------- */
@@ -875,7 +879,7 @@
       <h2>Let's collaborate</h2>
       <p>Looking for full-stack or game dev internship opportunities. If any of this looks interesting, or you just want to talk about books, feminism, and politics, my inbox is open.</p>
 
-      <form class="contact-form" id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <form class="contact-form" id="contact-form" action="https://formspree.io/f/mzebnokb" method="POST">
         <div class="form-row">
           <label for="cf-name">Name</label>
           <input type="text" id="cf-name" name="name" placeholder="Your name" required>
@@ -942,7 +946,6 @@
   });
 
   // Submit the contact form via fetch so the page doesn't navigate away.
-  // Requires a real Formspree endpoint in the form's action attribute (see README).
   const form = document.getElementById('contact-form');
   const status = document.getElementById('form-status');
   const submitBtn = document.getElementById('cf-submit');
