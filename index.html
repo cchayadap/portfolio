@@ -146,6 +146,17 @@
     flex-direction: column;
     align-items: center;
   }
+  .hero-frame{
+    display: inline-block;
+  }
+  @media (min-width: 701px){
+    .hero-frame{
+      border: 2px dotted var(--pink);
+      border-radius: 32px;
+      padding: 2.6rem 2.2rem;
+      box-shadow: 0 0 0 6px var(--bg), 0 0 0 9px var(--pink-soft);
+    }
+  }
   .avatar{
     width: 92px;
     height: 92px;
@@ -296,7 +307,7 @@
   .lede{
     max-width: 62ch;
     margin: 0 auto;
-    text-align: left;
+    text-align: center;
     color: var(--ink);
   }
 
@@ -697,6 +708,7 @@
 </div>
 
 <header class="hero wrap">
+  <div class="hero-frame">
   <div class="hero-inner">
     <img class="avatar" src="assets/avatar.jpg" alt="Chayada">
     <div class="hero-text">
@@ -715,6 +727,7 @@
         <a class="resume-mini" href="Chayada_Pakpoomkamonlert_CV.pdf" target="_blank" rel="noopener" aria-label="Download résumé" title="Download résumé">CV</a>
       </div>
     </div>
+  </div>
   </div>
 </header>
 
