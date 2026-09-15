@@ -73,6 +73,9 @@
     border-bottom: 1px solid var(--line);
   }
   .topnav .wrap{
+    max-width: 1400px;
+    padding-left: 3rem;
+    padding-right: 3rem;
     position: relative;
     display: flex;
     align-items: center;
@@ -110,6 +113,7 @@
   }
 
   @media (max-width: 700px){
+    .topnav .wrap{ padding-left: 1.5rem; padding-right: 1.5rem; }
     .nav-toggle{ display: block; }
     .topnav nav{
       display: none;
@@ -135,6 +139,11 @@
     padding: 4rem 0 3rem;
     text-align: center;
   }
+  .hero-inner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   .avatar{
     width: 92px;
     height: 92px;
@@ -150,6 +159,7 @@
     color: var(--pink);
     background: var(--pink-soft);
     object-fit: cover;
+    flex-shrink: 0;
     transition: border-color .2s ease;
   }
   /* Swap this div's content for <img class="avatar" src="assets/avatar.jpg" alt="Chayada"> once you have a photo */
@@ -163,6 +173,29 @@
     font-size: 1.08rem;
     max-width: 46ch;
     margin: 0 auto 1.6rem;
+  }
+
+  @media (min-width: 701px){
+    .hero-inner{
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 2.8rem;
+    }
+    .avatar{
+      width: 160px;
+      height: 160px;
+      font-size: 2.4rem;
+      margin: 0;
+    }
+    .hero-text{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+    }
+    .hero-text .tagline{ margin-left: 0; margin-right: 0; }
+    .hero-text .social-row{ justify-content: flex-start; }
   }
 
   .social-row{
@@ -222,7 +255,7 @@
   .lede{
     max-width: 62ch;
     margin: 0 auto;
-    text-align: center;
+    text-align: left;
     color: var(--ink);
   }
 
@@ -622,15 +655,19 @@
 </div>
 
 <header class="hero wrap">
-  <img class="avatar" src="assets/avatar.jpg" alt="Chayada">
-  <h1>Chayada Pakpoomkamonlert</h1>
-  <p class="tagline">Full-stack dev, third-year CS student at PolyU, and part-time game maker, full-time whimsical visionary.</p>
-  <div class="social-row">
-    <a href="mailto:cchayadapak@gmail.com">Email</a>
-    <a href="https://github.com/cchayadap" target="_blank" rel="noopener">GitHub</a>
-    <a href="https://www.linkedin.com/in/chayada-pakpoomkamonlert-3079a4318/" target="_blank" rel="noopener">LinkedIn</a>
+  <div class="hero-inner">
+    <img class="avatar" src="assets/avatar.jpg" alt="Chayada">
+    <div class="hero-text">
+      <h1>Chayada Pakpoomkamonlert</h1>
+      <p class="tagline">Full-stack dev, third-year CS student at PolyU, and part-time game maker, full-time whimsical visionary.</p>
+      <div class="social-row">
+        <a href="mailto:cchayadapak@gmail.com">Email</a>
+        <a href="https://github.com/cchayadap" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/chayada-pakpoomkamonlert-3079a4318/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <a class="resume-btn" href="Chayada_Pakpoomkamonlert_CV.pdf" target="_blank" rel="noopener">Download résumé</a>
+    </div>
   </div>
-  <a class="resume-btn" href="Chayada_Pakpoomkamonlert_CV.pdf" target="_blank" rel="noopener">Download résumé</a>
 </header>
 
 <main>
