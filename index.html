@@ -320,6 +320,9 @@
   }
   .fun-facts li{
     list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
     background: var(--surface);
     border: 1px solid var(--line);
     border-radius: 999px;
@@ -327,6 +330,12 @@
     font-size: 0.88rem;
     font-weight: 700;
     color: var(--ink);
+  }
+  .fact-icon{
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+    color: var(--pink);
   }
 
   @media (max-width: 700px){
@@ -380,12 +389,37 @@
   }
 
   .t-card{
+    position: relative;
     background: var(--card-color-soft, var(--pink-soft));
     border-radius: 16px;
     padding: 1.2rem 1.35rem;
     transition: transform .15s ease;
   }
   .t-card:hover{ transform: translateY(-3px); }
+
+  .t-icon{
+    position: absolute;
+    top: -14px;
+    right: 14px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--card-color, var(--pink));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 8px rgba(58,37,48,0.18);
+  }
+  .t-icon svg{
+    width: 16px;
+    height: 16px;
+  }
+
+  .sub-role + .sub-role{
+    margin-top: 0.9rem;
+    padding-top: 0.9rem;
+    border-top: 1px dashed var(--card-color, var(--pink));
+  }
 
   .t-card .top{
     display: flex;
@@ -452,6 +486,7 @@
     box-shadow: 0 10px 24px rgba(255,143,174,0.18);
   }
   .project-top{
+    position: relative;
     height: 74px;
     width: 100%;
     display: flex;
@@ -466,6 +501,23 @@
     width: 100%;
     object-fit: contain;
     padding: 10px;
+  }
+  .p-icon{
+    position: absolute;
+    bottom: 10px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(58,37,48,0.14);
+  }
+  .p-icon svg{
+    width: 17px;
+    height: 17px;
   }
   .project-card .body{
     padding: 1.1rem 1.3rem 1.3rem;
@@ -749,10 +801,40 @@
       fun back to our tech industry, in the most effective way I can &lt;3
     </p>
     <ul class="fun-facts">
-      <li>🎮 Tinkering in Unity and Godot on the side</li>
-      <li>🐛 Once taught a simulated stick insect to walk</li>
-      <li>🌏 Saving the world from AI with our creativity</li>
-      <li>☕ Powered by books and browser tabs</li>
+      <li>
+        <svg class="fact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2" y="8" width="20" height="10" rx="5"/>
+          <path d="M7 11v4M5 13h4"/>
+          <circle cx="16" cy="11.5" r="1"/>
+          <circle cx="18.5" cy="14" r="1"/>
+        </svg>
+        Tinkering in Unity and Godot on the side
+      </li>
+      <li>
+        <svg class="fact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <ellipse cx="12" cy="13" rx="5" ry="7"/>
+          <path d="M12 6V3M9.5 4.5 11 6.5M14.5 4.5 13 6.5"/>
+          <path d="M4.5 10 7 11M4.5 14.5 7 14M4.5 19 7 17M19.5 10 17 11M19.5 14.5 17 14M19.5 19 17 17"/>
+          <path d="M7.5 13h9"/>
+        </svg>
+        Once taught a simulated stick insect to walk
+      </li>
+      <li>
+        <svg class="fact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="9"/>
+          <path d="M3 12h18"/>
+          <path d="M12 3c2.5 2.5 4 5.5 4 9s-1.5 6.5-4 9c-2.5-2.5-4-5.5-4-9s1.5-6.5 4-9Z"/>
+        </svg>
+        Saving the world from AI with our creativity
+      </li>
+      <li>
+        <svg class="fact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 9h13v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V9Z"/>
+          <path d="M17 10.5h1.5a2.5 2.5 0 0 1 0 5H17"/>
+          <path d="M8 3c0 1-1 1-1 2M12 3c0 1-1 1-1 2"/>
+        </svg>
+        Powered by books and browser tabs
+      </li>
     </ul>
   </section>
 
@@ -763,8 +845,14 @@
       <div class="t-entry" style="--card-color: var(--pink); --card-color-soft: var(--pink-soft);">
         <div class="dot"></div>
         <div class="t-card">
+          <div class="t-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 8h12l-1 12H7L6 8Z"/>
+              <path d="M9 8V6a3 3 0 0 1 6 0v2"/>
+            </svg>
+          </div>
           <div class="top">
-            <h3>🛍️ Gosoft (Thailand)</h3>
+            <h3>Gosoft (Thailand)</h3>
             <span class="dates">Jul – Aug 2026</span>
           </div>
           <div class="role">Full-Stack Software Engineer Intern</div>
@@ -776,8 +864,15 @@
       <div class="t-entry" style="--card-color: var(--mint); --card-color-soft: var(--mint-soft);">
         <div class="dot"></div>
         <div class="t-card">
+          <div class="t-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="9"/>
+              <path d="M3 12h18"/>
+              <path d="M12 3c2.5 2.5 4 5.5 4 9s-1.5 6.5-4 9c-2.5-2.5-4-5.5-4-9s1.5-6.5 4-9Z"/>
+            </svg>
+          </div>
           <div class="top">
-            <h3>🌐 T-Maxx International</h3>
+            <h3>T-Maxx International</h3>
             <span class="dates">Apr – Aug 2026</span>
           </div>
           <div class="role">LLM Data Annotator, Freelance</div>
@@ -788,8 +883,16 @@
       <div class="t-entry" style="--card-color: var(--yellow); --card-color-soft: var(--yellow-soft);">
         <div class="dot"></div>
         <div class="t-card">
+          <div class="t-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <ellipse cx="12" cy="13" rx="5" ry="7"/>
+              <path d="M12 6V3M9.5 4.5 11 6.5M14.5 4.5 13 6.5"/>
+              <path d="M4.5 10 7 11M4.5 14.5 7 14M4.5 19 7 17M19.5 10 17 11M19.5 14.5 17 14M19.5 19 17 17"/>
+              <path d="M7.5 13h9"/>
+            </svg>
+          </div>
           <div class="top">
-            <h3>🐛 VISTEC — BRAIN Lab</h3>
+            <h3>VISTEC — BRAIN Lab</h3>
             <span class="dates">Jun – Aug 2024</span>
           </div>
           <div class="role">Research Intern</div>
@@ -801,17 +904,29 @@
       <div class="t-entry" style="--card-color: var(--lavender); --card-color-soft: var(--lavender-soft);">
         <div class="dot"></div>
         <div class="t-card">
+          <div class="t-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 4 2 9l10 5 10-5-10-5Z"/>
+              <path d="M6 11.5V17c0 1.5 2.5 3 6 3s6-1.5 6-3v-5.5"/>
+              <path d="M22 9v6"/>
+            </svg>
+          </div>
           <div class="top">
-            <h3>📐 Kamnoetvidya Science Academy</h3>
+            <h3>Kamnoetvidya Science Academy</h3>
             <span class="dates">2022 – 2024</span>
           </div>
-          <div class="role">Student Researcher, Mathematics</div>
-          <p>Solved piecewise linear difference equations to characterize the recursive behavior of system solutions. Presented findings at the Annual Pure and Applied Mathematics (APAM) Conference 2023 and the Kamnoetvidya Invitational Science Fair (KVIS-ISF) 2024.</p>
-          <div class="tools">Python · Recursive Computation</div>
 
-          <div class="role">Assistive Hardware Projects, Biomedical / Embedded Systems</div>
-          <p>Engineered a force-sensor electric bed with Bluetooth-microcontroller safety features (SolidWorks) and an EMG muscle-signal wheelchair control framework, showcased at national innovation competitions.</p>
-          <div class="tools">Microcontroller · Arduino IDE · SolidWorks</div>
+          <div class="sub-role">
+            <div class="role">Student Researcher, Mathematics</div>
+            <p>Solved piecewise linear difference equations to characterize the recursive behavior of system solutions. Presented findings at the Annual Pure and Applied Mathematics (APAM) Conference 2023 and the Kamnoetvidya Invitational Science Fair (KVIS-ISF) 2024.</p>
+            <div class="tools">Python · Recursive Computation</div>
+          </div>
+
+          <div class="sub-role">
+            <div class="role">Assistive Hardware Projects, Biomedical / Embedded Systems</div>
+            <p>Engineered a force-sensor electric bed with Bluetooth-microcontroller safety features (SolidWorks) and an EMG muscle-signal wheelchair control framework, showcased at national innovation competitions.</p>
+            <div class="tools">Microcontroller · Arduino IDE · SolidWorks</div>
+          </div>
         </div>
       </div>
 
@@ -847,7 +962,14 @@
       </div>
 
       <div class="project-card">
-        <div class="project-top" style="--card-color-soft: var(--mint-soft);">🛏️</div>
+        <div class="project-top" style="--card-color-soft: var(--mint-soft);">
+          <div class="p-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M2 17v3M22 17v3M2 12h20v5H2z"/>
+              <path d="M4 12V8a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4"/>
+            </svg>
+          </div>
+        </div>
         <div class="body">
           <h3>Electric Bed for Disabled Patients</h3>
           <p>Force-sensor electric bed with Bluetooth-microcontroller safety features, modeled in SolidWorks.</p>
@@ -856,7 +978,17 @@
       </div>
 
       <div class="project-card">
-        <div class="project-top" style="--card-color-soft: var(--yellow-soft);">🦾</div>
+        <div class="project-top" style="--card-color-soft: var(--yellow-soft);">
+          <div class="p-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="9" cy="16" r="5"/>
+              <circle cx="19" cy="19" r="1.1"/>
+              <path d="M9 16V6a2 2 0 0 1 2-2h1"/>
+              <path d="M9 12h6l3 7"/>
+              <path d="M12 12V9h4"/>
+            </svg>
+          </div>
+        </div>
         <div class="body">
           <h3>EMG Wheelchair Control</h3>
           <p>A muscle-signal control framework that reads EMG input to make wheelchair use a little easier.</p>
@@ -865,7 +997,16 @@
       </div>
 
       <div class="project-card">
-        <div class="project-top" style="--card-color-soft: var(--lavender-soft);">🐛</div>
+        <div class="project-top" style="--card-color-soft: var(--lavender-soft);">
+          <div class="p-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <ellipse cx="12" cy="13" rx="5" ry="7"/>
+              <path d="M12 6V3M9.5 4.5 11 6.5M14.5 4.5 13 6.5"/>
+              <path d="M4.5 10 7 11M4.5 14.5 7 14M4.5 19 7 17M19.5 10 17 11M19.5 14.5 17 14M19.5 19 17 17"/>
+              <path d="M7.5 13h9"/>
+            </svg>
+          </div>
+        </div>
         <div class="body">
           <h3>Stick Insect Locomotion Model</h3>
           <p>A CoppeliaSim simulation of decentralized adaptive neural control for stick insect-like robot locomotion.</p>
