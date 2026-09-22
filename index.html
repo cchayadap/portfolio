@@ -461,7 +461,12 @@
     background: var(--card-color-soft, var(--pink-soft));
     object-fit: cover;
   }
-  /* Swap a .project-top's content for <img src="assets/projects/xxx.jpg"> once you have screenshots */
+  .project-top img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    padding: 10px;
+  }
   .project-card .body{
     padding: 1.1rem 1.3rem 1.3rem;
   }
@@ -508,7 +513,6 @@
     transition: transform .15s ease;
   }
   .ig-card:hover .ig-photo{ transform: rotate(0deg) scale(1.03); }
-  /* Swap an .ig-photo's content for <img src="assets/orgs/xxx.jpg"> once you have photos */
   .ig-card .org-name{
     display: block;
     margin-top: 0.9rem;
@@ -819,7 +823,7 @@
     <div class="project-grid">
 
       <div class="project-card">
-        <div class="project-top" style="--card-color-soft: var(--pink-soft);">🧪</div>
+        <div class="project-top" style="--card-color-soft: var(--pink-soft);"><img src="assets/projects/scenariolab-logo.png" alt="ScenarioLab logo"></div>
         <div class="body">
           <h3>ScenarioLab</h3>
           <p>An EdTech tool that turns a course's syllabus into a realistic workplace scenario — students design a solution (stack, schema, workflow) and get pushback from an AI "senior" in a feedback loop.</p>
@@ -833,7 +837,7 @@
       </div>
 
       <div class="project-card">
-        <div class="project-top" style="--card-color-soft: var(--pink-soft);">🔗</div>
+        <div class="project-top" style="--card-color-soft: var(--pink-soft);"><img src="assets/projects/kvis-connect-logo.webp" alt="KVIS-Connect logo"></div>
         <div class="body">
           <h3>KVIS-Connect</h3>
           <p>Co-founded and designed a networking platform for Kamnoetvidya Science Academy alumni, students, and staff to connect and share research interests. Grew the platform to 169 registered users within the first month of launch.</p>
@@ -878,7 +882,7 @@
     <div class="community-grid">
 
       <div class="ig-card">
-        <div class="ig-photo" style="--card-color-soft: var(--pink-soft); --tilt: -3deg;">THSA</div>
+        <img class="ig-photo" style="--tilt: -3deg;" src="assets/orgs/thsa.webp" alt="PolyU Thai Student Association booth activities">
         <span class="org-name">PolyU Thai Student Association</span>
         <span class="org-role">Marketing &amp; PR Executive Committee</span>
         <div class="card-links">
@@ -888,7 +892,7 @@
       </div>
 
       <div class="ig-card">
-        <div class="ig-photo" style="--card-color-soft: var(--mint-soft); --tilt: 2deg;">ISF</div>
+        <img class="ig-photo" style="--tilt: 2deg;" src="assets/orgs/isf.jpg" alt="Chayada receiving the KVIS-ISF Best of Project Award, Mathematics, Second Runner-Up">
         <span class="org-name">KVIS Invitational Science Fair</span>
         <span class="org-role">News Writer, Instagram Co-Admin</span>
         <div class="card-links">
@@ -899,7 +903,7 @@
       </div>
 
       <div class="ig-card">
-        <div class="ig-photo" style="--card-color-soft: var(--yellow-soft); --tilt: -2deg;">ART</div>
+        <img class="ig-photo" style="--tilt: -2deg;" src="assets/orgs/art-festival.jpg" alt="KVIS Art Festival Instagram grid">
         <span class="org-name">KVIS Art Festival</span>
         <span class="org-role">Instagram Co-Admin (2022)</span>
         <div class="card-links">
@@ -908,7 +912,7 @@
       </div>
 
       <div class="ig-card">
-        <div class="ig-photo" style="--card-color-soft: var(--lavender-soft); --tilt: 3deg;">JCAC</div>
+        <img class="ig-photo" style="--tilt: 3deg;" src="assets/orgs/jcac.jpg" alt="Origami made for a Japanese Culture Appreciation Club event">
         <span class="org-name">Japanese Culture Appreciation Club</span>
         <span class="org-role">Vice President &amp; Initiator</span>
       </div>
