@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Pixelify+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../style.css?v=4">
+<link rel="stylesheet" href="../../style.css?v=7">
 </head>
 <body>
 
@@ -29,8 +29,14 @@
   <div class="stars far"></div>
   <div class="stars near"></div>
   <span class="shooting"></span>
-  <img class="planet" src="../../assets/pixel/planet.svg" alt="" width="176" height="120">
-  <img class="moon" src="../../assets/pixel/moon.svg" alt="" width="96" height="96">
+  <span class="deco ring"        style="--c: var(--pink-strong); --s: 34px; top: 12%; left: 30px;"></span>
+  <span class="deco star b"      style="--c: var(--blue); --s: 26px; top: 36%; left: 58px;"></span>
+  <span class="deco dot c"       style="--c: #5ee6c0; --s: 16px; top: 62%; left: 26px;"></span>
+  <span class="deco heart"       style="--c: var(--coral); --s: 22px; top: 84%; left: 64px;"></span>
+  <span class="deco dot b"       style="--c: #b48cff; --s: 22px; top: 16%; right: 44px;"></span>
+  <span class="deco star"        style="--c: var(--pink-strong); --s: 24px; top: 44%; right: 70px;"></span>
+  <span class="deco ring c"      style="--c: var(--blue); --s: 36px; top: 70%; right: 30px;"></span>
+  <span class="deco spark b"     style="--c: var(--cyan); --s: 22px; top: 90%; right: 60px;"></span>
 </div>
 
 <div class="topnav">
@@ -53,7 +59,7 @@
 
   <header class="case-hero wrap">
     <span class="case-kicker">Case study</span>
-    <div class="case-shot" style="--card-color-soft: var(--yellow-soft);"><img src="../../assets/projects/wreckabulary-screenshot.webp" alt="Wreckabulary gameplay: two players on a rug surrounded by furniture built from letters, spelling words to summon objects" width="778" height="610"></div>
+    <div class="case-shot" style="--card-color-soft: var(--blue-soft);"><img src="../../assets/projects/wreckabulary-screenshot.webp" alt="Wreckabulary gameplay: two players on a rug surrounded by furniture built from letters, spelling words to summon objects" width="778" height="610"></div>
     <h1>Wreckabulary</h1>
     <p class="tagline">Wreck the room, build the word! A 2–4 player couch party brawler where everything is made of letters.</p>
     <div class="case-links">
@@ -64,7 +70,7 @@
   <dl class="info-strip wrap">
     <div style="--tile: var(--pink-soft);"><dt>Role</dt><dd>Main designer &amp; core developer</dd></div>
     <div style="--tile: var(--mint-soft);"><dt>Team</dt><dd><span class="todo-tag">TODO</span>team size</dd></div>
-    <div style="--tile: var(--yellow-soft);"><dt>Dates</dt><dd>Sep 2026 – present · COMP4122</dd></div>
+    <div style="--tile: var(--blue-soft);"><dt>Dates</dt><dd>Sep 2026 – present · COMP4122</dd></div>
     <div class="stack" style="--tile: var(--lavender-soft);"><dt>Stack</dt><dd><div class="tags"><span class="tag">Unity 6 (URP)</span><span class="tag">C#</span><span class="tag">Unity Input System</span><span class="tag">Git LFS</span></div></dd></div>
   </dl>
 
@@ -88,7 +94,7 @@
     <div class="prose">
         <ul class="loop" aria-label="Core loop">
           <li style="--tile: var(--pink-soft);">Smash</li>
-          <li style="--tile: var(--yellow-soft);">Scavenge</li>
+          <li style="--tile: var(--blue-soft);">Scavenge</li>
           <li style="--tile: var(--mint-soft);">Spell</li>
           <li style="--tile: var(--lavender-soft);">Summon</li>
         </ul>
@@ -114,7 +120,7 @@
             <path class="d-edge" d="M160 140 V162" marker-end="url(#arrow)"/>
             <text class="d-edge-label" x="168" y="155">spell</text>
 
-            <rect class="d-node yellow" x="30" y="166" width="260" height="54" rx="12"/>
+            <rect class="d-node blue" x="30" y="166" width="260" height="54" rx="12"/>
             <text class="d-title" x="160" y="188" text-anchor="middle">WordDatabase</text>
             <text class="d-sub" x="160" y="206" text-anchor="middle">word_list.csv · WordSolver hints</text>
             <path class="d-edge" d="M160 220 V242" marker-end="url(#arrow)"/>
@@ -145,7 +151,7 @@
             <text class="d-sub" x="160" y="468" text-anchor="middle">bursts into letters · a hit knocks 2 loose</text>
             <path class="d-edge" d="M160 482 V504" marker-end="url(#arrow)"/>
 
-            <rect class="d-node yellow" x="30" y="508" width="260" height="54" rx="12"/>
+            <rect class="d-node blue" x="30" y="508" width="260" height="54" rx="12"/>
             <text class="d-title" x="160" y="530" text-anchor="middle">TilePool</text>
             <text class="d-sub" x="160" y="548" text-anchor="middle">pooled rigidbody letter tiles</text>
 
