@@ -79,6 +79,8 @@
 
 <main>
 
+  <div class="about-row">
+
   <section id="about" class="wrap">
     <h2>About me</h2>
     <p class="lede">
@@ -139,7 +141,6 @@
         </div>
         <div class="degree">BSc (Hons) Computer Science · Tuition Scholarship</div>
         <ul>
-          <li>Cumulative GPA 3.55 / 4.30</li>
           <li>Dean's List, AY 2024–25</li>
         </ul>
       </div>
@@ -150,13 +151,20 @@
           <span class="dates">Feb – Jun 2026</span>
         </div>
         <div class="degree">Exchange Semester, Computer Science</div>
-        <ul>
-          <li>GPA 8.25 / 9.00, all A-range</li>
-        </ul>
+      </div>
+
+      <div class="edu-card" style="--card-color: var(--yellow);">
+        <div class="top">
+          <h3>Kamnoetvidya Science Academy</h3>
+          <span class="dates">2021 – 2024</span>
+        </div>
+        <div class="degree">Grade 10–12 · STEM · Full Scholarship</div>
       </div>
 
     </div>
   </section>
+
+  </div>
 
   <section id="experience" class="wrap">
     <h2>Experience</h2>
@@ -479,18 +487,39 @@
 
 <script>
   // Highlight the nav link for whichever section crosses a band ~30% down the viewport.
+  // About and Education sit side by side on wide screens, so both can cross the band at
+  // once: the first in page order wins, unless its link was just clicked.
   const links = document.querySelectorAll('.topnav nav a');
   const linkFor = new Map(Array.from(links, a => [a.getAttribute('href').slice(1), a]));
+  const sectionOrder = Array.from(linkFor.keys());
+  const visible = new Set();
+  let pinned = null, pinnedSeen = false;
+  function setCurrent(id){
+    links.forEach(a => a.removeAttribute('aria-current'));
+    linkFor.get(id)?.setAttribute('aria-current', 'location');
+  }
   const navObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      links.forEach(a => a.removeAttribute('aria-current'));
-      linkFor.get(entry.target.id)?.setAttribute('aria-current', 'location');
+      const id = entry.target.id;
+      if (entry.isIntersecting) {
+        visible.add(id);
+        if (id === pinned) pinnedSeen = true;
+      } else {
+        visible.delete(id);
+        if (id === pinned && pinnedSeen) pinned = null;
+      }
     });
+    const current = (pinned && visible.has(pinned)) ? pinned : sectionOrder.find(id => visible.has(id));
+    if (current) setCurrent(current);
   }, { rootMargin: '-30% 0px -69% 0px' });
   linkFor.forEach((a, id) => {
     const section = document.getElementById(id);
     if (section) navObserver.observe(section);
+    a.addEventListener('click', () => {
+      pinned = id;
+      pinnedSeen = false;
+      setCurrent(id);
+    });
   });
 
   // Mobile nav toggle

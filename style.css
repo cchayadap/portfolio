@@ -465,7 +465,7 @@ section h2{
 /* ---------- Education ---------- */
 .edu-grid{
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.2rem;
 }
 .edu-card{
@@ -503,6 +503,28 @@ section h2{
 
 @media (max-width: 720px){
   .edu-grid{ grid-template-columns: 1fr; }
+}
+
+/* About + Education side by side on wide screens; stacked (unchanged) below 960px. */
+@media (min-width: 960px){
+  .about-row{
+    max-width: 1000px;
+    margin: 5.5rem auto;
+    padding: 0 1.5rem;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+  .about-row > section{
+    margin: 0;
+    padding: 0;
+    max-width: none;
+  }
+  .about-row h2{ text-align: left; }
+  .about-row .lede{ text-align: left; margin: 0; }
+  .about-row .fun-facts{ justify-content: flex-start; padding: 0; }
+  .about-row .edu-grid{ grid-template-columns: 1fr; }
 }
 
 @media (max-width: 720px){
