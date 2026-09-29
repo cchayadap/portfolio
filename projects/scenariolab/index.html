@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Pixelify+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../style.css?v=4">
+<link rel="stylesheet" href="../../style.css?v=7">
 </head>
 <body>
 
@@ -29,8 +29,14 @@
   <div class="stars far"></div>
   <div class="stars near"></div>
   <span class="shooting"></span>
-  <img class="planet" src="../../assets/pixel/planet.svg" alt="" width="176" height="120">
-  <img class="moon" src="../../assets/pixel/moon.svg" alt="" width="96" height="96">
+  <span class="deco ring"        style="--c: var(--pink-strong); --s: 34px; top: 12%; left: 30px;"></span>
+  <span class="deco star b"      style="--c: var(--blue); --s: 26px; top: 36%; left: 58px;"></span>
+  <span class="deco dot c"       style="--c: #5ee6c0; --s: 16px; top: 62%; left: 26px;"></span>
+  <span class="deco heart"       style="--c: var(--coral); --s: 22px; top: 84%; left: 64px;"></span>
+  <span class="deco dot b"       style="--c: #b48cff; --s: 22px; top: 16%; right: 44px;"></span>
+  <span class="deco star"        style="--c: var(--pink-strong); --s: 24px; top: 44%; right: 70px;"></span>
+  <span class="deco ring c"      style="--c: var(--blue); --s: 36px; top: 70%; right: 30px;"></span>
+  <span class="deco spark b"     style="--c: var(--cyan); --s: 22px; top: 90%; right: 60px;"></span>
 </div>
 
 <div class="topnav">
@@ -67,7 +73,7 @@
   <dl class="info-strip wrap">
     <div style="--tile: var(--pink-soft);"><dt>Role</dt><dd>Main designer &amp; core developer</dd></div>
     <div style="--tile: var(--mint-soft);"><dt>Team</dt><dd><span class="todo-tag">TODO</span>team size</dd></div>
-    <div style="--tile: var(--yellow-soft);"><dt>Dates</dt><dd>Sep 2026 · General Learning Hackathon</dd></div>
+    <div style="--tile: var(--blue-soft);"><dt>Dates</dt><dd>Sep 2026 · General Learning Hackathon</dd></div>
     <div class="stack" style="--tile: var(--lavender-soft);"><dt>Stack</dt><dd><div class="tags"><span class="tag">Next.js 14</span><span class="tag">React 18</span><span class="tag">TypeScript</span><span class="tag">Tailwind CSS</span><span class="tag">Gemini API</span><span class="tag">Mermaid.js</span><span class="tag">React Flow</span><span class="tag">Vercel</span></div></dd></div>
   </dl>
 
@@ -112,7 +118,7 @@
             <text class="d-title" x="107" y="68" text-anchor="middle">Next.js 14 UI</text>
             <text class="d-sub" x="107" y="86" text-anchor="middle">React Flow flowcharts</text>
             <text class="d-sub" x="107" y="102" text-anchor="middle">Mermaid diagrams</text>
-            <rect class="d-node yellow" x="195" y="42" width="155" height="84" rx="12"/>
+            <rect class="d-node blue" x="195" y="42" width="155" height="84" rx="12"/>
             <text class="d-title" x="272" y="68" text-anchor="middle">localStorage</text>
             <text class="d-sub" x="272" y="86" text-anchor="middle">sessions and</text>
             <text class="d-sub" x="272" y="102" text-anchor="middle">mastery history</text>
@@ -149,7 +155,7 @@
             <text class="d-title" x="190" y="421" text-anchor="middle">lib/gemini.ts · completeJSON</text>
             <path class="d-edge" d="M190 436 V450" marker-end="url(#arrow)"/>
 
-            <rect class="d-node yellow" x="30" y="454" width="320" height="40" rx="12"/>
+            <rect class="d-node blue" x="30" y="454" width="320" height="40" rx="12"/>
             <text class="d-title" x="190" y="479" text-anchor="middle">Google Gemini API</text>
           </svg>
           <figcaption>Every AI step is its own small API route with a tightly scoped prompt.</figcaption>
