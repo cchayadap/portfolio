@@ -505,8 +505,8 @@ section h2{
   .edu-grid{ grid-template-columns: 1fr; }
 }
 
-/* About + Education side by side on wide screens; stacked (unchanged) below 960px. */
-@media (min-width: 960px){
+/* About + Education side by side on wide screens; stacked (unchanged) below 840px. */
+@media (min-width: 840px){
   .about-row{
     max-width: 1000px;
     margin: 5.5rem auto;
