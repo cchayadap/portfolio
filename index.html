@@ -5,6 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Chayada Pakpoomkamonlert</title>
 <meta name="description" content="Chayada Pakpoomkamonlert's portfolio. CS student, full-stack dev, occasional game maker." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://cchayadap.github.io/portfolio/" />
+<meta property="og:title" content="Chayada Pakpoomkamonlert" />
+<meta property="og:description" content="CS student at PolyU, full-stack dev, occasional game maker." />
+<meta property="og:image" content="https://cchayadap.github.io/portfolio/assets/avatar.webp" />
+<meta property="og:image:alt" content="Portrait of Chayada" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Chayada Pakpoomkamonlert" />
+<meta name="twitter:description" content="CS student at PolyU, full-stack dev, occasional game maker." />
+<meta name="twitter:image" content="https://cchayadap.github.io/portfolio/assets/avatar.webp" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -13,9 +24,10 @@
     --bg: #fff8fb;
     --surface: #ffffff;
     --ink: #3a2530;
-    --muted: #927e89;
+    --muted: #76616c;
     --line: #f6dce8;
     --pink: #ff8fae;
+    --pink-strong: #c3275e; /* text/button pink: 4.5:1+ on white, --bg, --pink-soft, --lavender-soft */
     --pink-soft: #ffe4ee;
     --yellow: #ffcb66;
     --yellow-soft: #fff2d9;
@@ -50,10 +62,10 @@
     margin: 0;
   }
 
-  a{ color: var(--pink); text-decoration: none; font-weight: 700; }
+  a{ color: var(--pink-strong); text-decoration: none; font-weight: 700; }
   a:hover{ text-decoration: underline; }
   a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
-    outline: 3px solid var(--pink);
+    outline: 3px solid var(--pink-strong);
     outline-offset: 3px;
   }
 
@@ -100,7 +112,8 @@
     font-weight: 700;
     white-space: nowrap;
   }
-  .topnav nav a:hover{ color: var(--pink); text-decoration: none; }
+  .topnav nav a:hover,
+  .topnav nav a[aria-current]{ color: var(--pink-strong); text-decoration: none; }
 
   .nav-toggle{
     display: none;
@@ -113,7 +126,7 @@
     padding: 0.2rem 0.3rem;
   }
 
-  @media (max-width: 700px){
+  @media (max-width: 780px){
     .topnav .wrap{ padding-left: 1.5rem; padding-right: 1.5rem; }
     .nav-toggle{ display: block; }
     .topnav nav{
@@ -175,7 +188,6 @@
     flex-shrink: 0;
     transition: border-color .2s ease;
   }
-  /* Swap this div's content for <img class="avatar" src="assets/avatar.jpg" alt="Chayada"> once you have a photo */
 
   .hero h1{
     font-size: 2.3rem;
@@ -225,7 +237,7 @@
     border-bottom: 2px solid var(--pink-soft);
   }
   .social-row a:hover{
-    color: var(--pink);
+    color: var(--pink-strong);
     border-color: var(--pink);
     text-decoration: none;
   }
@@ -234,7 +246,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: var(--pink);
+    background: var(--pink-strong);
     color: #fff !important;
     padding: 0.7rem 1.5rem;
     border-radius: 999px;
@@ -290,7 +302,7 @@
   .icon-row a:hover{
     background: var(--pink-soft);
     border-color: var(--pink);
-    color: var(--pink);
+    color: var(--pink-strong);
     text-decoration: none;
   }
 
@@ -453,6 +465,67 @@
     color: var(--muted);
     font-weight: 700;
   }
+  .award{
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.6rem;
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--ink);
+    background: var(--surface);
+    padding: 0.3rem 0.7rem;
+    border-radius: 12px;
+  }
+  .award svg{
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    color: var(--pink-strong);
+  }
+
+  /* ---------- Education ---------- */
+  .edu-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+  }
+  .edu-card{
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-top: 4px solid var(--card-color, var(--pink));
+    border-radius: 16px;
+    padding: 1.1rem 1.3rem 1.2rem;
+  }
+  .edu-card .top{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+  }
+  .edu-card h3{ font-size: 1.02rem; }
+  .edu-card .dates{
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .edu-card .degree{
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--muted);
+    margin-top: 0.15rem;
+  }
+  .edu-card ul{
+    margin: 0.6rem 0 0;
+    padding-left: 1.1rem;
+    font-size: 0.92rem;
+  }
+
+  @media (max-width: 720px){
+    .edu-grid{ grid-template-columns: 1fr; }
+  }
 
   @media (max-width: 720px){
     .timeline::before{ left: 10px; }
@@ -487,7 +560,7 @@
   }
   .project-top{
     position: relative;
-    height: 74px;
+    height: 110px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -501,6 +574,11 @@
     width: 100%;
     object-fit: contain;
     padding: 10px;
+  }
+  .project-top.cover img{
+    object-fit: cover;
+    object-position: center 5%;
+    padding: 0;
   }
   .p-icon{
     position: absolute;
@@ -524,8 +602,13 @@
   }
   .project-card h3{ font-size: 1.02rem; margin-bottom: 0.5rem; }
   .project-card p{ margin: 0; color: var(--muted); font-size: 0.92rem; }
-  .project-card .stat{
+  .project-card .pills{
     margin-top: 0.55rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .project-card .stat{
     display: inline-block;
     font-size: 0.8rem;
     font-weight: 700;
@@ -534,7 +617,12 @@
     padding: 0.25rem 0.6rem;
     border-radius: 999px;
   }
+  .project-card .stat.tech{ background: var(--lavender-soft); }
   .project-card .link{ margin-top: 0.6rem; font-size: 0.88rem; }
+
+  @media (max-width: 720px){
+    .project-grid{ grid-template-columns: 1fr; }
+  }
 
   /* ---------- Community / IG cards ---------- */
   .community-grid{
@@ -595,7 +683,7 @@
     white-space: nowrap;
   }
   .ig-card .card-links a:hover{
-    color: var(--pink);
+    color: var(--pink-strong);
     border-color: var(--pink);
     text-decoration: none;
   }
@@ -689,18 +777,6 @@
 
   .collab .social-row{ margin-bottom: 0; }
 
-  footer{
-    text-align: center;
-    padding: 2.6rem 1.5rem 3rem;
-    color: var(--muted);
-    font-size: 0.88rem;
-  }
-  footer .stay-tuned{
-    font-weight: 700;
-    color: var(--ink);
-    margin-bottom: 0.4rem;
-  }
-
   /* ---------- Side decoration ---------- */
   .side-decor{
     position: fixed;
@@ -754,6 +830,7 @@
     <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="site-nav">☰</button>
     <nav id="site-nav">
       <a href="#about">About</a>
+      <a href="#education">Education</a>
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
       <a href="#community">Community</a>
@@ -766,7 +843,7 @@
 <header class="hero wrap">
   <div class="hero-frame">
   <div class="hero-inner">
-    <img class="avatar" src="assets/avatar.jpg" alt="Chayada">
+    <img class="avatar" src="assets/avatar.webp" alt="Chayada" width="160" height="160">
     <div class="hero-text">
       <h1>Chayada Pakpoomkamonlert</h1>
       <p class="tagline">Full-stack dev, third-year CS student at PolyU, and part-time game maker, full-time whimsical visionary.</p>
@@ -836,6 +913,36 @@
         Powered by books and browser tabs
       </li>
     </ul>
+  </section>
+
+  <section id="education" class="wrap">
+    <h2>Education</h2>
+    <div class="edu-grid">
+
+      <div class="edu-card" style="--card-color: var(--pink);">
+        <div class="top">
+          <h3>The Hong Kong Polytechnic University</h3>
+          <span class="dates">2024 – 2028</span>
+        </div>
+        <div class="degree">BSc (Hons) Computer Science · Tuition Scholarship</div>
+        <ul>
+          <li>Cumulative GPA 3.55 / 4.30</li>
+          <li>Dean's List, AY 2024–25</li>
+        </ul>
+      </div>
+
+      <div class="edu-card" style="--card-color: var(--mint);">
+        <div class="top">
+          <h3>Auckland University of Technology</h3>
+          <span class="dates">Feb – Jun 2026</span>
+        </div>
+        <div class="degree">Exchange Semester, Computer Science</div>
+        <ul>
+          <li>GPA 8.25 / 9.00, all A-range</li>
+        </ul>
+      </div>
+
+    </div>
   </section>
 
   <section id="experience" class="wrap">
@@ -919,6 +1026,14 @@
           <div class="sub-role">
             <div class="role">Student Researcher, Mathematics</div>
             <p>Solved piecewise linear difference equations to characterize the recursive behavior of system solutions. Presented findings at the Annual Pure and Applied Mathematics (APAM) Conference 2023 and the Kamnoetvidya Invitational Science Fair (KVIS-ISF) 2024.</p>
+            <div class="award">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M8 21h8M12 17v4"/>
+                <path d="M7 4h10v5a5 5 0 0 1-10 0V4Z"/>
+                <path d="M7 6H4v1a3 3 0 0 0 3 3M17 6h3v1a3 3 0 0 1-3 3"/>
+              </svg>
+              KVIS-ISF 2024 Best Project Award, Mathematics (2nd runner-up)
+            </div>
             <div class="tools">Python · Recursive Computation</div>
           </div>
 
@@ -938,11 +1053,27 @@
     <div class="project-grid">
 
       <div class="project-card">
-        <div class="project-top" style="--card-color-soft: var(--pink-soft);"><img src="assets/projects/scenariolab-logo.png" alt="ScenarioLab logo"></div>
+        <div class="project-top cover" style="--card-color-soft: var(--yellow-soft);"><img src="assets/projects/wreckabulary-key-art.webp" alt="Wreckabulary key art: blobby ragdoll characters smashing a living room into letter tiles" width="430" height="242" loading="lazy" decoding="async"></div>
+        <div class="body">
+          <h3>Wreckabulary</h3>
+          <p>A 2–4 player local-multiplayer party brawler where everything is made of letters: smash furniture into letter tiles, then spell words to summon objects like BLADE, WINGS or BEES. Main designer and core developer for our COMP4122 group project.</p>
+          <div class="pills">
+            <span class="stat tech">Unity 6 · C#</span>
+            <span class="stat">COMP4122</span>
+          </div>
+          <div class="link"><a href="https://github.com/cchayadap/wreckabulary" target="_blank" rel="noopener">GitHub</a></div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top" style="--card-color-soft: var(--pink-soft);"><img src="assets/projects/scenariolab-logo.webp" alt="ScenarioLab logo" width="183" height="90" loading="lazy" decoding="async"></div>
         <div class="body">
           <h3>ScenarioLab</h3>
-          <p>An EdTech tool that turns a course's syllabus into a realistic workplace scenario — students design a solution (stack, schema, workflow) and get pushback from an AI "senior" in a feedback loop.</p>
-          <div class="stat">GL Hacks</div>
+          <p>An EdTech tool that turns lectures (PDF/PPTX) into workplace scenarios — students design a solution as text or a flowchart, and an AI "senior" grades it against a rubric over 3 revision rounds.</p>
+          <div class="pills">
+            <span class="stat tech">Next.js · Gemini API</span>
+            <span class="stat">GL Hacks</span>
+          </div>
           <div class="link">
             <a href="https://scenariolab-nu.vercel.app/" target="_blank" rel="noopener">Live demo</a>
             &nbsp;·&nbsp;
@@ -952,11 +1083,14 @@
       </div>
 
       <div class="project-card">
-        <div class="project-top" style="--card-color-soft: var(--pink-soft);"><img src="assets/projects/kvis-connect-logo.webp" alt="KVIS-Connect logo"></div>
+        <div class="project-top" style="--card-color-soft: var(--pink-soft);"><img src="assets/projects/kvis-connect-logo.webp" alt="KVIS-Connect logo" width="90" height="90" loading="lazy" decoding="async"></div>
         <div class="body">
           <h3>KVIS-Connect</h3>
-          <p>Co-founded and designed a networking platform for Kamnoetvidya Science Academy alumni, students, and staff to connect and share research interests. Grew the platform to 169 registered users within the first month of launch.</p>
-          <div class="stat">Python · TypeScript</div>
+          <p>Co-founded and designed a networking platform for Kamnoetvidya Science Academy alumni, students, and staff to connect and share research interests, with an interactive 3D globe mapping alumni worldwide.</p>
+          <div class="pills">
+            <span class="stat tech">FastAPI · PostgreSQL · Next.js · Docker</span>
+            <span class="stat">169 users in month one</span>
+          </div>
           <div class="link"><a href="https://kvis-connect.com/" target="_blank" rel="noopener">kvis-connect.com</a></div>
         </div>
       </div>
@@ -971,46 +1105,13 @@
           </div>
         </div>
         <div class="body">
-          <h3>Electric Bed for Disabled Patients</h3>
-          <p>Force-sensor electric bed with Bluetooth-microcontroller safety features, modeled in SolidWorks.</p>
-          <div class="stat">Thailand Innovation Award 2023</div>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-top" style="--card-color-soft: var(--yellow-soft);">
-          <div class="p-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="9" cy="16" r="5"/>
-              <circle cx="19" cy="19" r="1.1"/>
-              <path d="M9 16V6a2 2 0 0 1 2-2h1"/>
-              <path d="M9 12h6l3 7"/>
-              <path d="M12 12V9h4"/>
-            </svg>
+          <h3>Assistive Hardware</h3>
+          <p>A force-sensor electric bed for disabled patients with Bluetooth-microcontroller safety features, modeled in SolidWorks, plus an EMG muscle-signal framework for wheelchair control.</p>
+          <div class="pills">
+            <span class="stat tech">Arduino · SolidWorks</span>
+            <span class="stat">Thailand Innovation Award 2023</span>
+            <span class="stat">SCB Challenge semi-finalist</span>
           </div>
-        </div>
-        <div class="body">
-          <h3>EMG Wheelchair Control</h3>
-          <p>A muscle-signal control framework that reads EMG input to make wheelchair use a little easier.</p>
-          <div class="stat">SCB Challenge semi-finalist</div>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-top" style="--card-color-soft: var(--lavender-soft);">
-          <div class="p-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <ellipse cx="12" cy="13" rx="5" ry="7"/>
-              <path d="M12 6V3M9.5 4.5 11 6.5M14.5 4.5 13 6.5"/>
-              <path d="M4.5 10 7 11M4.5 14.5 7 14M4.5 19 7 17M19.5 10 17 11M19.5 14.5 17 14M19.5 19 17 17"/>
-              <path d="M7.5 13h9"/>
-            </svg>
-          </div>
-        </div>
-        <div class="body">
-          <h3>Stick Insect Locomotion Model</h3>
-          <p>A CoppeliaSim simulation of decentralized adaptive neural control for stick insect-like robot locomotion.</p>
-          <div class="stat">RBF network tuning</div>
         </div>
       </div>
 
@@ -1022,7 +1123,7 @@
     <div class="community-grid">
       
       <div class="ig-card">
-        <img class="ig-photo" style="--tilt: -3deg;" src="assets/orgs/thsa.webp" alt="PolyU Thai Student Association booth activities">
+        <img class="ig-photo" style="--tilt: -3deg;" src="assets/orgs/thsa.webp" alt="PolyU Thai Student Association booth activities" width="200" height="200" loading="lazy" decoding="async">
         <span class="org-name">PolyU Thai Student Association</span>
         <span class="org-role">Marketing &amp; PR Executive Committee</span>
         <div class="card-links">
@@ -1032,7 +1133,7 @@
       </div>
 
       <div class="ig-card">
-        <img class="ig-photo" style="--tilt: 2deg;" src="assets/orgs/isf.jpg" alt="Chayada receiving the KVIS-ISF Best of Project Award, Mathematics, Second Runner-Up">
+        <img class="ig-photo" style="--tilt: 2deg;" src="assets/orgs/isf.webp" alt="Chayada receiving the KVIS-ISF Best of Project Award, Mathematics, Second Runner-Up" width="200" height="200" loading="lazy" decoding="async">
         <span class="org-name">KVIS Invitational Science Fair</span>
         <span class="org-role">News Writer, Instagram Co-Admin</span>
         <div class="card-links">
@@ -1043,7 +1144,7 @@
       </div>
 
       <div class="ig-card">
-        <img class="ig-photo" style="--tilt: -2deg;" src="assets/orgs/art-festival.jpg" alt="KVIS Art Festival Instagram grid">
+        <img class="ig-photo" style="--tilt: -2deg;" src="assets/orgs/art-festival.webp" alt="KVIS Art Festival Instagram grid" width="200" height="200" loading="lazy" decoding="async">
         <span class="org-name">KVIS Art Festival</span>
         <span class="org-role">Instagram Co-Admin (2022)</span>
         <div class="card-links">
@@ -1052,7 +1153,7 @@
       </div>
 
       <div class="ig-card">
-        <img class="ig-photo" style="--tilt: 3deg;" src="assets/orgs/jcac.jpg" alt="Origami made for a Japanese Culture Appreciation Club event">
+        <img class="ig-photo" style="--tilt: 3deg;" src="assets/orgs/jcac.webp" alt="Origami made for a Japanese Culture Appreciation Club event" width="200" height="200" loading="lazy" decoding="async">
         <span class="org-name">Japanese Culture Appreciation Club</span>
         <span class="org-role">Vice President &amp; Initiator</span>
       </div>
@@ -1068,21 +1169,37 @@
       <div class="tags">
         <span class="tag" style="--tag-color: var(--pink-soft);">C</span>
         <span class="tag" style="--tag-color: var(--mint-soft);">C++</span>
-        <span class="tag" style="--tag-color: var(--yellow-soft);">Python</span>
-        <span class="tag" style="--tag-color: var(--lavender-soft);">Java</span>
-        <span class="tag" style="--tag-color: var(--pink-soft);">JavaScript</span>
-        <span class="tag" style="--tag-color: var(--mint-soft);">TypeScript</span>
-        <span class="tag" style="--tag-color: var(--yellow-soft);">SQL</span>
-        <span class="tag" style="--tag-color: var(--lavender-soft);">PL/SQL</span>
-        <span class="tag" style="--tag-color: var(--pink-soft);">Lua</span>
+        <span class="tag" style="--tag-color: var(--yellow-soft);">C#</span>
+        <span class="tag" style="--tag-color: var(--lavender-soft);">Python</span>
+        <span class="tag" style="--tag-color: var(--pink-soft);">Java</span>
+        <span class="tag" style="--tag-color: var(--mint-soft);">JavaScript</span>
+        <span class="tag" style="--tag-color: var(--yellow-soft);">TypeScript</span>
+        <span class="tag" style="--tag-color: var(--lavender-soft);">SQL</span>
+        <span class="tag" style="--tag-color: var(--pink-soft);">PL/SQL</span>
+        <span class="tag" style="--tag-color: var(--mint-soft);">Lua</span>
       </div>
     </div>
 
     <div class="skill-group">
-      <h4>Web &amp; Markup</h4>
+      <h4>Web &amp; Frameworks</h4>
       <div class="tags">
         <span class="tag" style="--tag-color: var(--mint-soft);">HTML</span>
         <span class="tag" style="--tag-color: var(--yellow-soft);">CSS</span>
+        <span class="tag" style="--tag-color: var(--lavender-soft);">React</span>
+        <span class="tag" style="--tag-color: var(--pink-soft);">Next.js</span>
+        <span class="tag" style="--tag-color: var(--mint-soft);">Tailwind CSS</span>
+        <span class="tag" style="--tag-color: var(--yellow-soft);">FastAPI</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h4>Databases &amp; Infra</h4>
+      <div class="tags">
+        <span class="tag" style="--tag-color: var(--lavender-soft);">PostgreSQL</span>
+        <span class="tag" style="--tag-color: var(--pink-soft);">Redis</span>
+        <span class="tag" style="--tag-color: var(--mint-soft);">Docker</span>
+        <span class="tag" style="--tag-color: var(--yellow-soft);">Git</span>
+        <span class="tag" style="--tag-color: var(--lavender-soft);">Vercel</span>
       </div>
     </div>
 
@@ -1144,26 +1261,21 @@
 
 </main>
 
-<footer>
-  <p class="stay-tuned">This portfolio is still a work in progress!</p>
-  <p>I'll keep adding more of my journey here, so stay tuned. Thanks for stopping by <3</p>
-</footer>
-
 <script>
+  // Highlight the nav link for whichever section crosses a band ~30% down the viewport.
   const links = document.querySelectorAll('.topnav nav a');
-  const sections = Array.from(links).map(a => document.querySelector(a.getAttribute('href')));
-  function setActive(){
-    let current = sections[0];
-    const scrollPos = window.scrollY + window.innerHeight * 0.3;
-    sections.forEach(sec => {
-      if (sec && sec.offsetTop <= scrollPos) current = sec;
+  const linkFor = new Map(Array.from(links, a => [a.getAttribute('href').slice(1), a]));
+  const navObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      links.forEach(a => a.removeAttribute('aria-current'));
+      linkFor.get(entry.target.id)?.setAttribute('aria-current', 'location');
     });
-    links.forEach(a => {
-      a.style.color = (a.getAttribute('href') === '#' + current.id) ? 'var(--pink)' : '';
-    });
-  }
-  document.addEventListener('scroll', setActive, { passive: true });
-  window.addEventListener('load', setActive);
+  }, { rootMargin: '-30% 0px -69% 0px' });
+  linkFor.forEach((a, id) => {
+    const section = document.getElementById(id);
+    if (section) navObserver.observe(section);
+  });
 
   // Mobile nav toggle
   const navToggle = document.getElementById('nav-toggle');
@@ -1186,12 +1298,6 @@
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-
-    if (form.action.includes('YOUR_FORM_ID')) {
-      status.textContent = "This form isn't connected yet. Email me directly for now!";
-      return;
-    }
-
     submitBtn.disabled = true;
     status.textContent = 'Sending...';
 
