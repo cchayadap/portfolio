@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../style.css?v=10">
+<link rel="stylesheet" href="../../style.css?v=13">
 </head>
 <body>
 
@@ -32,17 +32,17 @@
   <span class="deco ring"        style="--c: var(--pink-strong); --s: 34px; top: 12%; left: 30px;"></span>
   <span class="deco star b"      style="--c: var(--blue); --s: 26px; top: 36%; left: 58px;"></span>
   <span class="deco dot c"       style="--c: #5ee6c0; --s: 16px; top: 62%; left: 26px;"></span>
-  <span class="deco heart"       style="--c: var(--coral); --s: 22px; top: 84%; left: 64px;"></span>
+  <span class="deco heart"       style="--c: var(--rose); --s: 22px; top: 84%; left: 64px;"></span>
   <span class="deco dot b"       style="--c: #b48cff; --s: 22px; top: 16%; right: 44px;"></span>
   <span class="deco star"        style="--c: var(--pink-strong); --s: 24px; top: 44%; right: 70px;"></span>
   <span class="deco ring c"      style="--c: var(--blue); --s: 36px; top: 70%; right: 30px;"></span>
-  <span class="deco spark b"     style="--c: var(--cyan); --s: 22px; top: 90%; right: 60px;"></span>
+  <span class="deco spark b"     style="--c: var(--aqua); --s: 22px; top: 90%; right: 60px;"></span>
 </div>
 
 <div class="topnav">
   <div class="wrap">
     <a class="brand" href="../../index.html"><img src="../../assets/pixel/star.svg" alt="" width="24" height="24">Chayada P.</a>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="site-nav">☰</button>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="site-nav"></button>
     <nav id="site-nav">
       <a href="../../index.html#about">About</a>
       <a href="../../index.html#interests">Interests</a>
@@ -215,6 +215,17 @@
   navToggle.addEventListener('click', () => {
     const isOpen = siteNav.classList.toggle('open');
     navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  function closeNav(){
+    siteNav.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  }
+  // Also close on Escape or a tap outside the bar, like a native menu.
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && siteNav.classList.contains('open')) { closeNav(); navToggle.focus(); }
+  });
+  document.addEventListener('click', e => {
+    if (siteNav.classList.contains('open') && !e.target.closest('.topnav')) closeNav();
   });
 </script>
 
