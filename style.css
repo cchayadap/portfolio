@@ -31,7 +31,7 @@
   --maxw: 880px;
 
   --font-pixel: 'Press Start 2P', monospace;
-  --font-body: 'Pixelify Sans', system-ui, sans-serif;
+  --font-body: 'Space Grotesk', system-ui, sans-serif;
 }
 
 *{ box-sizing: border-box; }
@@ -47,8 +47,8 @@ body{
   background: var(--bg);
   color: var(--ink);
   font-family: var(--font-body);
-  font-size: 19.5px;
-  line-height: 1.7;
+  font-size: 18px;
+  line-height: 1.65;
 }
 
 h1, h2, h3, h4{
@@ -58,7 +58,7 @@ h1, h2, h3, h4{
   margin: 0;
   line-height: 1.5;
 }
-/* Press Start 2P is only legible large: card titles and small labels use the body pixel font. */
+/* Press Start 2P is only legible large: card titles and small labels use the body font. */
 h3, h4{
   font-family: var(--font-body);
   font-weight: 700;
@@ -271,7 +271,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     calc(var(--px) * -1) 0 0 0 var(--frame),
     var(--px) 0 0 0 var(--frame);
 }
-.bubble::after{               /* stepped tail pointing at the tomato */
+.bubble::after{               /* stepped tail pointing at the mascot */
   content: "";
   position: absolute;
   left: 50%;
@@ -282,18 +282,29 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   box-shadow: -8px -4px 0 0 var(--ink), 0 4px 0 0 var(--ink);
   transform: translateX(-50%);
 }
-.tomato-wrap{
+.mascot-wrap{
   position: relative;
-  width: 192px;
+  width: 182px;
   animation: float 2.4s steps(4) infinite;
 }
 @keyframes float{ 50%{ transform: translateY(-10px); } }
-.tomato{
+.mascot{
   display: block;
   width: 100%;
   height: auto;
   image-rendering: pixelated;
-  filter: drop-shadow(0 0 18px rgba(255, 90, 110, .45));
+  filter: drop-shadow(0 0 18px rgba(255, 158, 203, .45));
+}
+.mascot.blink{                /* closed-eyes frame shown for a moment every few seconds */
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  animation: eye-blink 4.8s steps(1) infinite;
+}
+@keyframes eye-blink{
+  0%, 92%   { opacity: 0; }
+  93%, 96%  { opacity: 1; }
+  97%, 100% { opacity: 0; }
 }
 .sparkle{
   position: absolute;
@@ -307,20 +318,30 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .sparkle.s3{ bottom: 4px; left: -28px; width: 16px; height: 16px; animation-delay: 1s; }
 @keyframes sparkle{ 50%{ opacity: .2; transform: scale(.7); } }
 
+/* Name lockup: script first name over a widely spaced serif surname */
 .hero h1{
   font-size: clamp(1.5rem, 5vw, 2.6rem);
-  color: #ffc1c3;
-  letter-spacing: 0.05em;
-  text-shadow: 4px 4px 0 #9e0f55;   /* one crisp, dark offset keeps the letters legible */
+  line-height: 1;
   margin-bottom: 0.4rem;
+}
+.hero h1 .first{
+  display: block;
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.1em;
+  line-height: 1.05;
+  color: #c9b0ff;
+  padding: 0 0.15em;
 }
 .hero h1 .last{
   display: block;
-  margin-top: 0.8rem;
-  font-size: 0.42em;
+  margin-top: 0.35rem;
+  padding-left: 0.42em;        /* balances the trailing letter-spacing so it stays centred */
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: max(0.46em, 0.85rem);   /* stays readable on phones */
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
   color: var(--ink);
-  text-shadow: 3px 3px 0 var(--surface-2);
-  letter-spacing: 0.08em;
 }
 .hero .tagline{
   color: var(--muted);
