@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&family=Great+Vibes&family=Cormorant+Garamond:wght@600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=14">
+<link rel="stylesheet" href="style.css?v=15">
 </head>
 <body>
 
@@ -267,7 +267,7 @@
       </div>
 
       <div class="project-card is-clickable">
-        <div class="project-top" style="--card-color-soft: var(--pink-soft);"><img src="assets/projects/scenariolab-logo.webp" alt="ScenarioLab logo" width="183" height="90" loading="lazy" decoding="async"></div>
+        <div class="project-top cover"><img src="assets/projects/scenariolab-landing.webp" alt="ScenarioLab landing page: “Every lecture is secretly a job.” with a preview of the workspace" width="640" height="303" style="object-position: center 62%;" loading="lazy" decoding="async"></div>
         <div class="body">
           <h3><a class="card-link" href="projects/scenariolab/">ScenarioLab<span class="sr-only"> case study</span></a></h3>
           <p>An EdTech tool that turns lectures (PDF/PPTX) into workplace scenarios — students design a solution as text or a flowchart, and an AI "senior" grades it against a rubric over 3 revision rounds.</p>
@@ -285,7 +285,7 @@
       </div>
 
       <div class="project-card is-clickable">
-        <div class="project-top" style="--card-color-soft: var(--pink-soft);"><img src="assets/projects/kvis-connect-logo.webp" alt="KVIS-Connect logo" width="90" height="90" loading="lazy" decoding="async"></div>
+        <div class="project-top cover"><img src="assets/projects/kvis-connect-globe.webp" alt="KVIS-Connect’s 3D globe with clustered alumni pins" width="640" height="335" style="object-position: center 48%;" loading="lazy" decoding="async"></div>
         <div class="body">
           <h3><a class="card-link" href="projects/kvis-connect/">KVIS-Connect<span class="sr-only"> case study</span></a></h3>
           <p>Co-founded and designed a networking platform for Kamnoetvidya Science Academy alumni, students, and staff to connect and share research interests, with an interactive 3D globe mapping alumni worldwide.</p>
@@ -520,6 +520,34 @@
   document.addEventListener('click', e => {
     if (siteNav.classList.contains('open') && !e.target.closest('.topnav')) closeNav();
   });
+
+  // Scroll reveals: cards and sections pop in (one after another in grids) as they come into view.
+  (() => {
+    if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const targets = ['.dialogue', '.fun-facts li', '.interest-card', '.t-entry', '.project-card', '.ig-card',
+      '.skill-group', '.collab', 'main section > h2', '.info-strip > div', '.prose > p', '.prose > ul',
+      '.prose > ol', '.prose > h3', '.loop li', '.facts li', '.diagram', '.case-nav a'];
+    const els = [...new Set(document.querySelectorAll(targets.join(',')))];
+    const set = new Set(els);
+    els.forEach(el => {
+      const i = [...el.parentElement.children].filter(c => set.has(c)).indexOf(el);
+      el.style.setProperty('--d', Math.min(i, 6) * 90 + 'ms');
+      el.classList.add('reveal');
+    });
+    document.documentElement.classList.add('js-reveal');
+    const io = new IntersectionObserver(entries => entries.forEach(({ isIntersecting, target: el }) => {
+      if (!isIntersecting) return;
+      io.unobserve(el);
+      el.classList.add('in');
+      el.addEventListener('animationend', function done(e){
+        if (e.target !== el) return;
+        el.classList.remove('reveal', 'in');
+        el.style.removeProperty('--d');
+        el.removeEventListener('animationend', done);
+      });
+    }), { rootMargin: '0px 0px -8% 0px' });
+    els.forEach(el => io.observe(el));
+  })();
 
   // Submit the contact form via fetch so the page doesn't navigate away.
   const form = document.getElementById('contact-form');
