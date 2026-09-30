@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../style.css?v=13">
+<link rel="stylesheet" href="../../style.css?v=14">
 </head>
 <body>
 
@@ -69,7 +69,7 @@
 
   <dl class="info-strip wrap">
     <div style="--tile: var(--pink-soft);"><dt>Role</dt><dd>Main designer &amp; core developer</dd></div>
-    <div style="--tile: var(--mint-soft);"><dt>Team</dt><dd><span class="todo-tag">TODO</span>team size</dd></div>
+    <div style="--tile: var(--mint-soft);"><dt>Team</dt><dd>Team of 5 · built solo so far</dd></div>
     <div style="--tile: var(--blue-soft);"><dt>Dates</dt><dd>Sep 2026 – present · COMP4122</dd></div>
     <div class="stack" style="--tile: var(--lavender-soft);"><dt>Stack</dt><dd><div class="tags"><span class="tag">Unity 6 (URP)</span><span class="tag">C#</span><span class="tag">Unity Input System</span><span class="tag">Git LFS</span></div></dd></div>
   </dl>
@@ -84,8 +84,16 @@
   <section id="built" class="case-section wrap" aria-labelledby="built-h">
     <h2 id="built-h">What I built</h2>
     <div class="prose">
-        <div class="todo" role="note"><span class="todo-tag">TODO</span> Your personal contributions. List the systems, scenes or tools you owned (see <code>docs/CONTRIBUTIONS.md</code>), and anything you designed rather than coded.
-        </div>
+        <p>So far I've designed and built the game on my own; the rest of the team joins for later milestones.</p>
+        <ul>
+          <li>Set up the Unity 6 (URP) project and the first playable <strong>Dibs!</strong> prototype</li>
+          <li>Wrote the game design doc and roadmap: the premise, the house hub, the modes and the maps</li>
+          <li>Built the house hub with its typewriter mode select, and a 7-step tutorial</li>
+          <li>Built all four modes: <strong>Dibs!</strong> and <strong>Furnish First</strong> (versus), <strong>Moving Day</strong> (co-op, 3 levels) and <strong>Home Sweet Home</strong> (a creative sandbox with rooms saved as JSON)</li>
+          <li>Built the spelling system: letter-by-letter spelling with hints and undo, dropping letters to make room, carrying and throwing</li>
+          <li>Designed 43 objects built Word World-style from their own letters, across living room, bedroom, kitchen and garden arenas</li>
+          <li>Synthesised every sound effect and music track in code, and added a wardrobe of cosmetics (halo, tiara, chef hat, tie, cape)</li>
+        </ul>
     </div>
   </section>
 
@@ -170,13 +178,9 @@
   <section id="hard" class="case-section wrap" aria-labelledby="hard-h">
     <h2 id="hard-h">One hard problem</h2>
     <div class="prose">
-        <div class="todo" role="note"><span class="todo-tag">TODO</span> One problem that was genuinely hard, what you tried, and how you solved it. Some candidates from the repo:
-          <ul>
-            <li>Building 43 objects out of 3D letters (<code>LetterShapes</code>) that stay standing at a sensible size</li>
-            <li>Generating 3D letters A–Z from the font's distance field (<code>LetterMeshBuilder</code>)</li>
-            <li>Synthesising every sound and music track in code at startup</li>
-          </ul>
-        </div>
+        <h3 class="hard-title">Making objects out of their own letters</h3>
+        <p>Every object in Wreckabulary is built from the letters that spell it: a SOFA has S and A armrests, an O backrest and an F cushion. That only works if each of the 43 objects still reads as the thing it is, comes out at a sensible size, and doesn't topple over the moment it lands, because every one of them is a physics object that gets grabbed, thrown and smashed.</p>
+        <p>Instead of hand-placing letters for each object, I turned every object into a small recipe in <code>LetterShapes</code>: each letter gets a centre, a size, whether it stands up or lies flat, and optionally its own colour (a brown trunk under green leaves). The game builds the object from its recipe at runtime, and <code>FurnitureCatalog</code> gives it a weight and colour. To stop 43 designs from quietly breaking each other, play-mode tests build every object word and check that it comes out at a sensible size and stays standing.</p>
     </div>
   </section>
 
@@ -189,15 +193,14 @@
           <li><strong>43</strong><span>letter-built objects</span></li>
           <li><strong>0</strong><span>audio files: all synthesised in code</span></li>
         </ul>
-        <div class="todo" role="note"><span class="todo-tag">TODO</span> Outcomes only you know: playtest feedback, course result, demo-day reactions, or a short gameplay clip.
-        </div>
+        <p>The game is still in development, so there are no playtest results yet.</p>
     </div>
   </section>
 
   <section id="next" class="case-section wrap" aria-labelledby="next-h">
     <h2 id="next-h">What's next</h2>
     <div class="prose">
-        <p>Not in yet: final art and fonts, character customisation, and the letter cat.</p>
+        <p>Not in yet: final art and fonts, character customisation, and the letter cat. After that, the focus is playtesting: tuning the objects and game modes around how players actually play.</p>
     </div>
   </section>
 

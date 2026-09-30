@@ -10,18 +10,18 @@
 <meta property="og:url" content="https://cchayadap.github.io/portfolio/projects/scenariolab/" />
 <meta property="og:title" content="ScenarioLab · case study" />
 <meta property="og:description" content="Learn the theory, practice the workflow. ScenarioLab turns lectures into workplace scenarios that an AI senior reviews over three rounds." />
-<meta property="og:image" content="https://cchayadap.github.io/portfolio/assets/projects/scenariolab-logo.webp" />
-<meta property="og:image:alt" content="ScenarioLab logo" />
-<meta name="twitter:card" content="summary" />
+<meta property="og:image" content="https://cchayadap.github.io/portfolio/assets/projects/scenariolab-landing.webp" />
+<meta property="og:image:alt" content="ScenarioLab landing page with a preview of the workspace" />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="ScenarioLab · case study" />
 <meta name="twitter:description" content="Learn the theory, practice the workflow. ScenarioLab turns lectures into workplace scenarios that an AI senior reviews over three rounds." />
-<meta name="twitter:image" content="https://cchayadap.github.io/portfolio/assets/projects/scenariolab-logo.webp" />
+<meta name="twitter:image" content="https://cchayadap.github.io/portfolio/assets/projects/scenariolab-landing.webp" />
 <meta name="theme-color" content="#12042a" />
 <link rel="icon" href="../../assets/pixel/star.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../style.css?v=13">
+<link rel="stylesheet" href="../../style.css?v=14">
 </head>
 <body>
 
@@ -59,20 +59,18 @@
 
   <header class="case-hero wrap">
     <span class="case-kicker">Case study</span>
-    <div class="case-shot logo" style="--card-color-soft: var(--pink-soft);"><img src="../../assets/projects/scenariolab-logo.webp" alt="ScenarioLab logo" width="365" height="180"></div>
+    <div class="case-shot"><img src="../../assets/projects/scenariolab-landing.webp" alt="ScenarioLab landing page: “Every lecture is secretly a job.” next to a preview of a workspace where a Database Engineering Intern task, Fixing Latency Spikes, is on round 2 of 3" width="640" height="303"></div>
     <h1>ScenarioLab</h1>
     <p class="tagline">Learn the theory, practice the workflow. Turn a lecture into a workplace scenario, design the solution, and defend it to an AI senior.</p>
     <div class="case-links">
       <a class="resume-btn" href="https://scenariolab-nu.vercel.app/" target="_blank" rel="noopener">Live demo</a>
       <a class="ghost-btn" href="https://github.com/cchayadap/ScenarioLab" target="_blank" rel="noopener">GitHub</a>
     </div>
-        <div class="todo" role="note"><span class="todo-tag">TODO</span> Add a screenshot of the workspace (the flowchart editor mid-review works well) to replace the logo above.
-        </div>
   </header>
 
   <dl class="info-strip wrap">
     <div style="--tile: var(--pink-soft);"><dt>Role</dt><dd>Main designer &amp; core developer</dd></div>
-    <div style="--tile: var(--mint-soft);"><dt>Team</dt><dd><span class="todo-tag">TODO</span>team size</dd></div>
+    <div style="--tile: var(--mint-soft);"><dt>Team</dt><dd>Team of 2</dd></div>
     <div style="--tile: var(--blue-soft);"><dt>Dates</dt><dd>Sep 2026 · General Learning Hackathon</dd></div>
     <div class="stack" style="--tile: var(--lavender-soft);"><dt>Stack</dt><dd><div class="tags"><span class="tag">Next.js 14</span><span class="tag">React 18</span><span class="tag">TypeScript</span><span class="tag">Tailwind CSS</span><span class="tag">Gemini API</span><span class="tag">Mermaid.js</span><span class="tag">React Flow</span><span class="tag">Vercel</span></div></dd></div>
   </dl>
@@ -87,8 +85,15 @@
   <section id="built" class="case-section wrap" aria-labelledby="built-h">
     <h2 id="built-h">What I built</h2>
     <div class="prose">
-        <div class="todo" role="note"><span class="todo-tag">TODO</span> Your personal contributions. Your CV mentions the Gemini-powered API routes for scenario generation, grading, hints and mentor chat; say which parts were yours and what you designed.
-        </div>
+        <p>I took ScenarioLab from idea to working product: the concept, the product and UI design, the whole app, and the pitch. My teammate helped research whether the idea was strong enough.</p>
+        <ul>
+          <li>Came up with the concept and designed the learning flow: lecture → tasks → scenario → design → senior review → revision</li>
+          <li>Built the Next.js app end to end: onboarding, lesson and workspace screens, results, and file-explorer style navigation</li>
+          <li>Wrote the Gemini-powered API routes for lecture breakdown, scenario generation, review, hints and mentor chat, each with its own tightly scoped prompt</li>
+          <li>Built the drag-and-drop flowchart editor (React Flow) and AI-generated diagrams (Mermaid), including a diagram for the suggested answer</li>
+          <li>Added mastery memory that tracks weak spots across tasks, and scenarios calibrated to the student's target company</li>
+          <li>Deployed it on Vercel and presented it at the hackathon</li>
+        </ul>
     </div>
   </section>
 
@@ -166,22 +171,23 @@
   <section id="hard" class="case-section wrap" aria-labelledby="hard-h">
     <h2 id="hard-h">One hard problem</h2>
     <div class="prose">
-        <div class="todo" role="note"><span class="todo-tag">TODO</span> One problem that was genuinely hard, what you tried, and how you solved it. A candidate from the README: keeping the AI evaluating instead of revealing answers, even against “ignore your instructions” attempts.
-        </div>
+        <h3 class="hard-title">Uploads that worked locally but crashed in production</h3>
+        <p>During the hackathon, PDF uploads worked on my machine but returned a 500 error on the deployed site. The PDF library I'd started with, <code>pdf-parse</code>, wraps pdf.js, which pulls in an optional native canvas dependency and a separate worker file. Vercel's serverless bundler didn't reliably include those files, so parsing only failed in production, where the full <code>node_modules</code> isn't there.</p>
+        <p>I switched to <code>unpdf</code>, a build of pdf.js made for serverless that needs no canvas for plain text extraction, and uploads worked again with no Next.js config workarounds. Around the same time, the Gemini SDK and model we were using were deprecated and every AI call started returning 404s, so I migrated all the routes to the new <code>@google/genai</code> SDK.</p>
     </div>
   </section>
 
   <section id="results" class="case-section wrap" aria-labelledby="results-h">
     <h2 id="results-h">Results</h2>
     <div class="prose">
-        <div class="todo" role="note"><span class="todo-tag">TODO</span> Hackathon outcome, judges' or users' feedback, and any usage numbers.
-        </div>
+        <p>The feedback at the hackathon was that ScenarioLab would be genuinely useful for students. The main suggestion was to fact-check scenarios against backup sources, instead of relying only on the uploaded PDF or slides.</p>
     </div>
   </section>
 
   <section id="next" class="case-section wrap" aria-labelledby="next-h">
     <h2 id="next-h">What's next</h2>
     <div class="prose">
+        <p>First, acting on that feedback: adding backup sources so scenarios are fact-checked, not built only from the uploaded files.</p>
         <p>ScenarioLab fits computer science best today, where we know the professional workflow well. The same pattern of role, constraints, design, senior review and revision applies to any field with a professional practice, so the next step is researching how other fields actually work, so each subject's scenarios and feedback match real practice.</p>
     </div>
   </section>
