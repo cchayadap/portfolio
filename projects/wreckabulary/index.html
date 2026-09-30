@@ -21,7 +21,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../style.css?v=15">
+<link rel="stylesheet" href="../../style.css?v=16">
+<script src="../../fx.js?v=1" defer></script>
 </head>
 <body>
 
@@ -53,6 +54,7 @@
       <a href="../../index.html#contact">Contact</a>
     </nav>
   </div>
+  <div class="progress" aria-hidden="true"><span class="bar"></span><img class="rider" src="../../assets/pixel/star.svg" alt="" width="18" height="18"></div>
 </div>
 
 <main>
@@ -230,33 +232,6 @@
   document.addEventListener('click', e => {
     if (siteNav.classList.contains('open') && !e.target.closest('.topnav')) closeNav();
   });
-  // Scroll reveals: cards and sections pop in (one after another in grids) as they come into view.
-  (() => {
-    if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const targets = ['.dialogue', '.fun-facts li', '.interest-card', '.t-entry', '.project-card', '.ig-card',
-      '.skill-group', '.collab', 'main section > h2', '.info-strip > div', '.prose > p', '.prose > ul',
-      '.prose > ol', '.prose > h3', '.loop li', '.facts li', '.diagram', '.case-nav a'];
-    const els = [...new Set(document.querySelectorAll(targets.join(',')))];
-    const set = new Set(els);
-    els.forEach(el => {
-      const i = [...el.parentElement.children].filter(c => set.has(c)).indexOf(el);
-      el.style.setProperty('--d', Math.min(i, 6) * 90 + 'ms');
-      el.classList.add('reveal');
-    });
-    document.documentElement.classList.add('js-reveal');
-    const io = new IntersectionObserver(entries => entries.forEach(({ isIntersecting, target: el }) => {
-      if (!isIntersecting) return;
-      io.unobserve(el);
-      el.classList.add('in');
-      el.addEventListener('animationend', function done(e){
-        if (e.target !== el) return;
-        el.classList.remove('reveal', 'in');
-        el.style.removeProperty('--d');
-        el.removeEventListener('animationend', done);
-      });
-    }), { rootMargin: '0px 0px -8% 0px' });
-    els.forEach(el => io.observe(el));
-  })();
 </script>
 
 </body>
