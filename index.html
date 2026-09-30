@@ -20,8 +20,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&family=Great+Vibes&family=Cormorant+Garamond:wght@600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=16">
-<script src="fx.js?v=1" defer></script>
+<link rel="stylesheet" href="style.css?v=20">
+<script src="fx.js?v=2" defer></script>
 </head>
 <body>
 
@@ -50,6 +50,7 @@
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
       <a href="#community">Community</a>
+      <a href="#art">Art</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -368,6 +369,58 @@
     </div>
   </section>
 
+  <section id="art" class="wrap">
+    <h2>Art corner</h2>
+    <p class="lede art-intro">Restoring my inner whimsy, one drawing at a time. Tap a piece to see it bigger.</p>
+    <div class="art-wall">
+      <figure class="art-piece">
+        <button class="art-thumb" type="button" data-full="assets/art/lily-sunflower.webp" data-note="Cookie Run: Kingdom fan art" data-w="1350" data-h="1080" data-year="2026" data-quote="">
+          <img src="assets/art/lily-sunflower-thumb.webp" alt="A girl with soft green-white hair and white lilies curls up among dark green vines, holding a glowing sunflower" width="720" height="576" loading="lazy" decoding="async">
+        </button>
+        <figcaption class="art-label">
+          <span class="art-title">The Light of a Dying Lily</span>
+          <span class="art-meta">2026</span>
+        </figcaption>
+      </figure>
+      <figure class="art-piece">
+        <button class="art-thumb" type="button" data-full="assets/art/sea-touches-sky.webp" data-note="Cookie Run: Kingdom fan art" data-w="1216" data-h="1323" data-year="2025" data-quote="" data-poem="The sea fairy raised the tide so high,&#10;reaching for what her heart desires.&#10;Flooded the city, cursed the mankind,&#10;drowned the hills, aimed for the sky&#10;Thousands of stars were out of her sight,&#10;since her moon has always been shining bright.&#10;Her tears reflected the moonlight, golden,&#10;right before the whole wild sea got frozen.&#10;&#10;Finally, at her heart’s last beating,&#10;she wished she could be forever dreaming.&#10;In dreams, the only place for her favorite tune,&#10;the only place to reach her moon">
+          <img src="assets/art/sea-touches-sky-thumb.webp" alt="A girl with long, pale blue hair sits in glowing waves, reaching up toward a crescent moon in a violet, starry sky, with the handwritten words “When the sea touches the sky, but never the moon”" width="560" height="609" loading="lazy" decoding="async">
+        </button>
+        <figcaption class="art-label">
+          <span class="art-title">The Sea &amp; the Moon</span>
+          <span class="art-meta">2025</span>
+        </figcaption>
+      </figure>
+      <figure class="art-piece">
+        <button class="art-thumb" type="button" data-full="assets/art/ice-palace.webp" data-w="1280" data-h="1280" data-year="2024" data-note="Inspired by F. Scott Fitzgerald’s short story, from &lt;em&gt;Babylon Revisited and Other Stories&lt;/em&gt;" data-quote="The dream of the ice palace was a beautiful illusion, but an illusion nonetheless.">
+          <img src="assets/art/ice-palace-thumb.webp" alt="Hand-lettered title “The Ice Palace” above a dreamy blue scene where a figure in a beret sits hugging her knees among flowing light" width="560" height="560" loading="lazy" decoding="async">
+        </button>
+        <figcaption class="art-label">
+          <span class="art-title">The Ice Palace</span>
+          <span class="art-meta">2024</span>
+        </figcaption>
+      </figure>
+      <figure class="art-piece">
+        <button class="art-thumb" type="button" data-full="assets/art/my-sunflower.webp" data-w="1278" data-h="1281" data-year="2023" data-quote="">
+          <img src="assets/art/my-sunflower-thumb.webp" alt="A hand holding open a sketchbook with a glossy sunflower, handwritten Thai text and a taped photo labelled “My Sunflower”, next to a small candle" width="560" height="561" loading="lazy" decoding="async">
+        </button>
+        <figcaption class="art-label">
+          <span class="art-title">My Sunflower</span>
+          <span class="art-meta">2023</span>
+        </figcaption>
+      </figure>
+    </div>
+    <dialog class="art-viewer" id="art-viewer" aria-label="Artwork viewer">
+      <button class="art-close" type="button" aria-label="Close">✕</button>
+      <button class="art-prev" type="button" aria-label="Previous artwork">◀</button>
+      <figure>
+        <img class="art-full" src="" alt="">
+        <figcaption><span class="art-title"></span><span class="art-year-line"></span><span class="art-note"></span><q class="art-quote"></q><p class="art-poem"></p></figcaption>
+      </figure>
+      <button class="art-next" type="button" aria-label="Next artwork">▶</button>
+    </dialog>
+  </section>
+
   <section id="skills" class="wrap">
     <h2>Skills</h2>
 
@@ -524,6 +577,40 @@
   document.addEventListener('click', e => {
     if (siteNav.classList.contains('open') && !e.target.closest('.topnav')) closeNav();
   });
+
+  // Art corner viewer: open a piece bigger, step through with the arrows or ← →, close with Esc or a click outside.
+  const viewer = document.getElementById('art-viewer');
+  if (viewer && viewer.showModal) {
+    const thumbs = [...document.querySelectorAll('.art-thumb')];
+    const full = viewer.querySelector('.art-full');
+    const title = viewer.querySelector('.art-title');
+    const note = viewer.querySelector('.art-note');
+    const quote = viewer.querySelector('.art-quote');
+    let current = 0;
+    function show(i){
+      current = (i + thumbs.length) % thumbs.length;
+      const thumb = thumbs[current], card = thumb.closest('.art-piece');
+      full.src = thumb.dataset.full;
+      full.width = thumb.dataset.w;
+      full.height = thumb.dataset.h;
+      full.alt = thumb.querySelector('img').alt;
+      title.textContent = card.querySelector('.art-title').textContent;
+      viewer.querySelector('.art-year-line').textContent = thumb.dataset.year;
+      note.innerHTML = thumb.dataset.note ?? card.querySelector('.art-note')?.innerHTML ?? '';   // the viewer can show a longer credit
+      quote.textContent = thumb.dataset.quote;
+      viewer.querySelector('.art-poem').textContent = thumb.dataset.poem ?? '';
+      viewer.classList.toggle('has-poem', 'poem' in thumb.dataset);   // image and poem side by side
+    }
+    thumbs.forEach((thumb, i) => thumb.addEventListener('click', () => { show(i); viewer.showModal(); }));
+    viewer.querySelector('.art-prev').addEventListener('click', () => show(current - 1));
+    viewer.querySelector('.art-next').addEventListener('click', () => show(current + 1));
+    viewer.querySelector('.art-close').addEventListener('click', () => viewer.close());
+    viewer.addEventListener('click', e => { if (e.target === viewer) viewer.close(); });
+    viewer.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft') show(current - 1);
+      if (e.key === 'ArrowRight') show(current + 1);
+    });
+  }
 
   // Submit the contact form via fetch so the page doesn't navigate away.
   const form = document.getElementById('contact-form');
