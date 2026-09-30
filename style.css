@@ -1057,6 +1057,11 @@ section h2::before, section h2::after{
 .prose ul, .prose ol{ margin: 0 0 1rem; padding-left: 1.3rem; }
 .prose li + li{ margin-top: 0.55rem; }
 .prose code{ font-size: 0.9em; color: var(--blue); }
+.prose .hard-title{
+  font-size: 1.25rem;
+  color: var(--lilac);
+  margin: 0 0 0.7rem;
+}
 .loop{
   display: flex;
   flex-wrap: wrap;

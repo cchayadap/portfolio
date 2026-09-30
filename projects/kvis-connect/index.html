@@ -10,18 +10,18 @@
 <meta property="og:url" content="https://cchayadap.github.io/portfolio/projects/kvis-connect/" />
 <meta property="og:title" content="KVIS-Connect · case study" />
 <meta property="og:description" content="A networking platform for Kamnoetvidya Science Academy alumni, students and staff, with a 3D globe of alumni worldwide. 169 users in its first month." />
-<meta property="og:image" content="https://cchayadap.github.io/portfolio/assets/projects/kvis-connect-logo.webp" />
-<meta property="og:image:alt" content="KVIS-Connect logo" />
-<meta name="twitter:card" content="summary" />
+<meta property="og:image" content="https://cchayadap.github.io/portfolio/assets/projects/kvis-connect-globe.webp" />
+<meta property="og:image:alt" content="KVIS-Connect's 3D alumni globe" />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="KVIS-Connect · case study" />
 <meta name="twitter:description" content="A networking platform for Kamnoetvidya Science Academy alumni, students and staff, with a 3D globe of alumni worldwide. 169 users in its first month." />
-<meta name="twitter:image" content="https://cchayadap.github.io/portfolio/assets/projects/kvis-connect-logo.webp" />
+<meta name="twitter:image" content="https://cchayadap.github.io/portfolio/assets/projects/kvis-connect-globe.webp" />
 <meta name="theme-color" content="#12042a" />
 <link rel="icon" href="../../assets/pixel/star.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../style.css?v=13">
+<link rel="stylesheet" href="../../style.css?v=14">
 </head>
 <body>
 
@@ -59,19 +59,17 @@
 
   <header class="case-hero wrap">
     <span class="case-kicker">Case study</span>
-    <div class="case-shot logo" style="--card-color-soft: var(--pink-soft);"><img src="../../assets/projects/kvis-connect-logo.webp" alt="KVIS-Connect logo" width="180" height="180"></div>
+    <div class="case-shot"><img src="../../assets/projects/kvis-connect-globe.webp" alt="KVIS-Connect home page: a 3D globe with clustered alumni pins across Thailand, East Asia and Australia, next to the Filter Alumni panel" width="640" height="335"></div>
     <h1>KVIS-Connect</h1>
     <p class="tagline">A networking platform for Kamnoetvidya Science Academy alumni, students and staff, with an interactive 3D globe mapping alumni around the world.</p>
     <div class="case-links">
       <a class="resume-btn" href="https://kvis-connect.com/" target="_blank" rel="noopener">Visit kvis-connect.com</a>
     </div>
-        <div class="todo" role="note"><span class="todo-tag">TODO</span> Add a screenshot of the alumni globe or a profile page to replace the logo above.
-        </div>
   </header>
 
   <dl class="info-strip wrap">
-    <div style="--tile: var(--pink-soft);"><dt>Role</dt><dd>Co-founder, designer &amp; full-stack developer</dd></div>
-    <div style="--tile: var(--mint-soft);"><dt>Team</dt><dd><span class="todo-tag">TODO</span>team size</dd></div>
+    <div style="--tile: var(--pink-soft);"><dt>Role</dt><dd>Co-founder, website designer &amp; full-stack developer</dd></div>
+    <div style="--tile: var(--mint-soft);"><dt>Team</dt><dd>Team of 5</dd></div>
     <div style="--tile: var(--blue-soft);"><dt>Dates</dt><dd>Apr – Jul 2026</dd></div>
     <div class="stack" style="--tile: var(--lavender-soft);"><dt>Stack</dt><dd><div class="tags"><span class="tag">Next.js 14</span><span class="tag">TypeScript</span><span class="tag">TanStack Query</span><span class="tag">React Hook Form + Zod</span><span class="tag">Radix UI</span><span class="tag">Tailwind CSS</span><span class="tag">three.js</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">SQLModel</span><span class="tag">Alembic</span><span class="tag">JWT + OAuth</span><span class="tag">Amazon S3</span><span class="tag">Redis</span><span class="tag">APScheduler</span><span class="tag">Docker</span></div></dd></div>
   </dl>
@@ -86,8 +84,14 @@
   <section id="built" class="case-section wrap" aria-labelledby="built-h">
     <h2 id="built-h">What I built</h2>
     <div class="prose">
-        <div class="todo" role="note"><span class="todo-tag">TODO</span> Your personal contributions as co-founder, designer and full-stack developer: which features, screens or services you owned, and the design work.
-        </div>
+        <p>I designed the website and built features across the whole stack. I also designed the KVIS-Connect logo and the mascot profiles, where users dress up their own goose.</p>
+        <ul>
+          <li>The 3D alumni globe: pins that cluster by zoom level, a starting view centred on Thailand, and cards listing the alumni in each place</li>
+          <li>The blog: posts with a 16:9 cover-image cropper, photo uploads to S3, editing and removing photos, and search across post content</li>
+          <li>Social features: @mentions with autocomplete, notifications for mentions and replies, and editable comments</li>
+          <li>Profiles and privacy: privacy toggles for the research tab, account deletion, and consistent profiles for students, alumni and teachers</li>
+          <li>Onboarding for visitors who aren't logged in, the top search bar, and the password-reset form</li>
+        </ul>
     </div>
   </section>
 
@@ -147,8 +151,9 @@
   <section id="hard" class="case-section wrap" aria-labelledby="hard-h">
     <h2 id="hard-h">One hard problem</h2>
     <div class="prose">
-        <div class="todo" role="note"><span class="todo-tag">TODO</span> One problem that was genuinely hard, what you tried, and how you solved it.
-        </div>
+        <h3 class="hard-title">Showing alumni on a globe without a pile of pins</h3>
+        <p>Many alumni live in the same cities, and profiles are placed by country and state, so they often share exactly the same coordinates. Plotted one pin per person, the globe was a mess: pins stacked on top of each other up close, and a blur of overlapping pins when zoomed out.</p>
+        <p>I grouped alumni into clusters by snapping their coordinates, together with their country, to a grid, and made the grid size depend on how far the camera is from the globe: big cells that merge a whole region when zoomed out, down to one pin per city up close. Opening a cluster lists everyone in it. A smaller bug came with it: the page tried to point the camera at Thailand before the globe had finished loading, so it sometimes opened on the wrong side of the world until the camera move waited for the globe to be ready.</p>
     </div>
   </section>
 
@@ -158,16 +163,14 @@
         <ul class="facts">
           <li><strong>169</strong><span>registered users in the first month</span></li>
         </ul>
-        <div class="todo" role="note"><span class="todo-tag">TODO</span> Any other outcomes: engagement, feedback from alumni, or the KVIS Homecoming 2026 presentation.
-        </div>
+        <p>The school backed KVIS-Connect from the start. KVIS is a STEM school that trains many of Thailand's top science students to become researchers, so it wants to see where its alumni go and what they work on, and the platform gives it those stats. For alumni and students, it's a way to discover each other's research interests. I presented it at KVIS Homecoming 2026.</p>
     </div>
   </section>
 
   <section id="next" class="case-section wrap" aria-labelledby="next-h">
     <h2 id="next-h">What's next</h2>
     <div class="prose">
-        <div class="todo" role="note"><span class="todo-tag">TODO</span> What you'd build or improve next.
-        </div>
+        <p>Keep building it with the school: more features that help alumni and students connect, and richer stats on where KVIS alumni study, work and research.</p>
     </div>
   </section>
 
