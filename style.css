@@ -1230,3 +1230,65 @@ section h2::before, section h2::after{
 @media (prefers-reduced-motion: reduce){
   .js-reveal .reveal{ opacity: 1; transform: none; }
 }
+
+/* ---------- Game-feel effects (driven by fx.js) ---------- */
+/* Scroll progress: fills the nav's bottom edge, with a tiny star riding the tip */
+.progress{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(var(--px) * -1);
+  height: var(--px);
+  pointer-events: none;
+}
+.progress .bar{
+  display: block;
+  height: 100%;
+  width: calc(var(--p, 0) * 100%);
+  background: linear-gradient(90deg, var(--pink), var(--lilac));
+}
+.progress .rider{
+  position: absolute;
+  top: 50%;
+  left: clamp(9px, calc(var(--p, 0) * 100%), calc(100% - 9px));
+  width: 18px;
+  height: 18px;
+  transform: translate(-50%, -50%);
+  image-rendering: pixelated;
+  filter: drop-shadow(0 0 4px rgba(255, 95, 168, .6));
+}
+
+/* Click sparkles */
+.fx-spark{
+  position: fixed;
+  z-index: 60;
+  pointer-events: none;
+}
+
+/* Poke the star: it hops, closes its eyes happily, and the bubble says something new */
+.mascot-btn{
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+.mascot-btn.poked{ animation: hop .6s steps(6); }
+.mascot-btn.poked .mascot.blink{ opacity: 1; animation: none; }
+@keyframes hop{
+  30%{ transform: translateY(-26px) rotate(-10deg); }
+  60%{ transform: translateY(-10px) rotate(8deg); }
+}
+.bubble{ max-width: min(340px, 86vw); }
+.hero .bubble.pop{ animation: bubble-again .3s steps(3); }
+@keyframes bubble-again{
+  from{ transform: scale(.6); }
+  to  { transform: scale(1); }
+}
+
+/* RPG-style typing in the About dialogue */
+.dialogue.typing{ cursor: pointer; }
+.dialogue .untyped{ visibility: hidden; }
+.dialogue .more{ display: none; color: var(--aqua); }
+.dialogue.typed-done .more{ display: inline; animation: blink 1s steps(1) infinite; }
