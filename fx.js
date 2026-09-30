@@ -62,7 +62,7 @@
   // ---------- Scroll reveals ----------
   if ('IntersectionObserver' in window) {
     const targets = ['.dialogue', '.fun-facts li', '.interest-card', '.t-entry', '.project-card', '.ig-card',
-      '.skill-group', '.collab', 'main section > h2', '.info-strip > div', '.prose > p', '.prose > ul',
+      '.art-piece', '.skill-group', '.collab', 'main section > h2', '.info-strip > div', '.prose > p', '.prose > ul',
       '.prose > ol', '.prose > h3', '.loop li', '.facts li', '.diagram', '.case-nav a'];
     const els = [...new Set(document.querySelectorAll(targets.join(',')))];
     const set = new Set(els);
