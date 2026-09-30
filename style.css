@@ -1679,3 +1679,157 @@ section h2::before, section h2::after{
 @media (max-width: 480px){
   .shelf{ padding-inline: 16px; }
 }
+
+/* ---------- Title-screen menu in the hero ---------- */
+.hero-menu{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem 1.2rem;
+  margin: 0.4rem 0 1.4rem;
+  animation: rise .6s steps(5) 1.4s both;
+}
+.hero-menu a{
+  --frame: var(--lavender);
+  display: inline-block;
+  padding: 0.75rem 1.2rem;
+  font-weight: 700;
+  color: var(--ink);
+  background: var(--surface);
+  box-shadow:
+    0 calc(var(--px) * -1) 0 0 var(--frame),
+    0 var(--px) 0 0 var(--frame),
+    calc(var(--px) * -1) 0 0 0 var(--frame),
+    var(--px) 0 0 0 var(--frame),
+    4px 6px 0 var(--px) var(--night);
+  animation: menu-bob 2.4s steps(4) infinite;
+}
+.hero-menu a:nth-child(2){ animation-delay: .3s; }
+.hero-menu a:nth-child(3){ animation-delay: .6s; }
+.hero-menu a:nth-child(4){ animation-delay: .9s; }
+.hero-menu a.main{ --frame: var(--pink); background: var(--pink); color: var(--night); }
+.hero-menu a:hover,
+.hero-menu a:focus-visible{ --frame: var(--aqua); color: var(--aqua); text-decoration: none; animation-play-state: paused; }
+.hero-menu a.main:hover,
+.hero-menu a.main:focus-visible{ color: var(--night); background: var(--aqua); }
+@keyframes menu-bob{ 50%{ transform: translateY(-5px); } }
+/* Wide screens: the buttons float around the star, two on each side */
+@media (min-width: 861px){
+  .hero{ position: relative; }
+  .hero-menu{
+    position: absolute;
+    top: 3.5rem;               /* same as the hero's top padding, so 0 = top of the bubble */
+    left: 0;
+    right: 0;
+    height: 300px;
+    margin: 0;
+    pointer-events: none;
+    animation-delay: 1.6s;
+  }
+  .hero-menu a{ position: absolute; pointer-events: auto; padding: 0.5rem 0.85rem; font-size: 0.9rem; }
+  .hero-menu .m1{ right: calc(50% + 175px); top: 60px; }
+  .hero-menu .m2{ right: calc(50% + 150px); top: 185px; }
+  .hero-menu .m3{ left: calc(50% + 175px); top: 90px; }
+  .hero-menu .m4{ left: calc(50% + 150px); top: 205px; }
+}
+/* Tablets and phones: a menu under the links */
+@media (max-width: 860px){
+  .hero{ display: flex; flex-direction: column; align-items: center; }
+  .hero-menu{ order: 1; }
+  .hero .scroll-hint{ order: 2; }
+}
+@media (max-width: 560px){
+  .hero-menu{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.9rem; max-width: 380px; margin-inline: auto; }
+  .hero-menu a{ padding: 0.7rem 0.3rem; font-size: 0.92rem; text-align: center; }
+  .hero-menu a.main{ grid-column: 1 / -1; }
+}
+
+/* ---------- Back-to-top star ---------- */
+.to-top{
+  --frame: var(--lavender);
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 40;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface);
+  box-shadow:
+    0 calc(var(--px) * -1) 0 0 var(--frame),
+    0 var(--px) 0 0 var(--frame),
+    calc(var(--px) * -1) 0 0 0 var(--frame),
+    var(--px) 0 0 0 var(--frame),
+    4px 6px 0 var(--px) var(--night);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity .15s steps(3), transform .15s steps(3), visibility 0s .15s;
+}
+.to-top.show{ opacity: 1; visibility: visible; transform: none; transition: opacity .15s steps(3), transform .15s steps(3); }
+.to-top:hover{ --frame: var(--pink); }
+.to-top:hover img{ animation: hop .5s steps(4); }
+
+/* ---------- Level map: one dot per section down the right edge (wide screens only) ---------- */
+.level-map{ display: none; }
+@media (min-width: 1200px){
+  .level-map{
+    display: block;
+    position: fixed;
+    right: 22px;
+    top: 50%;
+    z-index: 40;
+    transform: translateY(-50%);
+  }
+  .level-map ol{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .level-map ol::before{        /* dotted path joining the stages */
+    content: "";
+    position: absolute;
+    top: 6px;
+    bottom: 6px;
+    left: 50%;
+    width: 2px;
+    transform: translateX(-50%);
+    background: repeating-linear-gradient(to bottom, var(--line) 0 4px, transparent 4px 8px);
+  }
+  .level-map a{
+    position: relative;
+    display: block;
+    width: 12px;
+    height: 12px;
+    background: var(--line);
+    box-shadow: 0 0 0 3px var(--bg);
+    transition: background .1s steps(2), transform .1s steps(2);
+  }
+  .level-map a.on{ background: var(--pink); transform: scale(1.35); box-shadow: 0 0 0 3px var(--bg), 0 0 10px var(--pink); }
+  .level-map a:hover,
+  .level-map a:focus-visible{ background: var(--aqua); outline: none; }
+  .level-map span{              /* name tag that pops out on hover */
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    padding: 0.3rem 0.6rem;
+    white-space: nowrap;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--ink);
+    background: var(--surface);
+    box-shadow: 0 0 0 2px var(--lavender);
+    transform: translateY(-50%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .1s steps(2);
+  }
+  .level-map a:hover span,
+  .level-map a:focus-visible span{ opacity: 1; }
+}
