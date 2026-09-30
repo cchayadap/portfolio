@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&family=Great+Vibes&family=Cormorant+Garamond:wght@600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=25">
+<link rel="stylesheet" href="style.css?v=26">
 <script src="fx.js?v=2" defer></script>
 </head>
 <body>
@@ -46,13 +46,13 @@
     <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="site-nav"></button>
     <nav id="site-nav">
       <a href="#about">About</a>
-      <a href="#interests">Interests</a>
-      <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#interests">Interests</a>
       <a href="#community">Community</a>
       <a href="#art">Art</a>
       <a href="#books">Books</a>
-      <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
@@ -114,144 +114,6 @@
       <li style="--tile: var(--blue-soft); --frame: var(--blue);"><img class="fact-icon" src="assets/pixel/icon-globe.svg" alt="" width="44" height="44">Saving the world from AI with our creativity</li>
       <li style="--tile: var(--lavender-soft); --frame: var(--lavender);"><img class="fact-icon" src="assets/pixel/icon-mug.svg" alt="" width="44" height="44">Powered by books and browser tabs</li>
     </ul>
-  </section>
-
-  <section id="interests" class="wrap">
-    <h2>Interests</h2>
-    <div class="interest-grid">
-
-      <article class="interest-card" style="--card-color: var(--lavender); --card-color-soft: var(--lavender-soft);">
-        <div class="interest-badge"><img src="assets/pixel/icon-code.svg" alt="" width="38" height="22"></div>
-        <h3>Software development</h3>
-        <p>Building full-stack products that a real community actually uses, from the database up to the last pixel.</p>
-        <div class="tags">
-          <span class="tag" style="--tag-color: var(--pink-soft);">Full-stack web apps</span>
-          <span class="tag" style="--tag-color: var(--mint-soft);">API &amp; database design</span>
-          <span class="tag" style="--tag-color: var(--blue-soft);">AI-powered tools</span>
-          <span class="tag" style="--tag-color: var(--lavender-soft);">EdTech</span>
-          <span class="tag" style="--tag-color: var(--pink-soft);">UI/UX details</span>
-        </div>
-        <p class="seen-in">Seen in <a href="projects/kvis-connect/">KVIS-Connect</a> · <a href="projects/scenariolab/">ScenarioLab</a></p>
-      </article>
-
-      <article class="interest-card" style="--card-color: var(--mint); --card-color-soft: var(--mint-soft);">
-        <div class="interest-badge"><img src="assets/pixel/icon-gamepad.svg" alt="" width="38" height="24"></div>
-        <h3>Game development</h3>
-        <p>Making playful systems and couch co-op chaos: games friends crowd around one screen to play together.</p>
-        <div class="tags">
-          <span class="tag" style="--tag-color: var(--mint-soft);">Local multiplayer</span>
-          <span class="tag" style="--tag-color: var(--blue-soft);">Physics-driven play</span>
-          <span class="tag" style="--tag-color: var(--lavender-soft);">Game &amp; level design</span>
-          <span class="tag" style="--tag-color: var(--pink-soft);">Unity</span>
-          <span class="tag" style="--tag-color: var(--mint-soft);">Godot</span>
-        </div>
-        <p class="seen-in">Seen in <a href="projects/wreckabulary/">Wreckabulary</a></p>
-      </article>
-
-    </div>
-  </section>
-
-  <section id="experience" class="wrap">
-    <h2>Experience</h2>
-    <div class="timeline">
-
-      <div class="t-entry" style="--card-color: var(--pink); --card-color-soft: var(--pink-soft);">
-        <div class="dot"></div>
-        <div class="t-card">
-          <div class="t-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M6 8h12l-1 12H7L6 8Z"/>
-              <path d="M9 8V6a3 3 0 0 1 6 0v2"/>
-            </svg>
-          </div>
-          <div class="top">
-            <h3>Gosoft (Thailand)</h3>
-            <span class="dates">Jul – Aug 2026</span>
-          </div>
-          <div class="role">Full-Stack Software Engineer Intern</div>
-          <p>Developed a Product Data Management (PDM) database for 7-Eleven Thailand and identified and resolved 100+ UI/UX defects in the PDM application through systematic testing.</p>
-          <div class="tools">Oracle APEX · PL/SQL · HTML · MS Excel</div>
-        </div>
-      </div>
-
-      <div class="t-entry" style="--card-color: var(--mint); --card-color-soft: var(--mint-soft);">
-        <div class="dot"></div>
-        <div class="t-card">
-          <div class="t-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="12" cy="12" r="9"/>
-              <path d="M3 12h18"/>
-              <path d="M12 3c2.5 2.5 4 5.5 4 9s-1.5 6.5-4 9c-2.5-2.5-4-5.5-4-9s1.5-6.5 4-9Z"/>
-            </svg>
-          </div>
-          <div class="top">
-            <h3>T-Maxx International</h3>
-            <span class="dates">Apr – Aug 2026</span>
-          </div>
-          <div class="role">LLM Data Annotator, Freelance</div>
-          <p>Annotated and analyzed AI voice and text responses across Thai-English linguistic contexts to support model evaluation.</p>
-        </div>
-      </div>
-
-      <div class="t-entry" style="--card-color: var(--blue); --card-color-soft: var(--blue-soft);">
-        <div class="dot"></div>
-        <div class="t-card">
-          <div class="t-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <ellipse cx="12" cy="13" rx="5" ry="7"/>
-              <path d="M12 6V3M9.5 4.5 11 6.5M14.5 4.5 13 6.5"/>
-              <path d="M4.5 10 7 11M4.5 14.5 7 14M4.5 19 7 17M19.5 10 17 11M19.5 14.5 17 14M19.5 19 17 17"/>
-              <path d="M7.5 13h9"/>
-            </svg>
-          </div>
-          <div class="top">
-            <h3>VISTEC — BRAIN Lab</h3>
-            <span class="dates">Jun – Aug 2024</span>
-          </div>
-          <div class="role">Research Intern</div>
-          <p>Analyzed stick insects' leg movement and neural activity to model how sensory input shapes motor output, and built a CoppeliaSim simulation of stick insect-like locomotion under decentralized adaptive neural control, tuning a Radial Basis Function network to improve training performance.</p>
-          <div class="tools">CoppeliaSim · Lua · Python · Neural Networks</div>
-        </div>
-      </div>
-
-      <div class="t-entry" style="--card-color: var(--lavender); --card-color-soft: var(--lavender-soft);">
-        <div class="dot"></div>
-        <div class="t-card">
-          <div class="t-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M12 4 2 9l10 5 10-5-10-5Z"/>
-              <path d="M6 11.5V17c0 1.5 2.5 3 6 3s6-1.5 6-3v-5.5"/>
-              <path d="M22 9v6"/>
-            </svg>
-          </div>
-          <div class="top">
-            <h3>Kamnoetvidya Science Academy</h3>
-            <span class="dates">2022 – 2024</span>
-          </div>
-
-          <div class="sub-role">
-            <div class="role">Student Researcher, Mathematics</div>
-            <p>Solved piecewise linear difference equations to characterize the recursive behavior of system solutions. Presented findings at the Annual Pure and Applied Mathematics (APAM) Conference 2023 and the Kamnoetvidya Invitational Science Fair (KVIS-ISF) 2024.</p>
-            <div class="award">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M8 21h8M12 17v4"/>
-                <path d="M7 4h10v5a5 5 0 0 1-10 0V4Z"/>
-                <path d="M7 6H4v1a3 3 0 0 0 3 3M17 6h3v1a3 3 0 0 1-3 3"/>
-              </svg>
-              KVIS-ISF 2024 Best Project Award, Mathematics (2nd runner-up)
-            </div>
-            <div class="tools">Python · Recursive Computation</div>
-          </div>
-
-          <div class="sub-role">
-            <div class="role">Assistive Hardware Projects, Biomedical / Embedded Systems</div>
-            <p>Engineered a force-sensor electric bed with Bluetooth-microcontroller safety features (SolidWorks) and an EMG muscle-signal wheelchair control framework, showcased at national innovation competitions.</p>
-            <div class="tools">Microcontroller · Arduino IDE · SolidWorks</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
   </section>
 
   <section id="projects" class="wrap">
@@ -323,6 +185,209 @@
           </div>
         </div>
       </div>
+
+    </div>
+  </section>
+
+  <section id="experience" class="wrap">
+    <h2>Experience</h2>
+    <div class="timeline" id="timeline">
+
+      <div class="t-entry" style="--card-color: var(--pink); --card-color-soft: var(--pink-soft);">
+        <div class="dot"></div>
+        <div class="t-card">
+          <div class="t-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 8h12l-1 12H7L6 8Z"/>
+              <path d="M9 8V6a3 3 0 0 1 6 0v2"/>
+            </svg>
+          </div>
+          <div class="top">
+            <h3>Gosoft (Thailand)</h3>
+            <span class="dates">Jul – Aug 2026</span>
+          </div>
+          <div class="role">Full-Stack Software Engineer Intern</div>
+          <p>Developed a Product Data Management (PDM) database for 7-Eleven Thailand and identified and resolved 100+ UI/UX defects in the PDM application through systematic testing.</p>
+          <div class="tools">Oracle APEX · PL/SQL · HTML · MS Excel</div>
+        </div>
+      </div>
+
+      <div class="t-entry" style="--card-color: var(--mint); --card-color-soft: var(--mint-soft);">
+        <div class="dot"></div>
+        <div class="t-card">
+          <div class="t-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="9"/>
+              <path d="M3 12h18"/>
+              <path d="M12 3c2.5 2.5 4 5.5 4 9s-1.5 6.5-4 9c-2.5-2.5-4-5.5-4-9s1.5-6.5 4-9Z"/>
+            </svg>
+          </div>
+          <div class="top">
+            <h3>T-Maxx International</h3>
+            <span class="dates">Apr – Aug 2026</span>
+          </div>
+          <div class="role">LLM Data Annotator, Freelance</div>
+          <p>Annotated and analyzed AI voice and text responses across Thai-English linguistic contexts to support model evaluation.</p>
+        </div>
+      </div>
+
+      <div class="t-entry" style="--card-color: var(--blue); --card-color-soft: var(--blue-soft);">
+        <div class="dot"></div>
+        <div class="t-card">
+          <div class="t-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <ellipse cx="12" cy="13" rx="5" ry="7"/>
+              <path d="M12 6V3M9.5 4.5 11 6.5M14.5 4.5 13 6.5"/>
+              <path d="M4.5 10 7 11M4.5 14.5 7 14M4.5 19 7 17M19.5 10 17 11M19.5 14.5 17 14M19.5 19 17 17"/>
+              <path d="M7.5 13h9"/>
+            </svg>
+          </div>
+          <div class="top">
+            <h3>VISTEC — BRAIN Lab</h3>
+            <span class="dates">Jun – Aug 2024</span>
+          </div>
+          <div class="role">Research Intern</div>
+          <p>Analyzed stick insects' leg movement and neural activity to model how sensory input shapes motor output, and built a CoppeliaSim simulation of stick insect-like locomotion under decentralized adaptive neural control, tuning a Radial Basis Function network to improve training performance.</p>
+          <div class="tools">CoppeliaSim · Lua · Python · Neural Networks</div>
+        </div>
+      </div>
+
+      <div class="t-entry t-more" style="--card-color: var(--lavender); --card-color-soft: var(--lavender-soft);">
+        <div class="dot"></div>
+        <div class="t-card">
+          <div class="t-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 4 2 9l10 5 10-5-10-5Z"/>
+              <path d="M6 11.5V17c0 1.5 2.5 3 6 3s6-1.5 6-3v-5.5"/>
+              <path d="M22 9v6"/>
+            </svg>
+          </div>
+          <div class="top">
+            <h3>Kamnoetvidya Science Academy</h3>
+            <span class="dates">2022 – 2024</span>
+          </div>
+
+          <div class="sub-role">
+            <div class="role">Student Researcher, Mathematics</div>
+            <p>Solved piecewise linear difference equations to characterize the recursive behavior of system solutions. Presented findings at the Annual Pure and Applied Mathematics (APAM) Conference 2023 and the Kamnoetvidya Invitational Science Fair (KVIS-ISF) 2024.</p>
+            <div class="award">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M8 21h8M12 17v4"/>
+                <path d="M7 4h10v5a5 5 0 0 1-10 0V4Z"/>
+                <path d="M7 6H4v1a3 3 0 0 0 3 3M17 6h3v1a3 3 0 0 1-3 3"/>
+              </svg>
+              KVIS-ISF 2024 Best Project Award, Mathematics (2nd runner-up)
+            </div>
+            <div class="tools">Python · Recursive Computation</div>
+          </div>
+
+          <div class="sub-role">
+            <div class="role">Assistive Hardware Projects, Biomedical / Embedded Systems</div>
+            <p>Engineered a force-sensor electric bed with Bluetooth-microcontroller safety features (SolidWorks) and an EMG muscle-signal wheelchair control framework, showcased at national innovation competitions.</p>
+            <div class="tools">Microcontroller · Arduino IDE · SolidWorks</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <button class="t-toggle" type="button" aria-expanded="false" aria-controls="timeline">Show school research &amp; projects</button>
+  </section>
+
+  <section id="skills" class="wrap">
+    <h2>Skills</h2>
+
+    <div class="skill-group">
+      <h4>Programming Languages</h4>
+      <div class="tags">
+        <span class="tag" style="--tag-color: var(--pink-soft);">C</span>
+        <span class="tag" style="--tag-color: var(--mint-soft);">C++</span>
+        <span class="tag" style="--tag-color: var(--blue-soft);">C#</span>
+        <span class="tag" style="--tag-color: var(--lavender-soft);">Python</span>
+        <span class="tag" style="--tag-color: var(--pink-soft);">Java</span>
+        <span class="tag" style="--tag-color: var(--mint-soft);">JavaScript</span>
+        <span class="tag" style="--tag-color: var(--blue-soft);">TypeScript</span>
+        <span class="tag" style="--tag-color: var(--lavender-soft);">SQL</span>
+        <span class="tag" style="--tag-color: var(--pink-soft);">PL/SQL</span>
+        <span class="tag" style="--tag-color: var(--mint-soft);">Lua</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h4>Web &amp; Frameworks</h4>
+      <div class="tags">
+        <span class="tag" style="--tag-color: var(--mint-soft);">HTML</span>
+        <span class="tag" style="--tag-color: var(--blue-soft);">CSS</span>
+        <span class="tag" style="--tag-color: var(--lavender-soft);">React</span>
+        <span class="tag" style="--tag-color: var(--pink-soft);">Next.js</span>
+        <span class="tag" style="--tag-color: var(--mint-soft);">Tailwind CSS</span>
+        <span class="tag" style="--tag-color: var(--blue-soft);">FastAPI</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h4>Databases &amp; Infra</h4>
+      <div class="tags">
+        <span class="tag" style="--tag-color: var(--lavender-soft);">PostgreSQL</span>
+        <span class="tag" style="--tag-color: var(--pink-soft);">Redis</span>
+        <span class="tag" style="--tag-color: var(--mint-soft);">Docker</span>
+        <span class="tag" style="--tag-color: var(--blue-soft);">Git</span>
+        <span class="tag" style="--tag-color: var(--lavender-soft);">Vercel</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h4>Tools &amp; Platforms</h4>
+      <div class="tags">
+        <span class="tag" style="--tag-color: var(--pink-soft);">Unity</span>
+        <span class="tag" style="--tag-color: var(--mint-soft);">Godot</span>
+        <span class="tag" style="--tag-color: var(--blue-soft);">Oracle APEX</span>
+        <span class="tag" style="--tag-color: var(--lavender-soft);">Visual Studio</span>
+        <span class="tag" style="--tag-color: var(--pink-soft);">SolidWorks</span>
+        <span class="tag" style="--tag-color: var(--mint-soft);">CoppeliaSim</span>
+        <span class="tag" style="--tag-color: var(--blue-soft);">Arduino IDE</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h4>Languages</h4>
+      <div class="tags">
+        <span class="tag" style="--tag-color: var(--lavender-soft);">English (Fluent)</span>
+        <span class="tag" style="--tag-color: var(--pink-soft);">Thai (Native)</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="interests" class="wrap">
+    <h2>Interests</h2>
+    <div class="interest-grid">
+
+      <article class="interest-card" style="--card-color: var(--lavender); --card-color-soft: var(--lavender-soft);">
+        <div class="interest-badge"><img src="assets/pixel/icon-code.svg" alt="" width="38" height="22"></div>
+        <h3>Software development</h3>
+        <p>Building full-stack products that a real community actually uses, from the database up to the last pixel.</p>
+        <div class="tags">
+          <span class="tag" style="--tag-color: var(--pink-soft);">Full-stack web apps</span>
+          <span class="tag" style="--tag-color: var(--mint-soft);">API &amp; database design</span>
+          <span class="tag" style="--tag-color: var(--blue-soft);">AI-powered tools</span>
+          <span class="tag" style="--tag-color: var(--lavender-soft);">EdTech</span>
+          <span class="tag" style="--tag-color: var(--pink-soft);">UI/UX details</span>
+        </div>
+        <p class="seen-in">Seen in <a href="projects/kvis-connect/">KVIS-Connect</a> · <a href="projects/scenariolab/">ScenarioLab</a></p>
+      </article>
+
+      <article class="interest-card" style="--card-color: var(--mint); --card-color-soft: var(--mint-soft);">
+        <div class="interest-badge"><img src="assets/pixel/icon-gamepad.svg" alt="" width="38" height="24"></div>
+        <h3>Game development</h3>
+        <p>Making playful systems and couch co-op chaos: games friends crowd around one screen to play together.</p>
+        <div class="tags">
+          <span class="tag" style="--tag-color: var(--mint-soft);">Local multiplayer</span>
+          <span class="tag" style="--tag-color: var(--blue-soft);">Physics-driven play</span>
+          <span class="tag" style="--tag-color: var(--lavender-soft);">Game &amp; level design</span>
+          <span class="tag" style="--tag-color: var(--pink-soft);">Unity</span>
+          <span class="tag" style="--tag-color: var(--mint-soft);">Godot</span>
+        </div>
+        <p class="seen-in">Seen in <a href="projects/wreckabulary/">Wreckabulary</a></p>
+      </article>
 
     </div>
   </section>
@@ -476,70 +541,6 @@
     </div>
   </section>
 
-  <section id="skills" class="wrap">
-    <h2>Skills</h2>
-
-    <div class="skill-group">
-      <h4>Programming Languages</h4>
-      <div class="tags">
-        <span class="tag" style="--tag-color: var(--pink-soft);">C</span>
-        <span class="tag" style="--tag-color: var(--mint-soft);">C++</span>
-        <span class="tag" style="--tag-color: var(--blue-soft);">C#</span>
-        <span class="tag" style="--tag-color: var(--lavender-soft);">Python</span>
-        <span class="tag" style="--tag-color: var(--pink-soft);">Java</span>
-        <span class="tag" style="--tag-color: var(--mint-soft);">JavaScript</span>
-        <span class="tag" style="--tag-color: var(--blue-soft);">TypeScript</span>
-        <span class="tag" style="--tag-color: var(--lavender-soft);">SQL</span>
-        <span class="tag" style="--tag-color: var(--pink-soft);">PL/SQL</span>
-        <span class="tag" style="--tag-color: var(--mint-soft);">Lua</span>
-      </div>
-    </div>
-
-    <div class="skill-group">
-      <h4>Web &amp; Frameworks</h4>
-      <div class="tags">
-        <span class="tag" style="--tag-color: var(--mint-soft);">HTML</span>
-        <span class="tag" style="--tag-color: var(--blue-soft);">CSS</span>
-        <span class="tag" style="--tag-color: var(--lavender-soft);">React</span>
-        <span class="tag" style="--tag-color: var(--pink-soft);">Next.js</span>
-        <span class="tag" style="--tag-color: var(--mint-soft);">Tailwind CSS</span>
-        <span class="tag" style="--tag-color: var(--blue-soft);">FastAPI</span>
-      </div>
-    </div>
-
-    <div class="skill-group">
-      <h4>Databases &amp; Infra</h4>
-      <div class="tags">
-        <span class="tag" style="--tag-color: var(--lavender-soft);">PostgreSQL</span>
-        <span class="tag" style="--tag-color: var(--pink-soft);">Redis</span>
-        <span class="tag" style="--tag-color: var(--mint-soft);">Docker</span>
-        <span class="tag" style="--tag-color: var(--blue-soft);">Git</span>
-        <span class="tag" style="--tag-color: var(--lavender-soft);">Vercel</span>
-      </div>
-    </div>
-
-    <div class="skill-group">
-      <h4>Tools &amp; Platforms</h4>
-      <div class="tags">
-        <span class="tag" style="--tag-color: var(--pink-soft);">Unity</span>
-        <span class="tag" style="--tag-color: var(--mint-soft);">Godot</span>
-        <span class="tag" style="--tag-color: var(--blue-soft);">Oracle APEX</span>
-        <span class="tag" style="--tag-color: var(--lavender-soft);">Visual Studio</span>
-        <span class="tag" style="--tag-color: var(--pink-soft);">SolidWorks</span>
-        <span class="tag" style="--tag-color: var(--mint-soft);">CoppeliaSim</span>
-        <span class="tag" style="--tag-color: var(--blue-soft);">Arduino IDE</span>
-      </div>
-    </div>
-
-    <div class="skill-group">
-      <h4>Languages</h4>
-      <div class="tags">
-        <span class="tag" style="--tag-color: var(--lavender-soft);">English (Fluent)</span>
-        <span class="tag" style="--tag-color: var(--pink-soft);">Thai (Native)</span>
-      </div>
-    </div>
-  </section>
-
   <section id="contact" class="wrap">
     <div class="collab">
       <h2>Let's collaborate</h2>
@@ -573,7 +574,6 @@
       </div>
     </div>
   </section>
-
 </main>
 
 <script>
@@ -634,6 +634,14 @@
   });
 
   // Art corner viewer: open a piece bigger, step through with the arrows or ← →, close with Esc or a click outside.
+  // Experience: on phones the older school entry is folded away behind a button
+  const tToggle = document.querySelector('.t-toggle');
+  if (tToggle) tToggle.addEventListener('click', () => {
+    const open = document.getElementById('timeline').classList.toggle('show-all');
+    tToggle.setAttribute('aria-expanded', open);
+    tToggle.textContent = open ? 'Show less' : 'Show school research & projects';
+  });
+
   // Bookshelf: tapping a spine pulls the book out and shows it on the card
   const books = document.querySelectorAll('.book');
   const bookCard = document.querySelector('.book-card');

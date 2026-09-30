@@ -618,7 +618,14 @@ section h2::before, section h2::after{
 }
 
 /* ---------- Timeline ---------- */
-.timeline{ position: relative; margin-top: 0.8rem; }
+.timeline{                      /* two staggered columns either side of the dotted line */
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 5.6rem;
+  align-items: start;
+  margin-top: 0.8rem;
+}
 .timeline::before{
   content: "";
   position: absolute;
@@ -631,23 +638,19 @@ section h2::before, section h2::after{
 }
 .t-entry{
   position: relative;
-  width: 50%;
-  padding: 0 2.8rem 2.8rem 0;
+  padding-bottom: 2.8rem;
 }
-.t-entry:nth-child(even){
-  margin-left: 50%;
-  padding: 0 0 2.8rem 2.8rem;
-}
+.t-entry:nth-child(even){ margin-top: 7rem; }
 .t-entry .dot{
   position: absolute;
   top: 0.5rem;
-  right: -8px;
+  right: calc(-2.8rem - 8px);
   width: 16px;
   height: 16px;
   background: var(--card-color, var(--pink));
   box-shadow: 0 0 0 4px var(--bg), 0 0 12px var(--card-color, var(--pink));
 }
-.t-entry:nth-child(even) .dot{ right: auto; left: -8px; }
+.t-entry:nth-child(even) .dot{ right: auto; left: calc(-2.8rem - 8px); }
 
 .t-card{
   --frame: var(--card-color, var(--pink));
@@ -715,13 +718,36 @@ section h2::before, section h2::after{
 .award svg{ width: 16px; height: 16px; flex-shrink: 0; color: var(--night); }
 
 @media (max-width: 720px){
+  .timeline{ display: block; }
   .timeline::before{ left: 10px; }
   .t-entry, .t-entry:nth-child(even){
-    width: 100%;
-    margin-left: 0;
+    margin-top: 0;
     padding: 0 0 2.4rem 2.8rem;
   }
+  .timeline:not(.show-all) .t-more{ display: none; }   /* older school entries fold away on phones */
   .t-entry .dot, .t-entry:nth-child(even) .dot{ left: 2px; right: auto; }
+}
+
+.t-toggle{ display: none; }
+@media (max-width: 720px){
+  .t-toggle{
+    --frame: var(--lavender);
+    display: block;
+    margin: -0.6rem auto 0;
+    padding: 0.7rem 1.2rem;
+    border: 0;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 600;
+    color: var(--ink);
+    background: var(--surface);
+    box-shadow:
+      0 calc(var(--px) * -1) 0 0 var(--frame),
+      0 var(--px) 0 0 var(--frame),
+      calc(var(--px) * -1) 0 0 0 var(--frame),
+      var(--px) 0 0 0 var(--frame);
+  }
+  .t-toggle:hover{ --frame: var(--pink); color: var(--pink); }
 }
 
 /* ---------- Projects ---------- */
