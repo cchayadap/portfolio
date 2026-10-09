@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Underwater World case study · Chayada Pakpoomkamonlert</title>
+<meta name="description" content="Underwater scenes built from scratch in C and OpenGL. Octopus Seabed: pilot a hierarchical octopus through a lit, textured, foggy seabed full of fish, jellyfish and a 200-fish vortex." />
+<link rel="canonical" href="https://cchayadap.github.io/portfolio/projects/underwater-world/" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://cchayadap.github.io/portfolio/projects/underwater-world/" />
+<meta property="og:title" content="Underwater World · case study" />
+<meta property="og:description" content="Underwater scenes built from scratch in C and OpenGL. Octopus Seabed: pilot a hierarchical octopus through a lit, textured, foggy seabed full of fish, jellyfish and a 200-fish vortex." />
+<meta property="og:image" content="https://cchayadap.github.io/portfolio/assets/projects/octopus-vortex.webp" />
+<meta property="og:image:alt" content="The octopus beneath a glowing vortex of 200 fish, joined to a magic clam by a beam of light" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Underwater World · case study" />
+<meta name="twitter:description" content="Underwater scenes built from scratch in C and OpenGL. Octopus Seabed: pilot a hierarchical octopus through a lit, textured, foggy seabed full of fish, jellyfish and a 200-fish vortex." />
+<meta name="twitter:image" content="https://cchayadap.github.io/portfolio/assets/projects/octopus-vortex.webp" />
+<meta name="theme-color" content="#12042a" />
+<link rel="icon" href="../../assets/pixel/star.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css?v=34">
+<script src="../../fx.js?v=2" defer></script>
+</head>
+<body>
+
+<div class="space" aria-hidden="true">
+  <div class="stars far"></div>
+  <div class="stars near"></div>
+  <span class="shooting"></span>
+  <span class="deco ring"        style="--c: var(--pink-strong); --s: 34px; top: 12%; left: 30px;"></span>
+  <span class="deco star b"      style="--c: var(--blue); --s: 26px; top: 36%; left: 58px;"></span>
+  <span class="deco dot c"       style="--c: #5ee6c0; --s: 16px; top: 62%; left: 26px;"></span>
+  <span class="deco heart"       style="--c: var(--rose); --s: 22px; top: 84%; left: 64px;"></span>
+  <span class="deco dot b"       style="--c: #b48cff; --s: 22px; top: 16%; right: 44px;"></span>
+  <span class="deco star"        style="--c: var(--pink-strong); --s: 24px; top: 44%; right: 70px;"></span>
+  <span class="deco ring c"      style="--c: var(--blue); --s: 36px; top: 70%; right: 30px;"></span>
+  <span class="deco spark b"     style="--c: var(--aqua); --s: 22px; top: 90%; right: 60px;"></span>
+</div>
+
+<div class="topnav">
+  <div class="wrap">
+    <a class="brand" href="../../index.html"><img src="../../assets/pixel/star.svg" alt="" width="24" height="24">Chayada P.</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="site-nav"></button>
+    <nav id="site-nav">
+      <a href="../../index.html#about">About</a>
+      <a href="../../index.html#interests">Interests</a>
+      <a href="../../index.html#projects" aria-current="true">Projects</a>
+      <a href="../../index.html#experience">Experience</a>
+      <a href="../../index.html#skills">Skills</a>
+      <a href="../../index.html#community">Community</a>
+      <a href="../../index.html#art">Art</a>
+      <a href="../../index.html#books">Books</a>
+      <a href="../../index.html#contact">Contact</a>
+    </nav>
+  </div>
+  <div class="progress" aria-hidden="true"><span class="bar"></span><img class="rider" src="../../assets/pixel/star.svg" alt="" width="18" height="18"></div>
+</div>
+
+<main>
+
+  <header class="case-hero wrap">
+    <span class="case-kicker">Case study</span>
+    <h1>Underwater World</h1>
+    <p class="tagline">Underwater scenes built from scratch in C and OpenGL, with no game engine: every shape, light, texture and movement made purely in code.</p>
+  </header>
+
+  <header class="case-hero part-head wrap" id="octopus-seabed">
+    <span class="case-kicker">Project</span>
+    <h2 id="p1-h">Octopus Seabed</h2>
+    <div class="case-shot" id="top-video"><video controls muted loop playsinline preload="metadata" poster="../../assets/projects/octopus-poster.webp" width="1280" height="720" aria-label="32-second tour of the scene: the octopus blows bubbles, fires ink, rises and circles the glowing clam's beam, dives past a turtle, and switches to wireframe">
+      <source src="../../assets/projects/octopus-tour.webm" type="video/webm">
+    </video></div>
+    <p class="tagline">Pilot an octopus through a lit, textured, foggy seabed full of fish, jellyfish and a 200-fish vortex.</p>
+  </header>
+
+  <dl class="info-strip wrap">
+    <div style="--tile: var(--pink-soft);"><dt>Role</dt><dd>Designer &amp; developer</dd></div>
+    <div style="--tile: var(--mint-soft);"><dt>Team</dt><dd>Solo project · about 44 hours</dd></div>
+    <div style="--tile: var(--blue-soft);"><dt>Dates</dt><dd>May – Jun 2026</dd></div>
+    <div class="stack" style="--tile: var(--lavender-soft);"><dt>Stack</dt><dd><div class="tags"><span class="tag">C</span><span class="tag">OpenGL</span><span class="tag">GLU</span><span class="tag">freeGLUT</span><span class="tag">Visual Studio</span></div></dd></div>
+  </dl>
+
+  <section id="problem" class="case-section wrap" aria-labelledby="problem-h">
+    <h3 class="sub-h" id="problem-h">The goal</h3>
+    <div class="prose">
+        <p>Build a whole animated scene by hand, with no engine: every shape from spheres and quads, every movement from trigonometry, and every light, texture and particle set up directly in OpenGL. At the centre is an octopus you can steer, with a camera that follows it through the scene.</p>
+    </div>
+  </section>
+
+  <section id="built" class="case-section wrap" aria-labelledby="built-h">
+    <h3 class="sub-h" id="built-h">What I built</h3>
+    <div class="prose">
+        <ul>
+          <li><strong>The octopus:</strong> a hierarchical model with a textured body, eyes, beak, a propeller and 8 tentacles of 5 segments each, with suction cups. Each tentacle waves slightly out of step with the next</li>
+          <li><strong>Controls and camera:</strong> four directions of movement (forward, sideways, up and down, and turning) with an engine toggle, a camera that trails behind, and a second face-on camera</li>
+          <li><strong>Lighting:</strong> a soft “sunlight” point light from above, plus a warm spotlight attached to the octopus that sweeps ahead as it turns</li>
+          <li><strong>Seabed:</strong> textured sand on rolling terrain made from overlapping sine waves, underwater fog matched to the background so the edge of the world disappears, and rocks drawn from a display list</li>
+          <li><strong>Life:</strong> 4 fish schools, 100 swaying seaweed stalks, crabs that scuttle and bounce off walls, a swimming turtle, 6 glowing jellyfish, bioluminescent dots, starfish and coral</li>
+          <li><strong>Extras:</strong> a “narutomaki” vortex of 200 fish in a 12-layer helix, fed by an energy beam from a breathing magic clam, plus bubbles and an ink burst that sprays, slows, spreads and fades</li>
+        </ul>
+        <div class="shot-grid">
+          <figure><img src="../../assets/projects/octopus-vortex.webp" alt="The narutomaki vortex high above the octopus: a spiral of 200 white and pink fish around a glowing orb, joined by a light beam to the clam on the seabed" width="960" height="743" loading="lazy" decoding="async"><figcaption>200 fish in a 12-layer helix, fed by the clam's beam</figcaption></figure>
+          <figure><img src="../../assets/projects/octopus-ink.webp" alt="Face-on view of the octopus spraying a dark purple ink burst, with jellyfish and seaweed behind" width="960" height="717" loading="lazy" decoding="async"><figcaption>Ink burst, seen from the face-on camera</figcaption></figure>
+          <figure><img src="../../assets/projects/octopus-creatures.webp" alt="The octopus over coral, starfish and crabs on the seabed" width="960" height="632" loading="lazy" decoding="async"><figcaption>Coral, starfish and scuttling crabs</figcaption></figure>
+          <figure><img src="../../assets/projects/octopus-wireframe.webp" alt="Wireframe view of the octopus showing its body sphere, eyes, cheeks and tentacles built from chains of spheres" width="960" height="723" loading="lazy" decoding="async"><figcaption>Wireframe mode shows how the model is built</figcaption></figure>
+        </div>
+    </div>
+  </section>
+
+  <section id="how" class="case-section wrap" aria-labelledby="how-h">
+    <h3 class="sub-h" id="how-h">How it works</h3>
+    <div class="prose">
+        <p>The octopus is one transform hierarchy. The root moves and turns the whole model, and every part is placed relative to it, so steering only changes the root and everything else follows. Each tentacle is rotated into its slot around the body, then its segments bend with a sine wave offset by the tentacle's index, so they ripple instead of flapping together.</p>
+        <p>Every frame, an update step advances all the animation (propeller, tentacles, fish, crabs, turtle, jellyfish, particles) and moves the octopus and camera. The draw step then sets the camera, updates the spotlight to follow the octopus, and draws the scene. All objects use proper materials and normals instead of flat colours, so the two lights shade everything consistently.</p>
+        <figure class="diagram">
+          <svg viewBox="0 0 380 330" role="img" aria-labelledby="od-title od-desc">
+            <title id="od-title">Octopus model hierarchy</title>
+            <desc id="od-desc">The octopus root transform sets position and heading. Its children are the textured body, the eyes, the beak, the propeller at the back that spins when the engine is on, and eight tentacles placed 45 degrees apart. Each tentacle is a chain of five segments with suction cups that bend with a phase-offset sine wave.</desc>
+    <defs>
+      <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path class="d-arrowhead" d="M0 0 L10 5 L0 10 Z"/>
+      </marker>
+    </defs>
+            <rect class="d-node lav" x="90" y="10" width="200" height="56" rx="12"/>
+            <text class="d-title" x="190" y="34" text-anchor="middle">drawOctopus()</text>
+            <text class="d-sub" x="190" y="52" text-anchor="middle">root · position + heading</text>
+
+            <path class="d-edge" d="M190 66 V92" marker-end="url(#arrow)"/>
+
+            <rect class="d-group" x="10" y="96" width="360" height="116" rx="14"/>
+            <text class="d-group-label" x="24" y="114">Children, placed relative to the root</text>
+            <rect class="d-node" x="26" y="124" width="98" height="72" rx="10"/>
+            <text class="d-title" x="75" y="152" text-anchor="middle">Body</text>
+            <text class="d-sub" x="75" y="170" text-anchor="middle">textured</text>
+            <text class="d-sub" x="75" y="184" text-anchor="middle">sphere</text>
+            <rect class="d-node" x="141" y="124" width="98" height="72" rx="10"/>
+            <text class="d-title" x="190" y="152" text-anchor="middle">Eyes · beak</text>
+            <text class="d-sub" x="190" y="170" text-anchor="middle">on the face</text>
+            <rect class="d-node blue" x="256" y="124" width="98" height="72" rx="10"/>
+            <text class="d-title" x="305" y="152" text-anchor="middle">Propeller</text>
+            <text class="d-sub" x="305" y="170" text-anchor="middle">spins with</text>
+            <text class="d-sub" x="305" y="184" text-anchor="middle">the engine</text>
+
+            <path class="d-edge" d="M190 212 V238" marker-end="url(#arrow)"/>
+            <text class="d-edge-label" x="198" y="230">× 8, every 45°</text>
+
+            <rect class="d-node mint" x="40" y="242" width="300" height="76" rx="12"/>
+            <text class="d-title" x="190" y="268" text-anchor="middle">Tentacle (i)</text>
+            <text class="d-sub" x="190" y="286" text-anchor="middle">5 segments with suction cups</text>
+            <text class="d-sub" x="190" y="302" text-anchor="middle">bend = sin(time + i × 45°)</text>
+          </svg>
+          <figcaption>Steering only moves the root; every part follows.</figcaption>
+        </figure>
+        <table class="key-table">
+          <caption>Controls</caption>
+          <tbody>
+            <tr><th scope="row"><kbd>W</kbd></th><td>Engine on or off (swim forward)</td></tr>
+            <tr><th scope="row"><kbd>A</kbd> <kbd>D</kbd></th><td>Strafe left or right (engine on)</td></tr>
+            <tr><th scope="row"><kbd>↑</kbd> <kbd>↓</kbd></th><td>Rise or sink</td></tr>
+            <tr><th scope="row"><kbd>←</kbd> <kbd>→</kbd></th><td>Turn</td></tr>
+            <tr><th scope="row"><kbd>B</kbd></th><td>Hold to blow bubbles</td></tr>
+            <tr><th scope="row"><kbd>F</kbd></th><td>Fire an ink burst</td></tr>
+            <tr><th scope="row"><kbd>L</kbd></th><td>Wireframe on or off</td></tr>
+          </tbody>
+        </table>
+    </div>
+  </section>
+
+  <section id="hard" class="case-section wrap" aria-labelledby="hard-h">
+    <h3 class="sub-h" id="hard-h">One hard problem</h3>
+    <div class="prose">
+        <h4 class="hard-title">See-through jellyfish that broke the scene behind them</h4>
+        <p>The jellyfish bells are translucent, with a glow drawn in additive layers. When I first added them, they caused depth-sorting glitches with the scene behind them. The transparent bell was still writing to the depth buffer, so OpenGL treated it as a solid surface and could throw away things drawn behind it afterwards.</p>
+        <p>The fix was to stop transparent objects writing depth while they're blended (<code>glDepthMask(GL_FALSE)</code>) and turn it back on afterwards, so they still hide behind solid things but no longer hide what's behind them. The other big challenge was the vortex itself: placing 200 fish on a spiral and turning each one to face along it took careful trigonometry.</p>
+    </div>
+  </section>
+
+  <section id="results" class="case-section wrap" aria-labelledby="results-h">
+    <h3 class="sub-h" id="results-h">Results</h3>
+    <div class="prose">
+        <p>In the finished scene, every creature animates independently at the same time. I tracked the work in a logbook: about 44 hours over nine sessions, from a blank blue window to the full scene. Planning the octopus's parent and child structure before writing any drawing code paid off, because animating it later only meant changing a few angles.</p>
+    </div>
+  </section>
+
+  <section id="next" class="case-section wrap" aria-labelledby="next-h">
+    <h3 class="sub-h" id="next-h">What's next</h3>
+    <div class="prose">
+        <p>Collisions between the octopus and the scene, letting it follow the bumpy sand instead of a fixed floor height, and fish schools that scatter when the octopus swims close. After that, rebuilding it with WebGL or Three.js so it runs in the browser and anyone can swim around in it.</p>
+    </div>
+  </section>
+
+</main>
+
+<nav class="case-nav wrap" aria-label="Case studies">
+  <a href="../../index.html#projects"><small>Back to</small>← All projects</a>
+  <a class="next" href="../corner/"><small>Next project</small>Corner →</a>
+</nav>
+
+<script>
+  // Mobile nav toggle
+  const navToggle = document.getElementById('nav-toggle');
+  const siteNav = document.getElementById('site-nav');
+  navToggle.addEventListener('click', () => {
+    const isOpen = siteNav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  function closeNav(){
+    siteNav.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  }
+  // Also close on Escape or a tap outside the bar, like a native menu.
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && siteNav.classList.contains('open')) { closeNav(); navToggle.focus(); }
+  });
+  document.addEventListener('click', e => {
+    if (siteNav.classList.contains('open') && !e.target.closest('.topnav')) closeNav();
+  });
+</script>
+
+</body>
+</html>
