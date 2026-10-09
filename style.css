@@ -84,7 +84,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 /* Stepped pixel frame, reused by every card-like box */
 .pixel-frame, .t-card, .project-card, .interest-card, .dialogue, .collab, .ig-photo,
-.case-shot, .diagram, .info-strip > div, .case-nav a, .todo, .facts li{
+.case-shot, .diagram, .info-strip > div, .case-nav a, .todo, .facts li, .shot-grid img{
   --frame: var(--line);
   box-shadow:
     0 calc(var(--px) * -1) 0 0 var(--frame),
@@ -467,7 +467,7 @@ section{
   margin: 5.5rem 0;
   scroll-margin-top: 4.5rem;
 }
-section h2{
+section h2, .part-head h2, section .sub-h{
   display: flex;
   align-items: center;
   justify-content: center;
@@ -478,7 +478,9 @@ section h2{
   margin-bottom: 2rem;
   text-align: center;
 }
-section h2::before, section h2::after{
+section h2::before, section h2::after,
+.part-head h2::before, .part-head h2::after,
+section .sub-h::before, section .sub-h::after{
   content: "";
   width: 18px;
   height: 18px;
@@ -798,6 +800,13 @@ section h2::before, section h2::after{
   justify-content: center;
 }
 .p-icon svg{ width: 18px; height: 18px; stroke: var(--night); }
+/* A smaller project closes the grid as one wide card: picture left, text right. */
+@media (min-width: 721px){
+  .project-card.wide{ grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; column-gap: 1.8rem; }
+  .project-card.wide .project-top{ height: auto; min-height: 220px; border-bottom: 0; border-right: var(--px) solid var(--night); }
+  .project-card.wide .project-top img{ position: absolute; inset: 0; }
+  .project-card.wide .body{ padding-left: 0; }
+}
 .project-card .body{ padding: 1.2rem 1.35rem 1.35rem; }
 .project-card h3{ font-size: 1.3rem; margin-bottom: 0.6rem; }
 .project-card p{ margin: 0; color: var(--muted); font-size: 1.12rem; line-height: 1.65; }
@@ -1027,6 +1036,37 @@ section h2::before, section h2::after{
   padding: 1.5rem;
 }
 .case-shot.logo img{ width: auto; max-width: 70%; max-height: 100%; }
+.case-shot video{ display: block; width: 100%; height: auto; background: var(--night); }
+
+/* Screenshot gallery inside a case study */
+.shot-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.4rem;
+  margin: 1.6rem 0 0.6rem;
+}
+.shot-grid figure{ margin: 0; }
+.shot-grid img{ display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
+.shot-grid figcaption{ margin-top: 0.7rem; font-size: 1rem; color: var(--muted); }
+@media (max-width: 560px){ .shot-grid{ grid-template-columns: 1fr; } }
+
+/* Controls table */
+.key-table{ margin: 1.8rem auto 0; border-collapse: collapse; font-size: 1.05rem; }
+.key-table caption{ font-weight: 700; color: var(--pink-strong); margin-bottom: 0.6rem; text-align: left; }
+.key-table th, .key-table td{ padding: 0.4rem 0.8rem; text-align: left; border-bottom: 1px solid var(--line); }
+.key-table th{ white-space: nowrap; font-weight: 400; }
+.key-table td{ color: var(--muted); }
+kbd{
+  display: inline-block;
+  min-width: 1.7em;
+  padding: 0.05rem 0.4rem;
+  font-family: var(--font-body);
+  font-size: 0.9em;
+  font-weight: 700;
+  text-align: center;
+  color: var(--night);
+  background: var(--lilac);
+}
 .case-hero h1{
   font-size: clamp(1.3rem, 4.4vw, 2rem);
   color: var(--pink);
@@ -1209,6 +1249,10 @@ section h2::before, section h2::after{
 .case-nav small{ font-weight: 500; font-size: 0.95rem; color: var(--muted); }
 .case-nav .next{ margin-left: auto; text-align: right; }
 
+/* A collection page: each project opens with its own header */
+.part-head{ margin-top: 4.5rem; padding-top: 0; }
+.part-head h2{ font-size: clamp(1.1rem, 3.2vw, 1.5rem); margin-bottom: 1.6rem; }
+.part-head .tagline{ margin-top: 1.4rem; }
 .case-hero .todo{ max-width: 640px; margin: 1.6rem auto 0; text-align: left; }
 
 @media (max-width: 720px){
