@@ -751,16 +751,16 @@ section h2::before, section h2::after{
 }
 
 /* ---------- Projects ---------- */
-.project-grid{                  /* three cards side by side, a little wider than the text column */
+.project-grid{                  /* two by two, a little wider than the text column */
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.8rem;
-  width: min(1120px, calc(100vw - 32px));
+  width: min(960px, calc(100vw - 32px));
   margin: 0.8rem 0 0 50%;
   transform: translateX(-50%);
 }
 @media (max-width: 1000px){
-  .project-grid{ grid-template-columns: 1fr 1fr; width: auto; margin-left: 0; transform: none; }
+  .project-grid{ width: auto; margin-left: 0; transform: none; }
   .project-grid > :last-child:nth-child(odd){ grid-column: 1 / -1; }   /* no lonely card on the last row */
 }
 .project-card{
@@ -771,7 +771,7 @@ section h2::before, section h2::after{
 }
 .project-top{
   position: relative;
-  height: 118px;
+  height: 170px;
   display: flex;
   align-items: center;
   justify-content: center;
